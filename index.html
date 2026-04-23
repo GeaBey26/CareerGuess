@@ -155,6 +155,17 @@
                             <span data-i18n="diff_hard">ZOR</span>
                         </button>
                     </div>
+
+                    <div style="margin-top:20px; width:100%;">
+                        <div style="display:flex; align-items:center; gap:10px; color:#444; margin-bottom:15px;">
+                            <div style="flex:1; height:1px; background:#333;"></div>
+                            <span style="font-size:0.8rem; font-weight:bold; letter-spacing:1px;">VEYA</span>
+                            <div style="flex:1; height:1px; background:#333;"></div>
+                        </div>
+                        <button class="primary-btn" onclick="game.showScreen('multiplayer-screen')" style="width:100%; background:linear-gradient(45deg, #3b82f6, #8b5cf6); border:none; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3);">
+                            <span style="margin-right:8px;">👥</span> MULTIPLAYER MODU
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -351,7 +362,12 @@
 
         <div id="auth-modal" class="auth-overlay hidden"></div>
 
-        <script src="data.js"></script>
+        <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    
+    <script src="data.js"></script>
         <script src="basketballData.js"></script>
         <script src="nhlData.js"></script>
         <script src="nflData.js"></script>
@@ -360,6 +376,57 @@
         <script src="f1Data.js"></script>
         <script src="tennisData.js"></script>
         <script src="esportsData.js"></script>
+
+        <!-- Multiplayer Screen -->
+        <section id="multiplayer-screen" class="start-screen hidden">
+            <div class="start-content">
+                <div class="center-panel" style="width: 100%; max-width: 600px; display: flex; flex-direction: column; align-items: center; margin: 0 auto;">
+                    <button class="back-btn" onclick="game.showScreen('category-screen')" style="background:none; border:none; font-size:1.1rem; align-self:flex-start; margin-bottom:15px; font-weight:600; font-family:inherit; color:#aaa;">← Geri</button>
+                    <h1 class="logo" style="font-size: 2.5rem; margin-bottom: 10px;">MULTIPLAYER ⚡</h1>
+                    <p class="subtitle" style="color:var(--text-secondary); margin-bottom:30px;">Arkadaşlarınla yarış veya dünyaya meydan oku!</p>
+
+                    <div class="multi-actions" style="display:flex; flex-direction:column; gap:20px; width:100%;">
+                        <div class="matchmaking-box glass-panel" style="padding:20px; border-radius:15px; text-align:center;">
+                            <button class="primary-btn" id="matchmaking-btn" style="width:100%;">Hızlı Maç Bul</button>
+                            <p id="queue-status" class="hidden" style="margin-top:10px; color:#4ade80;">Sırada bekleniyor...</p>
+                        </div>
+
+                        <div style="display:flex; align-items:center; gap:10px; color:#666;">
+                            <div style="flex:1; height:1px; background:#444;"></div>
+                            <span>VEYA</span>
+                            <div style="flex:1; height:1px; background:#444;"></div>
+                        </div>
+
+                        <div class="invite-box glass-panel" style="padding:20px; border-radius:15px;">
+                            <button class="secondary-btn" id="create-room-btn" style="width:100%; margin-bottom:15px;">Özel Oda Oluştur</button>
+                            <div style="display:flex; gap:10px;">
+                                <input type="text" id="room-id-input" placeholder="Oda Kodu" style="flex:1; background:rgba(0,0,0,0.3); border:1px solid #444; color:white; padding:10px; border-radius:8px;">
+                                <button class="primary-btn small" id="join-room-btn">Katıl</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="room-info" class="hidden glass-panel" style="width:100%; margin-top:20px; padding:20px; border-radius:15px; text-align:center;">
+                        <h3>Oda Kodu: <span id="display-room-id" style="color:#60a5fa; letter-spacing:2px;">XXXX</span></h3>
+                        <div class="players-list" style="display:flex; justify-content:space-around; margin:20px 0; align-items:center;">
+                            <div class="player-slot">
+                                <div style="font-size:2rem;">👤</div>
+                                <div id="p1-name">Siz</div>
+                                <div style="font-size:0.8rem; color:#4ade80;">HAZIR</div>
+                            </div>
+                            <div style="font-weight:bold; color:#ff4444;">VS</div>
+                            <div class="player-slot">
+                                <div style="font-size:2rem;">❓</div>
+                                <div id="p2-name">Bekleniyor...</div>
+                                <div id="p2-status" style="font-size:0.8rem; color:#aaa;">...</div>
+                            </div>
+                        </div>
+                        <button class="primary-btn hidden" id="start-game-btn" style="background:linear-gradient(45deg, #22c55e, #10b981); width:100%;">OYUNU BAŞLAT</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <script src="script.js"></script>
     </div> <!-- Close main container here -->
 </body>

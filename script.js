@@ -1006,6 +1006,11 @@ class Game {
         this.score += 10; // +10 points flat
         this.streak++;
         this.updateStats(); // Internal UI update
+        
+        // Multiplayer Sync
+        if (typeof multiplayerManager !== 'undefined' && multiplayerManager.roomID) {
+            multiplayerManager.updateMyScore(this.score);
+        }
         if (typeof authManager !== 'undefined') {
             // Only save stats if in TIMED mode
             if (this.gameMode === 'timed') {
@@ -2239,4 +2244,179 @@ class InfoManager {
 const authManager = new AuthManager();
 const cookieManager = new CookieManager();
 const infoManager = new InfoManager();
+
+// ========================
+// MULTIPLAYER MANAGER
+// ========================
+class MultiplayerManager {
+    constructor() {
+        this.roomID = null;
+        this.isHost = false;
+        this.opponent = null;
+        this.inQueue = false;
+        this.db = typeof db !== 'undefined' ? db : null;
+
+        this.init();
+    }
+
+    init() {
+        if (!this.db) return;
+
+        // UI Bindings
+        document.getElementById('matchmaking-btn')?.addEventListener('click', () => this.toggleMatchmaking());
+        document.getElementById('create-room-btn')?.addEventListener('click', () => this.createRoom());
+        document.getElementById('join-room-btn')?.addEventListener('click', () => {
+            const id = document.getElementById('room-id-input').value.toUpperCase();
+            if (id) this.joinRoom(id);
+        });
+        document.getElementById('start-game-btn')?.addEventListener('click', () => this.startGame());
+        document.getElementById('multi-back-btn')?.addEventListener('click', () => this.leaveRoom());
+    }
+
+    async toggleMatchmaking() {
+        if (!this.db) return alert("Firebase not connected!");
+        
+        const btn = document.getElementById('matchmaking-btn');
+        const status = document.getElementById('queue-status');
+        
+        if (this.inQueue) {
+            this.inQueue = false;
+            btn.innerText = "Hızlı Maç Bul";
+            status.classList.add('hidden');
+            this.db.ref('queue').child(authManager.currentUser?.username || 'Guest').remove();
+        } else {
+            this.inQueue = true;
+            btn.innerText = "Sıradan Çık";
+            status.classList.remove('hidden');
+            
+            // Matchmaking logic
+            const queueRef = this.db.ref('queue');
+            queueRef.once('value', snapshot => {
+                const queue = snapshot.val() || {};
+                const playersInQueue = Object.keys(queue);
+                
+                if (playersInQueue.length > 0) {
+                    const rival = playersInQueue[0];
+                    const roomId = `MATCH_${Date.now()}`;
+                    queueRef.child(rival).remove();
+                    this.joinRoom(roomId, true); // We become the host
+                } else {
+                    queueRef.child(authManager.currentUser?.username || 'Guest').set({
+                        joinedAt: Date.now()
+                    });
+                    
+                    // Listen for rival finding us
+                    queueRef.child(authManager.currentUser?.username || 'Guest').on('value', snap => {
+                        if (snap.val() && snap.val().roomId) {
+                            this.joinRoom(snap.val().roomId, false);
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    async createRoom() {
+        const id = Math.random().toString(36).substring(2, 6).toUpperCase();
+        this.roomID = id;
+        this.isHost = true;
+        
+        await this.db.ref(`rooms/${id}`).set({
+            host: authManager.currentUser?.username || 'Host',
+            status: 'waiting',
+            players: {
+                p1: { name: authManager.currentUser?.username || 'Host', score: 0, ready: true }
+            }
+        });
+
+        this.showRoomUI(id);
+        this.listenToRoom(id);
+    }
+
+    async joinRoom(id, isMatchmaking = false) {
+        const snapshot = await this.db.ref(`rooms/${id}`).once('value');
+        if (!snapshot.exists() && !isMatchmaking) return alert("Oda bulunamadı!");
+
+        this.roomID = id;
+        this.isHost = isMatchmaking;
+
+        if (!this.isHost) {
+            await this.db.ref(`rooms/${id}/players/p2`).set({
+                name: authManager.currentUser?.username || 'Guest',
+                score: 0,
+                ready: true
+            });
+        }
+
+        this.showRoomUI(id);
+        this.listenToRoom(id);
+    }
+
+    listenToRoom(id) {
+        this.db.ref(`rooms/${id}`).on('value', snapshot => {
+            const data = snapshot.val();
+            if (!data) return;
+
+            const p1 = data.players?.p1;
+            const p2 = data.players?.p2;
+
+            if (p1) document.getElementById('p1-name').innerText = p1.name;
+            if (p2) {
+                document.getElementById('p2-name').innerText = p2.name;
+                document.getElementById('p2-status').innerText = "HAZIR";
+                if (this.isHost && data.status === 'waiting') {
+                    document.getElementById('start-game-btn').classList.remove('hidden');
+                }
+            }
+
+            if (data.status === 'playing' && !game.playing) {
+                this.beginActualGame();
+            }
+
+            // Sync scores during game
+            if (game.playing) {
+                const myKey = this.isHost ? 'p1' : 'p2';
+                const oppKey = this.isHost ? 'p2' : 'p1';
+                
+                if (data.players[oppKey]) {
+                    this.opponentScore = data.players[oppKey].score;
+                    document.getElementById('opp-score').innerText = this.opponentScore;
+                }
+            }
+        });
+    }
+
+    startGame() {
+        if (!this.isHost) return;
+        this.db.ref(`rooms/${this.roomID}`).update({ status: 'playing' });
+    }
+
+    beginActualGame() {
+        game.showScreen('game-screen');
+        const sport = game.currentSport || 'football';
+        const diff = game.currentDifficulty || 'easy';
+        game.startNewGame(sport, diff);
+        document.getElementById('multiplayer-hud').classList.remove('hidden');
+    }
+
+    updateMyScore(score) {
+        if (!this.roomID) return;
+        const key = this.isHost ? 'p1' : 'p2';
+        this.db.ref(`rooms/${this.roomID}/players/${key}`).update({ score });
+    }
+
+    showRoomUI(id) {
+        document.getElementById('room-info').classList.remove('hidden');
+        document.getElementById('display-room-id').innerText = id;
+    }
+
+    leaveRoom() {
+        if (this.roomID) {
+            this.db.ref(`rooms/${this.roomID}`).remove();
+        }
+        game.showScreen('category-screen');
+    }
+}
+
+const multiplayerManager = new MultiplayerManager();
 
