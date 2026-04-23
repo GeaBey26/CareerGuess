@@ -210,8 +210,8 @@ const TRANSLATIONS = {
         msg_correct: "Doğru! +10 Puan",
         msg_wrong: "Yanlış Cevap! -10 Puan",
         msg_used_hint: "İpucu Kullanıldı",
-        hint_1_prefix: "İpucu 1:",
-        hint_2_prefix: "İpucu 2: Pozisyon -",
+        hint_1_prefix: "İpucu 1: Pozisyon -",
+        hint_2_prefix: "İpucu 2: Ülke -",
         msg_pass: "Pas geçildi.",
         msg_finished: "Tebrikler! Tüm oyuncuları bildin!",
         msg_time_up: "SÜRE BİTTİ! ⌛",
@@ -305,8 +305,8 @@ const TRANSLATIONS = {
         msg_correct: "Correct! +10 Points",
         msg_wrong: "Wrong answer! -10 Points",
         msg_used_hint: "Hint Used",
-        hint_1_prefix: "Hint 1:",
-        hint_2_prefix: "Hint 2: Position -",
+        hint_1_prefix: "Hint 1: Position -",
+        hint_2_prefix: "Hint 2: Nationality -",
         msg_pass: "Skipped.",
         msg_finished: "Congratulations! You guessed all players!",
         msg_time_up: "TIME'S UP! ⌛",
@@ -1082,17 +1082,17 @@ class Game {
         const t = TRANSLATIONS[this.currentLang];
 
         if (this.hintStep === 0) {
-            // First Hint: Nationality
-            this.showMessage(`${t.hint_1_prefix || 'Nationality:'} ${this.currentPlayer.flag} ${this.currentPlayer.nationality}`, "success");
+            // First Hint: Position
+            this.showMessage(`${t.hint_1_prefix || 'Position:'} ${this.currentPlayer.position}`, "success");
             this.hintStep = 1;
             const penaltyText = this.gameMode === 'timed' ? ` (-5s)` : "";
-            this.hintBtn.innerText = `${t.btn_hint_2 || '2. Hint'}${penaltyText}`; 
+            this.hintBtn.innerText = `${t.btn_hint || 'İpucu'} 2${penaltyText}`; 
         } else if (this.hintStep === 1) {
-            // Second Hint: Position
-            this.showMessage(`${t.hint_2_prefix || 'Position:'} ${this.currentPlayer.position}`, "success");
+            // Second Hint: Nationality
+            this.showMessage(`${t.hint_2_prefix || 'Nationality:'} ${this.currentPlayer.flag} ${this.currentPlayer.nationality}`, "success");
             this.hintStep = 2; // Locked
             this.hintBtn.disabled = true;
-            this.hintBtn.innerText = t.msg_used_hint || 'Hint Used';
+            this.hintBtn.innerText = t.msg_used_hint || 'İpucu Kullanıldı';
         }
     }
 
