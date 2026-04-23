@@ -556,6 +556,8 @@ class Game {
                 this.showScreen('category-screen', false);
             }
         };
+
+        this.addEventListeners();
     }
 
     initStartScreen() {
@@ -656,7 +658,9 @@ class Game {
         const target = document.getElementById(id);
         if (!target) return;
 
-        document.querySelectorAll('.start-screen').forEach(el => el.classList.add('hidden'));
+        // Hide all screens
+        document.querySelectorAll('.start-screen, .game-container, #multiplayer-screen').forEach(el => el.classList.add('hidden'));
+        
         target.classList.remove('hidden');
 
         if (pushState) {
@@ -2260,9 +2264,7 @@ class MultiplayerManager {
     }
 
     init() {
-        if (!this.db) return;
-
-        // UI Bindings
+        // UI Bindings - Attach even if db is null for Simulation Mode
         document.getElementById('matchmaking-btn')?.addEventListener('click', () => this.toggleMatchmaking());
         document.getElementById('create-room-btn')?.addEventListener('click', () => this.createRoom());
         document.getElementById('join-room-btn')?.addEventListener('click', () => {
