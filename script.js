@@ -2317,20 +2317,28 @@ class MultiplayerManager {
     }
 
     async createRoom() {
-        const id = Math.random().toString(36).substring(2, 6).toUpperCase();
-        this.roomID = id;
-        this.isHost = true;
+        if (!this.db) return alert("Firebase bağlantısı kurulamadı. Lütfen API anahtarlarını kontrol edin.");
         
-        await this.db.ref(`rooms/${id}`).set({
-            host: authManager.currentUser?.username || 'Host',
-            status: 'waiting',
-            players: {
-                p1: { name: authManager.currentUser?.username || 'Host', score: 0, ready: true }
-            }
-        });
+        try {
+            const id = Math.random().toString(36).substring(2, 6).toUpperCase();
+            this.roomID = id;
+            this.isHost = true;
+            
+            await this.db.ref(`rooms/${id}`).set({
+                host: authManager.currentUser?.username || 'Host',
+                status: 'waiting',
+                players: {
+                    p1: { name: authManager.currentUser?.username || 'Host', score: 0, ready: true }
+                },
+                createdAt: Date.now()
+            });
 
-        this.showRoomUI(id);
-        this.listenToRoom(id);
+            this.showRoomUI(id);
+            this.listenToRoom(id);
+        } catch (error) {
+            console.error("Room creation error:", error);
+            alert("Oda oluşturulurken bir hata oluştu: " + error.message);
+        }
     }
 
     async joinRoom(id, isMatchmaking = false) {

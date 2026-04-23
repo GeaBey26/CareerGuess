@@ -900,6 +900,31 @@ button:hover {
 .multi-actions .secondary-btn {
     border-color: rgba(139, 92, 246, 0.5);
     color: #c084fc;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.multi-actions .secondary-btn:hover {
+    background: rgba(139, 92, 246, 0.15);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+    transform: translateY(-2px);
+}
+
+.multi-actions .secondary-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: 0.8s;
+}
+
+.multi-actions .secondary-btn:hover::after {
+    left: 120%;
 }
 
 /* Messages */
