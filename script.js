@@ -2043,7 +2043,11 @@ class AuthManager {
             }
             this.saveUsers();
             this.saveCurrentUser();
-            achievements.check(this.currentUser); // Check for new achievements
+            
+            // Check achievements if defined
+            if (typeof achievements !== 'undefined') {
+                achievements.check(this.currentUser);
+            }
         }
     }
 
