@@ -616,8 +616,6 @@ class Game {
             });
         });
 
-        this.addEventListeners();
-
         // Initialize Language
         this.setLanguage('tr');
     }
