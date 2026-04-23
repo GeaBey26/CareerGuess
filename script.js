@@ -519,6 +519,10 @@ class Game {
         // Ensure activePlayers is initialized to avoid errors
         this.activePlayers = (typeof players !== 'undefined') ? players : [];
         this.canGuess = true;
+        this.selectedDifficulty = 'all'; // Default
+        this.playerStatus = 'all'; // Default
+        this.currentSport = 'football'; // Default
+        this.canGuess = true;
 
         // DOM Elements
         this.startScreen = document.getElementById('category-screen'); // Entry point
@@ -798,16 +802,18 @@ class Game {
             }
 
             this.activePlayers = sourceArray.filter(p => {
-                const diffMatch = difficulty === 'all' || p.difficulty === difficulty;
-                const statusMatch = this.playerStatus === 'all' || p.status === this.playerStatus;
+                const diffMatch = (difficulty === 'all' || !difficulty) || p.difficulty === difficulty;
+                const statusMatch = (this.playerStatus === 'all' || !this.playerStatus) || p.status === this.playerStatus;
                 return diffMatch && statusMatch;
             });
+
+            console.log(`Filtered Players Count: ${this.activePlayers.length} for ${difficulty}/${this.playerStatus}`);
 
             // RANDOMIZE: Shuffle the filtered list so every game session is unique
             this.activePlayers = this.shuffleArray([...this.activePlayers]);
 
             if (this.activePlayers.length === 0) {
-                alert(TRANSLATIONS[this.currentLang]['msg_no_players'] || "No players found!");
+                alert(`HATA: ${this.currentSport} kategorisinde bu zorlukta oyuncu bulunamadı!`);
                 return;
             }
 
@@ -984,7 +990,10 @@ class Game {
 
 
     checkGuess() {
-        if (!this.canGuess) return;
+        if (!this.canGuess) {
+            console.log("Guessing is currently locked (Transitioning...)");
+            return;
+        }
         const guess = this.inputEl.value.trim().toLowerCase();
         if (!guess) return;
 
