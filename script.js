@@ -518,6 +518,7 @@ class Game {
 
         // Ensure activePlayers is initialized to avoid errors
         this.activePlayers = (typeof players !== 'undefined') ? players : [];
+        this.canGuess = true;
 
         // DOM Elements
         this.startScreen = document.getElementById('category-screen'); // Entry point
@@ -914,6 +915,7 @@ class Game {
     }
 
     nextRound() {
+        this.canGuess = true; // Unlock
         try {
             // Quiz Mode Limit: 10 Questions
             if (this.gameMode === 'quiz') {
@@ -932,11 +934,10 @@ class Game {
             }
 
             let player = this.activePlayers[this.currentIndex];
+            console.log(`Current Index: ${this.currentIndex}, Next Player: ${player ? player.name : 'NONE'}`);
             this.currentIndex++;
-
             this.currentPlayer = player;
             this.usedPlayers.add(player.name);
-            console.log("Next Round Player:", player.name); // DEBUG
 
             this.renderCareer(this.currentPlayer.career);
             this.messageEl.classList.add('hidden');
@@ -983,6 +984,7 @@ class Game {
 
 
     checkGuess() {
+        if (!this.canGuess) return;
         const guess = this.inputEl.value.trim().toLowerCase();
         if (!guess) return;
 
@@ -1008,6 +1010,9 @@ class Game {
     }
 
     handleWin() {
+        if (!this.canGuess) return;
+        this.canGuess = false; // Lock guessing
+        
         const t = TRANSLATIONS[this.currentLang];
         this.score += 10; // +10 points flat
         this.streak++;
@@ -1031,7 +1036,9 @@ class Game {
             this.showFloatingText("+5s", "green");
         }
 
+        console.log("Win Handled. Moving to next in 1.5s...");
         setTimeout(() => {
+            console.log("Timeout fired. Calling nextRound...");
             this.nextRound();
         }, 1500);
     }
@@ -1264,7 +1271,11 @@ class Game {
             if (correctBtn) correctBtn.classList.add('correct');
 
             this.canGuess = false;
-            setTimeout(() => this.nextRound(), 2000);
+            // Removed duplicate setTimeout as handleWin handles it if correct, 
+            // or we need a specific one for wrong quiz answer
+            if (!isCorrect) {
+                setTimeout(() => this.nextRound(), 2000);
+            }
         }
     }
 
