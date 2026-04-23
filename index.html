@@ -388,7 +388,10 @@
                     <div class="multi-actions" style="display:flex; flex-direction:column; gap:20px; width:100%;">
                         <div class="matchmaking-box glass-panel" style="padding:20px; border-radius:15px; text-align:center;">
                             <button class="primary-btn" id="matchmaking-btn" style="width:100%;">Hızlı Maç Bul</button>
-                            <p id="queue-status" class="hidden" style="margin-top:10px; color:#4ade80;">Sırada bekleniyor...</p>
+                            <div id="queue-status" class="hidden" style="margin-top:15px;">
+                                <div class="queue-timer" style="font-size:1.5rem; font-weight:bold; color:#4ade80; margin-bottom:5px;">00:00</div>
+                                <p style="color:var(--text-secondary); font-size:0.9rem;">Sırada bekleniyor...</p>
+                            </div>
                         </div>
 
                         <div style="display:flex; align-items:center; gap:10px; color:#666;">
