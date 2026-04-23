@@ -514,6 +514,7 @@ class Game {
         this.timerInterval = null;
         this.gameMode = 'classic'; // 'classic', 'timed', 'quiz'
         this.currentIndex = 0; // Tracking
+        this.questionCount = 0; // Tracking for quiz mode
 
         // Ensure activePlayers is initialized to avoid errors
         this.activePlayers = (typeof players !== 'undefined') ? players : [];
@@ -814,6 +815,7 @@ class Game {
             this.currentIndex = 0; // New index-based tracking
             this.score = 0; // Reset score
             this.usedPlayers = new Set(); // Keep for backward compat/checks
+            this.questionCount = 0; // Reset question count
 
             if (this.gameMode === 'quiz') {
                 this.initJokers();
@@ -2388,8 +2390,80 @@ class MultiplayerManager {
         };
     }
 
+    async joinRoom(id, isMatchmaking = false) {
+        const snapshot = await this.db.ref(`rooms/${id}`).once('value');
+        if (!snapshot.exists() && !isMatchmaking) return alert("Oda bulunamadı!");
+
+        this.roomID = id;
+        this.isHost = isMatchmaking;
+
+        if (!this.isHost) {
+            await this.db.ref(`rooms/${id}/players/p2`).set({
+                name: authManager.currentUser?.username || 'Guest',
+                score: 0,
+                ready: true
+            });
+        }
+
+        this.showRoomUI(id);
+        this.listenToRoom(id);
+    }
+
+    listenToRoom(id) {
+        this.db.ref(`rooms/${id}`).on('value', snapshot => {
+            const data = snapshot.val();
+            if (!data) return;
+
+            const p1 = data.players?.p1;
+            const p2 = data.players?.p2;
+
+            if (p1) document.getElementById('p1-name').innerText = p1.name;
+            if (p2) {
+                document.getElementById('p2-name').innerText = p2.name;
+                document.getElementById('p2-status').innerText = "HAZIR";
+                if (this.isHost && data.status === 'waiting') {
+                    document.getElementById('start-game-btn').classList.remove('hidden');
+                }
+            }
+
+            if (data.status === 'playing' && !game.playing) {
+                this.beginActualGame();
+            }
+
+            // Sync scores during game
+            if (game.playing) {
+                const myKey = this.isHost ? 'p1' : 'p2';
+                const oppKey = this.isHost ? 'p2' : 'p1';
+                
+                if (data.players[oppKey]) {
+                    this.opponentScore = data.players[oppKey].score;
+                    document.getElementById('opp-score').innerText = this.opponentScore;
+                }
+            }
+        });
+    }
+
+    startGame() {
+        if (!this.isHost) return;
+        this.db.ref(`rooms/${this.roomID}`).update({ status: 'playing' });
+    }
+
+    beginActualGame() {
+        game.showScreen('game-screen');
+        const sport = game.currentSport || 'football';
+        const diff = game.currentDifficulty || 'easy';
+        game.startNewGame(sport, diff);
+        document.getElementById('multiplayer-hud').classList.remove('hidden');
+    }
+
+    updateMyScore(score) {
+        if (!this.roomID || !this.db) return;
+        const key = this.isHost ? 'p1' : 'p2';
+        this.db.ref(`rooms/${this.roomID}/players/${key}`).update({ score });
+    }
+
     leaveRoom() {
-        if (this.roomID) {
+        if (this.roomID && this.db) {
             this.db.ref(`rooms/${this.roomID}`).remove();
         }
         game.showScreen('category-screen');
