@@ -3100,4 +3100,13 @@ button:active {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+.card {
+  animation: idleGlow 4s infinite alternate;
+}
+
+@keyframes idleGlow {
+  from { box-shadow: 0 0 10px rgba(99, 102, 241, 0.1); }
+  to { box-shadow: 0 0 25px rgba(99, 102, 241, 0.25); }
+}
 
