@@ -2933,4 +2933,16 @@ body::after {
   position: relative;
   z-index: 2;
 }
+
+.settings-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+
+  background: linear-gradient(90deg, #6366f1, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  margin-bottom: 20px;
+}
 
