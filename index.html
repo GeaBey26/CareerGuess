@@ -14,80 +14,84 @@
     <div class="container">
         <!-- SCREEN 1: Category Selection -->
         <!-- SCREEN 1: Category Selection -->
-        <div id="category-screen" class="start-screen">
-            <div class="lang-selector">
-                <button onclick="game.setLanguage('tr')" title="Türkçe">
-                    <img src="https://flagcdn.com/w40/tr.png" alt="TR">
-                </button>
-                <button onclick="game.setLanguage('en')" title="English">
-                    <img src="https://flagcdn.com/w40/gb.png" alt="EN">
-                </button>
-                <button onclick="game.setLanguage('es')" title="Español">
-                    <img src="https://flagcdn.com/w40/es.png" alt="ES">
-                </button>
-                <button onclick="game.setLanguage('hi')" title="हिन्दी">
-                    <img src="https://flagcdn.com/w40/in.png" alt="HI">
-                </button>
-            </div>
-            <div class="auth-buttons">
-                <!-- Buttons will be injected by AuthManager.updateUI() -->
-                <div id="auth-container"></div>
-            </div>
-            <div class="start-content">
-                <h1 class="logo" data-i18n="title_category">CAREER GUESS</h1>
-                <p class="category-subtitle">Choose a category and start guessing</p>
-                <div class="daily-challenge-badge">
-                    <span class="badge-fire">🔥</span>
-                    <span>Daily Challenge Available</span>
+        <div id="category-screen" class="start-screen fade">
+            <div class="nav" style="width: 100%;">
+                <div class="lang-selector" style="position: static; border: none; background: transparent; padding: 0; box-shadow: none;">
+                    <button onclick="game.setLanguage('tr')" title="Türkçe">
+                        <img src="https://flagcdn.com/w40/tr.png" alt="TR">
+                    </button>
+                    <button onclick="game.setLanguage('en')" title="English">
+                        <img src="https://flagcdn.com/w40/gb.png" alt="EN">
+                    </button>
+                    <button onclick="game.setLanguage('es')" title="Español">
+                        <img src="https://flagcdn.com/w40/es.png" alt="ES">
+                    </button>
+                    <button onclick="game.setLanguage('hi')" title="हिन्दी">
+                        <img src="https://flagcdn.com/w40/in.png" alt="HI">
+                    </button>
                 </div>
-                <div class="cards-grid">
+                <div class="nav-right" style="display: flex; align-items: center;">
+                    <span id="sound-toggle" onclick="sounds.toggleUI()" title="Sesi Aç/Kapat">🔊</span>
+                    <span onclick="game.showLeaderboard()" title="Liderlik Tablosu">🏆</span>
+                    <span id="auth-container" style="display: inline-flex; align-items: center; margin-left: 15px;"></span>
+                </div>
+            </div>
+
+            <div class="start-content" style="padding-top: 0; width: 100%;">
+                <h1 class="title" data-i18n="title_category">CAREER GUESS</h1>
+                <p class="subtitle" data-i18n="subtitle_category">Choose a category and start guessing</p>
+
+                <button class="btn daily-challenge-badge" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                    <span class="badge-fire">🔥</span> <span data-i18n="daily_challenge">Günlük Meydan Okuma</span>
+                </button>
+
+                <div class="grid" style="width: 100%; margin-top: 20px;">
                     <!-- Football -->
-                    <div class="game-card" onclick="game.goToSetup('football')">
+                    <div class="card" onclick="game.goToSetup('football')">
                         <div class="card-icon">⚽</div>
-                        <h3 data-i18n="football">FUTBOL</h3>
+                        <div class="card-title" data-i18n="football">FUTBOL</div>
                     </div>
                     <!-- Basketball -->
-                    <div class="game-card" onclick="game.goToSetup('basketball')">
+                    <div class="card" onclick="game.goToSetup('basketball')">
                         <div class="card-icon">🏀</div>
-                        <h3 data-i18n="basketball">BASKETBOL</h3>
+                        <div class="card-title" data-i18n="basketball">BASKETBOL</div>
                     </div>
                     <!-- NFL -->
-                    <div class="game-card" onclick="game.goToSetup('nfl')">
+                    <div class="card" onclick="game.goToSetup('nfl')">
                         <div class="card-icon">🏈</div>
-                        <h3 data-i18n="nfl">NFL</h3>
+                        <div class="card-title" data-i18n="nfl">NFL</div>
                     </div>
-
                     <!-- NHL -->
-                    <div class="game-card" onclick="game.goToSetup('nhl')">
+                    <div class="card" onclick="game.goToSetup('nhl')">
                         <div class="card-icon">🏒</div>
-                        <h3 data-i18n="nhl">NHL</h3>
+                        <div class="card-title" data-i18n="nhl">NHL</div>
                     </div>
                     <!-- Volleyball -->
-                    <div class="game-card" onclick="game.goToSetup('volleyball')">
+                    <div class="card" onclick="game.goToSetup('volleyball')">
                         <div class="card-icon">🏐</div>
-                        <h3 data-i18n="volleyball">VOLEYBOL</h3>
+                        <div class="card-title" data-i18n="volleyball">VOLEYBOL</div>
                     </div>
                     <!-- Cricket -->
-                    <div class="game-card" onclick="game.goToSetup('cricket')">
+                    <div class="card" onclick="game.goToSetup('cricket')">
                         <div class="card-icon">🏏</div>
-                        <h3 data-i18n="cricket">KRİKET</h3>
+                        <div class="card-title" data-i18n="cricket">KRİKET</div>
                     </div>
                     <!-- F1 -->
-                    <div class="game-card" onclick="game.goToSetup('f1')">
+                    <div class="card" onclick="game.goToSetup('f1')">
                         <div class="card-icon">🏎️</div>
-                        <h3 data-i18n="f1">FORMULA 1</h3>
+                        <div class="card-title" data-i18n="f1">FORMULA 1</div>
                     </div>
                     <!-- Tennis -->
-                    <div class="game-card" onclick="game.goToSetup('tennis')">
+                    <div class="card" onclick="game.goToSetup('tennis')">
                         <div class="card-icon">🎾</div>
-                        <h3 data-i18n="tennis">TENİS</h3>
+                        <div class="card-title" data-i18n="tennis">TENİS</div>
                     </div>
-                    <div class="game-card" onclick="game.goToSetup('esports')">
-                        <div class="card-icon">🕹️</div>
-                        <h3 data-i18n="esports">E-SPOR</h3>
+                    <!-- E-SPORTS -->
+                    <div class="card" onclick="game.goToSetup('esports')">
+                        <div class="card-icon">🎮</div>
+                        <div class="card-title" data-i18n="esports">E-SPOR</div>
                     </div>
                 </div>
-
             </div>
         </div>
 
