@@ -3015,11 +3015,15 @@ body::after {
 }
 
 /* INTERACTIVE FEEDBACK */
+button {
+  transition: 0.2s;
+}
+
 .mode-btn:active,
 .filter-btn:active,
 .multiplayer-btn:active,
 button:active {
-  transform: scale(0.95);
+  transform: scale(0.93);
 }
 
 .correct {
