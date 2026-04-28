@@ -2813,8 +2813,12 @@ body::after {
 
 /* Hover */
 .card:hover {
-  transform: translateY(-10px) scale(1.03);
+  transform: translateY(-8px) scale(1.05);
   box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.card:active {
+  transform: scale(0.97);
 }
 
 /* ICON */
@@ -3004,5 +3008,60 @@ body::after {
 .back-btn:hover {
   color: #6366f1;
   transform: translateX(-5px);
+}
+
+/* INTERACTIVE FEEDBACK */
+.mode-btn:active,
+.filter-btn:active,
+.multiplayer-btn:active {
+  transform: scale(0.95);
+}
+
+.correct {
+  animation: correctPulse 0.4s ease;
+  background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+  color: #fff;
+}
+
+.wrong {
+  animation: shake 0.4s ease;
+  background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+  color: #fff;
+}
+
+.streak {
+  animation: streakGlow 1s infinite alternate;
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes streakGlow {
+  from { box-shadow: 0 0 10px #f59e0b; }
+  to { box-shadow: 0 0 25px #f59e0b; }
+}
+
+/* SPORT SPECIFIC HOVERS */
+.card[data-sport="football"]:hover {
+  box-shadow: 0 20px 40px rgba(34, 197, 94, 0.4);
+}
+
+.card[data-sport="basketball"]:hover {
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.4);
+}
+
+.card[data-sport="f1"]:hover {
+  box-shadow: 0 20px 40px rgba(239, 68, 68, 0.4);
 }
 
