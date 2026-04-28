@@ -2987,4 +2987,22 @@ body::after {
   transform: scale(1.05);
   box-shadow: 0 15px 40px rgba(99,102,241,0.5);
 }
+
+.back-btn {
+  display: inline-block;
+  margin-bottom: 10px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: #6366f1;
+  transform: translateX(-5px);
+}
 
