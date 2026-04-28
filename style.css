@@ -3082,4 +3082,13 @@ button:active {
   0% { background: #22c55e33; }
   100% { background: transparent; }
 }
+
+.score {
+  transition: 0.3s;
+}
+
+.score.up {
+  transform: scale(1.2);
+  color: #22c55e;
+}
 
