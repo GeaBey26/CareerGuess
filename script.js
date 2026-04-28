@@ -2517,3 +2517,15 @@ document.querySelectorAll('.card').forEach(card => {
     }, 600);
   });
 });
+
+function triggerFlash() {
+  document.body.classList.add('flash');
+  setTimeout(() => document.body.classList.remove('flash'), 300);
+} 
+
+// Kategori secildiğinde flash efekti tetikle
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    triggerFlash();
+  });
+});
