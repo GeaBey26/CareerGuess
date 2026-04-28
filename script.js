@@ -2352,7 +2352,82 @@ class MultiplayerManager {
     stopQueue() {
         this.inQueue = false;
         document.getElementById('matchmaking-btn').innerText = "Hızlı Maç Bul";
+        document.getElementById('queue-status').classList.add('hidden');
+        clearInterval(this.queueTimerInterval);
+        if (this.db) this.db.ref('queue').child(authManager.currentUser?.username || 'Guest').remove();
+    }
+
+    async createRoom() {
+        if (!this.db) {
+            this.startSimulation('room');
+            return;
+        }
+        
+        try {
+            const id = Math.random().toString(36).substring(2, 6).toUpperCase();
+            this.roomID = id;
+            this.isHost = true;
+            
+            await this.db.ref(`rooms/${id}`).set({
+                host: authManager.currentUser?.username || 'Host',
+                status: 'waiting',
+                players: {
+                    p1: { name: authManager.currentUser?.username || 'Host', score: 0, ready: true }
+                },
+                createdAt: Date.now()
+            });
+
+            this.showRoomUI(id);
             this.listenToRoom(id);
+        } catch (error) {
+            alert("Hata: " + error.message);
+        }
+    }
+
+    startSimulation(type) {
+        if (type === 'queue') {
+            this.startQueue();
+            setTimeout(() => {
+                alert("Simülasyon Modu: Firebase anahtarlarınız eksik olduğu için gerçek eşleşme yapılamıyor. Lütfen firebase-config.js dosyasını güncelleyin.");
+                this.stopQueue();
+            }, 5000);
+        } else {
+            const mockID = "TEST";
+            this.roomID = mockID;
+            this.showRoomUI(mockID);
+            document.getElementById('p1-name').innerText = authManager.currentUser?.username || 'Siz';
+            alert("Simülasyon Modu: Oda oluşturuldu (KOD: TEST). Gerçek bağlantı için Firebase anahtarları gereklidir.");
+        }
+    }
+
+    showRoomUI(id) {
+        document.querySelector('.multi-actions').classList.add('hidden');
+        document.getElementById('room-info').classList.remove('hidden');
+        document.getElementById('display-room-id').innerText = id;
+        
+        // Add copy functionality
+        document.getElementById('display-room-id').onclick = () => {
+            navigator.clipboard.writeText(id);
+            alert("Oda kodu kopyalandı!");
+        };
+    }
+
+    async joinRoom(id, isMatchmaking = false) {
+        const snapshot = await this.db.ref(`rooms/${id}`).once('value');
+        if (!snapshot.exists() && !isMatchmaking) return alert("Oda bulunamadı!");
+
+        this.roomID = id;
+        this.isHost = isMatchmaking;
+
+        if (!this.isHost) {
+            await this.db.ref(`rooms/${id}/players/p2`).set({
+                name: authManager.currentUser?.username || 'Guest',
+                score: 0,
+                ready: true
+            });
+        }
+
+        this.showRoomUI(id);
         this.listenToRoom(id);
     }
 
@@ -2419,29 +2494,10 @@ class MultiplayerManager {
 
 const multiplayerManager = new MultiplayerManager();
 
-/* OLD LOGIC
 document.querySelectorAll('.card, .game-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    card.style.background = `
-      radial-gradient(circle at ${x}px ${y}px, rgba(59,130,246,0.15), transparent 40%)
-    `;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.background = 'rgba(255,255,255,0.03)';
-  });
-*/
-});
-
-
-document.querySelectorAll('.card, .game-card').forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    card.style.setProperty('--x', `$`{e.clientX - rect.left}px`);
-    card.style.setProperty('--y', `$`{e.clientY - rect.top}px`);
+    card.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    card.style.setProperty('--y', `${e.clientY - rect.top}px`);
   });
 });
