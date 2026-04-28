@@ -2890,9 +2890,11 @@ body::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at var(--x) var(--y), rgba(99,102,241,0.25), transparent 40%);
+  background: radial-gradient(circle at var(--x) var(--y),
+              rgba(99,102,241,0.15),
+              transparent 50%);
   opacity: 0;
-  transition: 0.3s;
+  transition: opacity 0.3s;
   pointer-events: none;
   z-index: 0;
 }
