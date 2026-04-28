@@ -2537,3 +2537,14 @@ document.querySelectorAll('.card').forEach(card => {
 });
 
 
+
+// SES EFEKTLERİ
+const clickSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+clickSound.volume = 0.4;
+
+document.querySelectorAll('button, .card').forEach(el => {
+  el.addEventListener('click', () => {
+    clickSound.currentTime = 0;
+    clickSound.play().catch(err => console.log('Audio play blocked:', err));
+  });
+});
