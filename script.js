@@ -2501,3 +2501,19 @@ document.querySelectorAll('.card, .game-card').forEach(card => {
     card.style.setProperty('--y', `${e.clientY - rect.top}px`);
   });
 });
+
+// DEMO: herhangi bir karta týklayýnca efekt verir (Test amaçlý)
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.remove('correct', 'wrong');
+    // Rastgele doðru/yanlýþ efekti
+    if (Math.random() > 0.5) {
+      card.classList.add('correct');
+    } else {
+      card.classList.add('wrong');
+    }
+    setTimeout(() => {
+      card.classList.remove('correct', 'wrong');
+    }, 600);
+  });
+});

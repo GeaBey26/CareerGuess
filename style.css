@@ -3013,27 +3013,28 @@ body::after {
 /* INTERACTIVE FEEDBACK */
 .mode-btn:active,
 .filter-btn:active,
-.multiplayer-btn:active {
+.multiplayer-btn:active,
+button:active {
   transform: scale(0.95);
 }
 
 .correct {
-  animation: correctPulse 0.4s ease;
+  animation: correct 0.4s ease;
   background: linear-gradient(135deg, #22c55e, #16a34a) !important;
-  color: #fff;
+  color: #fff !important;
 }
 
 .wrong {
   animation: shake 0.4s ease;
   background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
-  color: #fff;
+  color: #fff !important;
 }
 
 .streak {
   animation: streakGlow 1s infinite alternate;
 }
 
-@keyframes correctPulse {
+@keyframes correct {
   0% { transform: scale(1); }
   50% { transform: scale(1.08); }
   100% { transform: scale(1); }
@@ -3041,9 +3042,9 @@ body::after {
 
 @keyframes shake {
   0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
   100% { transform: translateX(0); }
 }
 
