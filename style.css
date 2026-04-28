@@ -3075,12 +3075,11 @@ button:active {
 }
 
 .flash {
-  animation: flashAnim 0.3s ease-out;
-  pointer-events: none;
+  animation: flash 0.3s;
 }
 
-@keyframes flashAnim {
-  0% { background: rgba(255, 255, 255, 0.15); }
+@keyframes flash {
+  0% { background: #22c55e33; }
   100% { background: transparent; }
 }
 
