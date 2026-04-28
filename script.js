@@ -663,9 +663,13 @@ class Game {
         if (!target) return;
 
         // Hide all screens
-        document.querySelectorAll('.start-screen, .game-container, #multiplayer-screen').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.start-screen, .game-container, #multiplayer-screen').forEach(el => {
+            el.classList.add('hidden');
+            el.classList.remove('fade-page');
+        });
         
         target.classList.remove('hidden');
+        target.classList.add('fade-page');
 
         if (pushState) {
             history.pushState({ screen: id }, "", "");
@@ -2531,4 +2535,5 @@ document.querySelectorAll('.card').forEach(card => {
     triggerFlash();
   });
 });
+
 
