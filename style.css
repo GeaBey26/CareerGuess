@@ -2902,4 +2902,35 @@ body::after {
 .card:hover::after {
   opacity: 1;
 }
+
+.settings-panel {
+  width: 420px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 24px;
+
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle glow */
+.settings-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(99,102,241,0.2), transparent 50%);
+  opacity: 0.6;
+  z-index: 0;
+}
+
+.settings-panel * {
+  position: relative;
+  z-index: 2;
+}
 

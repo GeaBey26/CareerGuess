@@ -134,9 +134,10 @@
         <!-- SCREEN 2: Setup (Difficulty & Status) -->
         <div id="setup-screen" class="start-screen hidden">
             <div class="start-content">
-                <div class="center-panel" style="width: 100%; max-width: 500px; display: flex; flex-direction: column; align-items: center; margin: 0 auto;">
-                    <button class="back-btn" onclick="game.showScreen('category-screen')" data-i18n="back" style="background:none; border:none; font-size:1.1rem; align-self:flex-start; margin-bottom:15px; font-weight:600; font-family:inherit; color:#aaa;">← Geri</button>
-                    <h1 class="logo" style="font-size:2rem; margin-bottom:20px; display:flex; align-items:center; justify-content:center; gap:8px;">
+                <button class="back-btn" onclick="game.showScreen('category-screen')" data-i18n="back" style="background:none; border:none; font-size:1.1rem; margin-bottom:15px; font-weight:600; font-family:inherit; color:#aaa; position:relative; z-index:10;">← Geri</button>
+                
+                <div class="settings-panel" style="display: flex; flex-direction: column; align-items: center;">
+                    <h1 class="title" style="font-size:2rem; margin-bottom:20px; display:flex; align-items:center; justify-content:center; gap:8px; position:relative; z-index:2;">
                         <span data-i18n="title_setup">OYUN AYARLARI</span> 
                         <span class="settings-icon" style="display:flex; align-items:center; color:#93c5fd; filter:drop-shadow(0 0 6px rgba(147,197,253,0.4));">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
