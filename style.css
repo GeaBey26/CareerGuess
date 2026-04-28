@@ -2762,6 +2762,12 @@ body {
   cursor: pointer;
   overflow: hidden;
   transition: 0.4s;
+  z-index: 1;
+}
+
+.card * {
+  position: relative;
+  z-index: 2;
 }
 
 /* Glow border */
@@ -2863,6 +2869,7 @@ body {
   opacity: 0;
   transition: 0.3s;
   pointer-events: none;
+  z-index: 0;
 }
 
 .card:hover::after {
