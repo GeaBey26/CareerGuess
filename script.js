@@ -1378,7 +1378,10 @@ class DailyChallenge {
         if (modal) {
             modal.innerHTML = `
                 <div class="dc-box">
-                    <button class="dc-close" onclick="dailyChallenge.close()">✖</button>
+                    <div class="dc-top-nav" style="display:flex; justify-content:space-between; width:100%; margin-bottom:20px;">
+                        <button class="dc-back-btn" onclick="dailyChallenge.close()" style="color:var(--text-secondary); font-weight:600; background:none; border:none; cursor:pointer;">← Geri</button>
+                        <button class="dc-close-btn" onclick="dailyChallenge.close()" style="color:var(--text-secondary); font-weight:600; background:none; border:none; cursor:pointer;">Kapat ✖</button>
+                    </div>
                     <div class="dc-header">
                         <div class="dc-fire">🔥</div>
                         <h2 class="dc-title">Günlük Meydan Okuma</h2>

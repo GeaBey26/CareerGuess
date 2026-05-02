@@ -14,7 +14,11 @@
     <div class="container">
         <!-- SCREEN 1: Category Selection -->
         <!-- SCREEN 1: Category Selection -->
-        <div id="category-screen" class="start-screen fade">
+        <div id="category-screen" class="start-screen">
+            <div class="auth-buttons" id="auth-buttons-container" style="position: absolute; top: 20px; right: 20px; z-index: 100;">
+                <button class="auth-btn login" onclick="authManager.openModal('login')" data-i18n="btn_login">Giriş Yap</button>
+                <button class="auth-btn signup" onclick="authManager.openModal('signup')" data-i18n="btn_register">Kayıt Ol</button>
+            </div>
             <div class="nav" style="width: 100%;">
                 <div class="lang-selector" style="position: static; border: none; background: transparent; padding: 0; box-shadow: none;">
                     <button onclick="game.setLanguage('tr')" title="Türkçe">
@@ -369,7 +373,33 @@
             </div>
         </div>
 
-        <div id="auth-modal" class="auth-overlay hidden"></div>
+        <!-- Auth Modal -->
+        <div id="auth-overlay" class="auth-overlay hidden" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(2,6,23,0.9); z-index:9999; display:flex; align-items:center; justify-content:center;">
+            <div style="background:rgba(15,23,42,0.9); border:1px solid rgba(255,255,255,0.1); border-radius:24px; padding:30px; width:90%; max-width:400px; position:relative;">
+                <button onclick="authManager.closeModal()" style="position:absolute; top:15px; right:15px; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+                
+                <!-- Login Form -->
+                <div id="login-form-container">
+                    <h2 style="text-align:center; color:white; margin-bottom:20px;">Giriş Yap</h2>
+                    <input type="text" id="login-username" placeholder="Kullanıcı Adı" style="width:100%; padding:12px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-family:inherit;">
+                    <input type="password" id="login-password" placeholder="Şifre" style="width:100%; padding:12px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-family:inherit;">
+                    <button id="login-submit-btn" style="width:100%; padding:14px; background:#6366f1; color:white; border:none; border-radius:12px; font-weight:bold; cursor:pointer;">Giriş Yap</button>
+                    <p id="login-error" class="error-msg hidden" style="color:#ef4444; font-size:0.9rem; text-align:center; margin-top:10px;"></p>
+                    <p style="text-align:center; margin-top:15px; color:#aaa; font-size:0.9rem;">Hesabın yok mu? <a href="#" id="switch-to-signup" style="color:#6366f1; text-decoration:none;">Kayıt Ol</a></p>
+                </div>
+
+                <!-- Signup Form -->
+                <div id="signup-form-container" class="hidden">
+                    <h2 style="text-align:center; color:white; margin-bottom:20px;">Kayıt Ol</h2>
+                    <input type="text" id="signup-username" placeholder="Kullanıcı Adı" style="width:100%; padding:12px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-family:inherit;">
+                    <input type="email" id="signup-email" placeholder="E-posta" style="width:100%; padding:12px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-family:inherit;">
+                    <input type="password" id="signup-password" placeholder="Şifre" style="width:100%; padding:12px; margin-bottom:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.05); color:white; font-family:inherit;">
+                    <button id="signup-submit-btn" style="width:100%; padding:14px; background:#22c55e; color:white; border:none; border-radius:12px; font-weight:bold; cursor:pointer;">Kayıt Ol</button>
+                    <p id="signup-error" class="error-msg hidden" style="color:#ef4444; font-size:0.9rem; text-align:center; margin-top:10px;"></p>
+                    <p style="text-align:center; margin-top:15px; color:#aaa; font-size:0.9rem;">Zaten hesabın var mı? <a href="#" id="switch-to-login" style="color:#22c55e; text-decoration:none;">Giriş Yap</a></p>
+                </div>
+            </div>
+        </div>
 
         <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
