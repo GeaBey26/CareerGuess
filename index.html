@@ -15,10 +15,6 @@
         <!-- SCREEN 1: Category Selection -->
         <!-- SCREEN 1: Category Selection -->
         <div id="category-screen" class="start-screen">
-            <div class="auth-buttons" id="auth-buttons-container" style="position: absolute; top: 20px; right: 20px; z-index: 100;">
-                <button class="auth-btn login" onclick="authManager.openModal('login')" data-i18n="btn_login">Giriş Yap</button>
-                <button class="auth-btn signup" onclick="authManager.openModal('signup')" data-i18n="btn_register">Kayıt Ol</button>
-            </div>
             <div class="nav" style="width: 100%;">
                 <div class="lang-selector" style="position: static; border: none; background: transparent; padding: 0; box-shadow: none;">
                     <button onclick="game.setLanguage('tr')" title="Türkçe">
@@ -34,10 +30,14 @@
                         <img src="https://flagcdn.com/w40/in.png" alt="HI">
                     </button>
                 </div>
-                <div class="nav-right" style="display: flex; align-items: center;">
+                <div class="nav-right" style="display: flex; align-items: center; gap: 8px;">
                     <span id="sound-toggle" onclick="sounds.toggleUI()" title="Sesi Aç/Kapat">🔊</span>
                     <span onclick="game.showLeaderboard()" title="Liderlik Tablosu">🏆</span>
-                    <span id="auth-container" style="display: inline-flex; align-items: center; margin-left: 15px;"></span>
+                    <span id="auth-container" style="display: inline-flex; align-items: center; margin-left: 8px;"></span>
+                    <div style="display: flex; gap: 6px; margin-left: 8px;">
+                        <button class="auth-btn login" onclick="authManager.openModal('login')" data-i18n="btn_login" id="nav-login-btn">Giriş Yap</button>
+                        <button class="auth-btn signup" onclick="authManager.openModal('signup')" data-i18n="btn_register" id="nav-signup-btn">Kayıt Ol</button>
+                    </div>
                 </div>
             </div>
 

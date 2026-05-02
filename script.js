@@ -593,15 +593,22 @@ class Game {
         // Hide all screens
         document.querySelectorAll('.start-screen, .game-container, #multiplayer-screen').forEach(el => {
             el.classList.add('hidden');
-            el.classList.remove('fade-page');
+            el.style.opacity = '';
+            el.style.animation = '';
         });
         
         target.classList.remove('hidden');
-        target.classList.add('fade-page');
+        // Smooth fade-in without causing a white flash
+        target.style.opacity = '0';
+        target.style.animation = 'none';
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                target.style.transition = 'opacity 0.25s ease';
+                target.style.opacity = '1';
+            });
+        });
 
         if (pushState) {
-            // Sadece hash değişirse onhashchange tetiklenir ve showScreen'i tekrar çağırır, bu zararsızdır.
-            // history API yerine hash kullanmak local dosyalarda "site gidiyor" hatasını çözer.
             if (window.location.hash !== '#' + id) {
                 window.location.hash = id;
             }
