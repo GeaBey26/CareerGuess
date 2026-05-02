@@ -1466,13 +1466,12 @@ class DailyChallenge {
         if (modal) {
             modal.innerHTML = `
                 <div class="dc-box">
-                    <div class="dc-top-nav" style="display:flex; justify-content:space-between; width:100%; margin-bottom:20px;">
-                        <button class="dc-back-btn" onclick="dailyChallenge.showCategorySelect()" style="color:var(--text-secondary); font-weight:600; background:none; border:none; cursor:pointer;">← Kategoriye Dön</button>
-                        <button class="dc-close-btn" onclick="dailyChallenge.close()" style="color:var(--text-secondary); font-weight:600; background:none; border:none; cursor:pointer;">Kapat ✖</button>
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                        <button onclick="dailyChallenge.showCategorySelect()" style="display:flex; align-items:center; gap:6px; background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); color:#fff; padding:7px 14px; border-radius:10px; font-weight:600; font-size:0.9rem; cursor:pointer; font-family:inherit; transition:0.2s;">← Geri</button>
+                        <button onclick="dailyChallenge.close()" style="background:none; border:none; color:#94a3b8; font-size:1.4rem; cursor:pointer; line-height:1;">✖</button>
                     </div>
-                    <div class="dc-header">
-                        <div class="dc-fire">🔥</div>
-                        <h2 class="dc-title">Günlük ${this.getSportName(sport)}</h2>
+                    <div style="text-align:center; margin-bottom:18px;">
+                        <h2 class="dc-title">🔥 Günlük ${this.getSportName(sport)}</h2>
                         <p class="dc-date">${this.todayKey}</p>
                     </div>
                     <div class="dc-clues">
@@ -1483,9 +1482,6 @@ class DailyChallenge {
                     ${guessesHTML ? `<div class="dc-guesses">${guessesHTML}</div>` : ''}
                     ${inputSection}
                     ${resultSection}
-                    <div style="margin-top:20px; text-align:center;">
-                        <button onclick="dailyChallenge.close()" style="background:none; border:none; color:var(--text-secondary); font-size:0.85rem; cursor:pointer; text-decoration:underline;">Ana Menüye Dön</button>
-                    </div>
                 </div>
             `;
         }
