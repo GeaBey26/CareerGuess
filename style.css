@@ -145,7 +145,7 @@
 }
 
 body {
-    font-family: 'Poppins', 'Outfit', sans-serif;
+    font-family: 'Inter', 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
     background: radial-gradient(circle at top, #0f172a, #020617);
     color: var(--text-primary);
     min-height: 100vh;

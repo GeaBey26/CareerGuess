@@ -2,7 +2,7 @@
 <html lang="tr">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charSet="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareerGuess</title>
     <link rel="stylesheet" href="style.css">
@@ -151,6 +151,7 @@
                         <button class="filter-btn active" data-status="all" data-i18n="status_all">Hepsi</button>
                         <button class="filter-btn" data-status="active" data-i18n="status_active">Aktif</button>
                         <button class="filter-btn" data-status="retired" data-i18n="status_retired">Emekli</button>
+                        <button class="filter-btn" data-status="tr" data-i18n="status_tr">Türkler</button>
                     </div>
 
                     <div class="difficulty-selection">
@@ -438,8 +439,55 @@
             </div>
         </section>
 
-        <script src="script.js"></script>
+        <script src="script.js" charset="utf-8"></script>
     </div> <!-- Close main container here -->
+    <script>
+    // Türkçe karakter ve bozuk encoding fix
+    function fixText(text){
+      try{
+        // Eğer metin zaten düzgünse veya UTF-8 ise escape/decode işlemi yapmaya çalış
+        if (text.includes('') || /[\u0080-\u00ff]/.test(text)) {
+            return decodeURIComponent(escape(text));
+        }
+        return text;
+      }catch{
+        return text;
+      }
+    }
+
+    function fixAllNodes(root) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null, false);
+        let node;
+        while(node = walker.nextNode()) {
+            const fixed = fixText(node.nodeValue);
+            if (fixed !== node.nodeValue) node.nodeValue = fixed;
+        }
+    }
+
+    // İlk yüklemede düzelt
+    document.addEventListener('DOMContentLoaded', () => {
+        fixAllNodes(document.body);
+        
+        // Dinamik içerikleri izle (Arama sonuçları, oyuncu kartları vb.)
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+                mutation.addedNodes.forEach(node => {
+                    if (node.nodeType === 3) {
+                        const fixed = fixText(node.nodeValue);
+                        if (fixed !== node.nodeValue) node.nodeValue = fixed;
+                    } else if (node.nodeType === 1) {
+                        fixAllNodes(node);
+                    }
+                });
+            });
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+    });
+    </script>
 </body>
 
 </html>
