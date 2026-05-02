@@ -492,13 +492,14 @@ class Game {
 
         this.initStartScreen();
 
-        // Handle browser back/forward buttons
-        if (!history.state) {
-            history.replaceState({ screen: 'category-screen' }, "", "");
+        // Handle browser back/forward buttons via hash
+        if (!window.location.hash) {
+            window.location.hash = 'category-screen';
         }
-        window.onpopstate = (event) => {
-            if (event.state && event.state.screen) {
-                this.showScreen(event.state.screen, false);
+        window.onhashchange = () => {
+            const screenId = window.location.hash.substring(1);
+            if (screenId) {
+                this.showScreen(screenId, false);
             } else {
                 this.showScreen('category-screen', false);
             }
@@ -599,7 +600,11 @@ class Game {
         target.classList.add('fade-page');
 
         if (pushState) {
-            history.pushState({ screen: id }, "", "");
+            // Sadece hash değişirse onhashchange tetiklenir ve showScreen'i tekrar çağırır, bu zararsızdır.
+            // history API yerine hash kullanmak local dosyalarda "site gidiyor" hatasını çözer.
+            if (window.location.hash !== '#' + id) {
+                window.location.hash = id;
+            }
         }
     }
 
