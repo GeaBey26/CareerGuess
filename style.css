@@ -1858,7 +1858,7 @@ button:hover {
 .filter-btn.active {
   background: rgba(0,255,136,0.1);
   color: #00ff88;
-  border-color: #00ff88;
+  border-color: #00ff88; /* border rengi değiştir, silme! */
 }
 
 .settings-icon {
@@ -2995,7 +2995,7 @@ body::after {
 .filter-btn.active {
   background: linear-gradient(135deg, #6366f1, #22c55e);
   color: white;
-  border: none;
+  border-color: transparent; /* border kaldırılmıyor, rengi saydam yapılıyor */
 }
 
 .multiplayer-btn {
@@ -3047,12 +3047,7 @@ button {
   transition: 0.2s;
 }
 
-.mode-btn:active,
-.filter-btn:active,
-.multiplayer-btn:active,
-button:active {
-  transform: scale(0.93);
-}
+/* Removed scale(0.93) on active — it was causing a "shake/earthquake" effect */
 
 .correct {
   animation: correct 0.4s ease;
