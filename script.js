@@ -995,7 +995,7 @@ class Game {
                 authManager.updateStats(this.currentSport, this.streak, this.score);
             }
         }
-        this.showMessage(`${t.msg_correct || 'Correct!'} | ${this.currentPlayer.flag} ${this.currentPlayer.name}`, "success");
+        this.showMessage(`${t.msg_correct || 'Correct!'} | ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "success");
 
         if (this.gameMode === 'timed') {
             this.timer += 5; // +5 reward
@@ -1023,7 +1023,7 @@ class Game {
 
     giveUp() {
         const t = TRANSLATIONS[this.currentLang];
-        this.showMessage(`${t.msg_pass || 'Passed!'} ${this.currentPlayer.flag} ${this.currentPlayer.name}`, "error");
+        this.showMessage(`${t.msg_pass || 'Passed!'} ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "error");
         this.resetStreak();
         setTimeout(() => {
             this.nextRound();
@@ -1047,7 +1047,7 @@ class Game {
             this.hintBtn.innerText = `${t.btn_hint || 'İpucu'} 2${penaltyText}`; 
         } else if (this.hintStep === 1) {
             // Second Hint: Nationality
-            this.showMessage(`${t.hint_2_prefix || 'Nationality:'} ${this.currentPlayer.flag} ${this.currentPlayer.nationality}`, "success");
+            this.showMessage(`${t.hint_2_prefix || 'Nationality:'} ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.nationality}`, "success");
             this.hintStep = 2; // Locked
             this.hintBtn.disabled = true;
             this.hintBtn.innerText = t.msg_used_hint || 'İpucu Kullanıldı';
@@ -1433,7 +1433,7 @@ class DailyChallenge {
         
         let extraInfo = [];
         if (attempts >= totalTeams) {
-            extraInfo.push(`📍 Ülke: ${player.nationality}`);
+            extraInfo.push(`📍 Ülke: ${getFlagEmoji(player.flag)} ${player.nationality}`);
         }
         if (attempts >= totalTeams + 1) {
             extraInfo.push(`👤 Mevki: ${player.position}`);
@@ -1549,7 +1549,7 @@ class DailyChallenge {
         if (!box) return;
         if (matches.length === 0) { box.classList.add('hidden'); return; }
         box.innerHTML = matches.map(p =>
-            `<div class="dc-suggestion-item" onclick="dailyChallenge.pickSuggestion('${p.name.replace(/'/g,"&#39;")}')">${p.flag || '👤'} ${p.name}</div>`
+            `<div class="dc-suggestion-item" onclick="dailyChallenge.pickSuggestion('${p.name.replace(/'/g,"&#39;")}')">${getFlagEmoji(p.flag) || '👤'} ${p.name}</div>`
         ).join('');
         box.classList.remove('hidden');
     }

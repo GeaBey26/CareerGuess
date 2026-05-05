@@ -192,7 +192,7 @@ var nhlPlayers = [
     { name: "Mats Zuccarello", difficulty: "easy", status: "active", position: "Right Wing", flag: "gY?ï¿½gY?ï¿½", nationality: "Norway", career: [{ years: "2010-2019", team: "NY Rangers" }, { years: "2019-Present", team: "Minnesota Wild" }] },
     { name: "Oliver Bjorkstrand", difficulty: "hard", status: "active", position: "Right Wing", flag: "gY?ï¿½gY?ï¿½", nationality: "Denmark", career: [{ years: "2015-2021", team: "Columbus Blue Jackets" }, { years: "2021-Present", team: "Seattle Kraken" }] },
     { name: "Nikolaj Ehlers", difficulty: "easy", status: "active", position: "Left Wing", flag: "gY?ï¿½gY?ï¿½", nationality: "Denmark", career: [{ years: "2015-Present", team: "Winnipeg Jets" }] },
-    { name: "Samuele Papi", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "gY?ï¿½gY?ï¿½", nationality: "Italya", career: [{ years: "1994-1998", team: "Cuneo" }, { years: "1998-2011", team: "Treviso" }, { years: "2011-2017", team: "Piacenza" }] },
+    { name: "Samuele Papi", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "IT", nationality: "İtalya", career: [{ years: "1994-1998", team: "Cuneo" }, { years: "1998-2011", team: "Treviso" }, { years: "2011-2017", team: "Piacenza" }] },
 
     // --- NEW ADDITIONS (Legends & Active Stars) ---
     { name: "Jonathan Toews", difficulty: "easy", status: "retired", position: "Center", flag: "gY?ï¿½gY?ï¿½", nationality: "Canada", career: [{ years: "2007-2023", team: "Chicago Blackhawks" }] },
