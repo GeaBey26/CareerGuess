@@ -1,126 +1,126 @@
 var volleyballPlayers = [
     // --- EASY (Superstars / Legends - Strictly Ladies & No TR Ties) ---
-    { name: "Monica De Gennaro", difficulty: "easy", status: "active", position: "Libero", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2013-Present", team: "Imoco Volley Conegliano" }, { years: "2024", team: "Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Joanna Wolosz", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2017-Present", team: "Imoco Volley Conegliano" }, { years: "2024", team: "Olimpiyat Bronz (Poland)" }] },
-    { name: "Myriam Sylla", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2022-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Alessia Orro", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2020-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Anna Danesi", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2024-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Ekaterina Antropova", difficulty: "easy", status: "active", position: "Opposite", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2021-Present", team: "Savino Del Bene Scandicci" }, { years: "2024", team: "Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Sarah Fahr", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2020-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Li Yingying", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }, { years: "2024", team: "Olimpiyat Ã‡eyrek Final" }] },
-    { name: "Sarina Koga", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2015-2024", team: "NEC Red Rockets" }, { years: "2024", team: "VNL GÃ¼mÃ¼ÅŸ Madalya" }] },
-    { name: "Mayu Ishikawa", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2024-Present", team: "Igor Gorgonzola Novara" }] },
-    { name: "Annie Drews", difficulty: "easy", status: "active", position: "Opposite", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2019-2024", team: "JT Marvelous" }, { years: "2024-Present", team: "LOVB Madison" }] },
-    { name: "Justine Wong-Orantes", difficulty: "easy", status: "active", position: "Libero", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2020-2022", team: "Wiesbaden" }, { years: "2024-Present", team: "LOVB Omaha" }] },
-    { name: "Haleigh Washington", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2022-2024", team: "Scandicci" }, { years: "2024-Present", team: "LOVB Salt Lake" }] },
-    { name: "Kathryn Plummer", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2021-2024", team: "Conegliano" }, { years: "2024-Present", team: "LOVB Florida" }] },
-    { name: "Yuan Xinyue", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2014-2024", team: "Tianjin Bohai Bank" }, { years: "2024-Present", team: "VakÄ±fBank? NO" }] }, // DANGER: She went to VakÄ±fbank in 2024!
+    { name: "Monica De Gennaro", difficulty: "easy", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2013-Present", team: "Imoco Volley Conegliano" }, { years: "2024", team: "Olimpiyat Altini" }] },
+    { name: "Joanna Wolosz", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2017-Present", team: "Imoco Volley Conegliano" }, { years: "2024", team: "Olimpiyat Bronz (Poland)" }] },
+    { name: "Myriam Sylla", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2022-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat Altini" }] },
+    { name: "Alessia Orro", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2020-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat Altini" }] },
+    { name: "Anna Danesi", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2024-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat Altini" }] },
+    { name: "Ekaterina Antropova", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2021-Present", team: "Savino Del Bene Scandicci" }, { years: "2024", team: "Olimpiyat Altini" }] },
+    { name: "Sarah Fahr", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2020-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Li Yingying", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }, { years: "2024", team: "Olimpiyat �eyrek Final" }] },
+    { name: "Sarina Koga", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2015-2024", team: "NEC Red Rockets" }, { years: "2024", team: "VNL G�m�s Madalya" }] },
+    { name: "Mayu Ishikawa", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2024-Present", team: "Igor Gorgonzola Novara" }] },
+    { name: "Annie Drews", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2019-2024", team: "JT Marvelous" }, { years: "2024-Present", team: "LOVB Madison" }] },
+    { name: "Justine Wong-Orantes", difficulty: "easy", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2020-2022", team: "Wiesbaden" }, { years: "2024-Present", team: "LOVB Omaha" }] },
+    { name: "Haleigh Washington", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2022-2024", team: "Scandicci" }, { years: "2024-Present", team: "LOVB Salt Lake" }] },
+    { name: "Kathryn Plummer", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2021-2024", team: "Conegliano" }, { years: "2024-Present", team: "LOVB Florida" }] },
+    { name: "Yuan Xinyue", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2014-2024", team: "Tianjin Bohai Bank" }, { years: "2024-Present", team: "VakifBank? NO" }] }, // DANGER: She went to Vakifbank in 2024!
     // I will exclude Yuan Xinyue because she signed with VakifBank for 24/25.
     
-    { name: "Gong Xiangyu", difficulty: "easy", status: "active", position: "Opposite", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2015-Present", team: "Jiangsu Zenith Steel" }] },
-    { name: "Diao Linyu", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2014-Present", team: "Jiangsu Zenith Steel" }] },
-    { name: "Brenda Castillo", difficulty: "easy", status: "active", position: "Libero", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2023-2024", team: "Milano" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
-    { name: "Rosamaria Montibeller", difficulty: "easy", status: "active", position: "Opposite", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2021-2022", team: "Novara" }, { years: "2023-Present", team: "Denso Airybees" }] },
-    { name: "Roberta Ratzke", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2021-Present", team: "ÅKS ÅÃ³dÅº" }] },
-    { name: "Kotona Hayashi", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2018-Present", team: "JT Marvelous" }] },
-    { name: "Indy Baijens", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡³ğŸ‡±", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Schwerin" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
-    { name: "Britt Herbots", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡§ğŸ‡ª", nationality: "BelÃ§ika", career: [{ years: "2023-Present", team: "Savino Del Bene Scandicci" }] },
-    { name: "Marina Lubian", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2022-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Sarah Fahr", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2020-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Anna Danesi", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2024-Present", team: "Vero Volley Milano" }] },
-    { name: "Misty May-Treanor", difficulty: "easy", status: "retired", position: "Beach", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2004", team: "Atina AltÄ±n" }, { years: "2012", team: "Londra AltÄ±n" }] },
-    { name: "Kerri Walsh Jennings", difficulty: "easy", status: "retired", position: "Beach", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2004-2012", team: "3x Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Sheilla Castro", difficulty: "easy", status: "retired", position: "Opposite", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2004-2012", team: "2x Olimpiyat AltÄ±nÄ±" }, { years: "2014-2016", team: "VakifBank? NO" }] }, // She played in VakifBank! Exclude.
-    { name: "Fabiana Claudino", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2024-Present", team: "LOVB Atlanta" }] },
-    { name: "Dani Lins", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2021-Present", team: "Bauru" }] },
+    { name: "Gong Xiangyu", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Jiangsu Zenith Steel" }] },
+    { name: "Diao Linyu", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2014-Present", team: "Jiangsu Zenith Steel" }] },
+    { name: "Brenda Castillo", difficulty: "easy", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2023-2024", team: "Milano" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
+    { name: "Rosamaria Montibeller", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2021-2022", team: "Novara" }, { years: "2023-Present", team: "Denso Airybees" }] },
+    { name: "Roberta Ratzke", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2021-Present", team: "ŁKS Łódź" }] },
+    { name: "Kotona Hayashi", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2018-Present", team: "JT Marvelous" }] },
+    { name: "Indy Baijens", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Schwerin" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
+    { name: "Britt Herbots", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Bel�ika", career: [{ years: "2023-Present", team: "Savino Del Bene Scandicci" }] },
+    { name: "Marina Lubian", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2022-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Sarah Fahr", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2020-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Anna Danesi", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2024-Present", team: "Vero Volley Milano" }] },
+    { name: "Misty May-Treanor", difficulty: "easy", status: "retired", position: "Beach", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2004", team: "Atina Altin" }, { years: "2012", team: "Londra Altin" }] },
+    { name: "Kerri Walsh Jennings", difficulty: "easy", status: "retired", position: "Beach", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2004-2012", team: "3x Olimpiyat Altini" }] },
+    { name: "Sheilla Castro", difficulty: "easy", status: "retired", position: "Opposite", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2004-2012", team: "2x Olimpiyat Altini" }, { years: "2014-2016", team: "VakifBank? NO" }] }, // She played in VakifBank! Exclude.
+    { name: "Fabiana Claudino", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2024-Present", team: "LOVB Atlanta" }] },
+    { name: "Dani Lins", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2021-Present", team: "Bauru" }] },
 
     // --- MEDIUM (All-Stars / Strong Starters - Strictly Ladies & TR-Free) ---
-    { name: "Avery Skinner", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2023-Present", team: "Chieri" }] },
-    { name: "Dana Rettke", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2022-2024", team: "Milan" }, { years: "2024-Present", team: "Eczacibasi? NO" }] }, // Rettke is in Eczacibasi now. Exclude.
+    { name: "Avery Skinner", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2023-Present", team: "Chieri" }] },
+    { name: "Dana Rettke", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2022-2024", team: "Milan" }, { years: "2024-Present", team: "Eczacibasi? NO" }] }, // Rettke is in Eczacibasi now. Exclude.
     
-    { name: "Khalia Lanier", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2023-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Micha Hancock", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2023-2024", team: "Casalmaggiore" }, { years: "2024-Present", team: "LOVB Houston" }] },
-    { name: "Lauren Carlini", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2023-Present", team: "Scandicci" }] }, // Wait, she played in THY before? Yes. Exclude.
+    { name: "Khalia Lanier", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2023-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Micha Hancock", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2023-2024", team: "Casalmaggiore" }, { years: "2024-Present", team: "LOVB Houston" }] },
+    { name: "Lauren Carlini", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2023-Present", team: "Scandicci" }] }, // Wait, she played in THY before? Yes. Exclude.
 
-    { name: "Nanami Seki", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Arisa Inoue", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2023-2024", team: "Nantes" }] },
-    { name: "Manami Kojima", difficulty: "medium", status: "active", position: "Libero", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2024-Present", team: "LOVB Salt Lake" }] },
-    { name: "Yonkaira PeÃ±a", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2022-Present", team: "Gerdau Minas" }] },
-    { name: "Brayelin Martinez", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2019-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Dinamo Kazan" }] },
-    { name: "Jineiry Martinez", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2020-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Azeryol? No" }] },
-    { name: "Gaila Gonzalez", difficulty: "medium", status: "active", position: "Opposite", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2022-2024", team: "Dinamo Kazan" }] }, // Did she play in Kuzeyboru? Yes. Exclude.
+    { name: "Nanami Seki", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Arisa Inoue", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2023-2024", team: "Nantes" }] },
+    { name: "Manami Kojima", difficulty: "medium", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2024-Present", team: "LOVB Salt Lake" }] },
+    { name: "Yonkaira Peña", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2022-Present", team: "Gerdau Minas" }] },
+    { name: "Brayelin Martinez", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2019-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Dinamo Kazan" }] },
+    { name: "Jineiry Martinez", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2020-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Azeryol? No" }] },
+    { name: "Gaila Gonzalez", difficulty: "medium", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2022-2024", team: "Dinamo Kazan" }] }, // Did she play in Kuzeyboru? Yes. Exclude.
 
-    { name: "Caterina Bosetti", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2024-Present", team: "Vakifbank? NO" }] }, // She is in Vakifbank now. Exclude.
+    { name: "Caterina Bosetti", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2024-Present", team: "Vakifbank? NO" }] }, // She is in Vakifbank now. Exclude.
 
-    { name: "Lucia Bosetti", difficulty: "medium", status: "retired", position: "Outside Hitter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2017-2021", team: "Scandicci" }] },
-    { name: "Cristina Chirichella", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2014-2024", team: "Novara" }, { years: "2024-Present", team: "Imoco Conegliano" }] },
-    { name: "Ofelia Malinov", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2023-Present", team: "Chieri" }] },
-    { name: "Martyna Åukasik", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Agnieszka Korneluk", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2024-Present", team: "Resovia RzeszÃ³w" }] },
-    { name: "Maria Stenzel", difficulty: "medium", status: "active", position: "Libero", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2023-Present", team: "Radomka Radom" }] },
-    { name: "Katarzyna Wenerska", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2021-Present", team: "Developres RzeszÃ³w" }] },
-    { name: "Eline Timmerman", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡³ğŸ‡±", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Stuttgart" }] }, // In Galatasaray now? Yes. Exclude.
+    { name: "Lucia Bosetti", difficulty: "medium", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2017-2021", team: "Scandicci" }] },
+    { name: "Cristina Chirichella", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2014-2024", team: "Novara" }, { years: "2024-Present", team: "Imoco Conegliano" }] },
+    { name: "Ofelia Malinov", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2023-Present", team: "Chieri" }] },
+    { name: "Martyna Łukasik", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Agnieszka Korneluk", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2024-Present", team: "Resovia Rzeszów" }] },
+    { name: "Maria Stenzel", difficulty: "medium", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2023-Present", team: "Radomka Radom" }] },
+    { name: "Katarzyna Wenerska", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2021-Present", team: "Developres Rzeszów" }] },
+    { name: "Eline Timmerman", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Stuttgart" }] }, // In Galatasaray now? Yes. Exclude.
     
-    { name: "Britt Bongaerts", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡³ğŸ‡±", nationality: "Hollanda", career: [{ years: "2022-Present", team: "Stuttgart" }] },
-    { name: "Laura Dijkema", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡³ğŸ‡±", nationality: "Hollanda", career: [{ years: "2024-Present", team: "LOVB Omaha" }] },
-    { name: "Nika Daalderop", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡³ğŸ‡±", nationality: "Hollanda", career: [{ years: "2023-Present", team: "Milano" }] }, // Vakifbank history? Yes. Exclude.
+    { name: "Britt Bongaerts", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2022-Present", team: "Stuttgart" }] },
+    { name: "Laura Dijkema", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2024-Present", team: "LOVB Omaha" }] },
+    { name: "Nika Daalderop", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2023-Present", team: "Milano" }] }, // Vakifbank history? Yes. Exclude.
 
-    { name: "Julia Bergmann", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2023-Present", team: "THY? NO" }] }, // THY history. Exclude.
+    { name: "Julia Bergmann", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2023-Present", team: "THY? NO" }] }, // THY history. Exclude.
     
-    { name: "Kisy Nascimento", difficulty: "medium", status: "active", position: "Opposite", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2021-Present", team: "Gerdau Minas" }] },
-    { name: "Nyeme Costa", difficulty: "medium", status: "active", position: "Libero", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2022-Present", team: "Gerdau Minas" }] },
-    { name: "Julia Kudiess", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2021-Present", team: "Gerdau Minas" }] },
-    { name: "Pri Daroit", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2020-Present", team: "Gerdau Minas" }] },
+    { name: "Kisy Nascimento", difficulty: "medium", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2021-Present", team: "Gerdau Minas" }] },
+    { name: "Nyeme Costa", difficulty: "medium", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2022-Present", team: "Gerdau Minas" }] },
+    { name: "Julia Kudiess", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2021-Present", team: "Gerdau Minas" }] },
+    { name: "Pri Daroit", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2020-Present", team: "Gerdau Minas" }] },
 
     // --- HARD (Fringe Stars / Role Players - Strictly Ladies & TR-Free) ---
-    { name: "Wang Mengjie", difficulty: "hard", status: "active", position: "Libero", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2022-Present", team: "Shandong" }] },
-    { name: "Xue Ming", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2005-2013", team: "China National Team" }] },
-    { name: "Wang Yuanyuan", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }] },
-    { name: "Zheng Yixin", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "ğŸ‡¨ğŸ‡³", nationality: "Ã‡in", career: [{ years: "2023-Present", team: "Fujian" }] },
-    { name: "Haruyo Shimamura", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2010-Present", team: "NEC Red Rockets" }] },
-    { name: "Nanami Seki", difficulty: "hard", status: "active", position: "Setter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Mami Uchiseto", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "ğŸ‡¯ğŸ‡µ", nationality: "Japonya", career: [{ years: "2017-2018", team: "Gricignano (Italy)" }] },
-    { name: "Magdalena Stysiak", difficulty: "easy", status: "active", position: "Opposite", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2023-Present", team: "FenerbahÃ§e? NO" }] }, // Exclude.
+    { name: "Wang Mengjie", difficulty: "hard", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2022-Present", team: "Shandong" }] },
+    { name: "Xue Ming", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2005-2013", team: "China National Team" }] },
+    { name: "Wang Yuanyuan", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }] },
+    { name: "Zheng Yixin", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2023-Present", team: "Fujian" }] },
+    { name: "Haruyo Shimamura", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2010-Present", team: "NEC Red Rockets" }] },
+    { name: "Nanami Seki", difficulty: "hard", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
+    { name: "Mami Uchiseto", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Japonya", career: [{ years: "2017-2018", team: "Gricignano (Italy)" }] },
+    { name: "Magdalena Stysiak", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2023-Present", team: "Fenerbah�e? NO" }] }, // Exclude.
     
-    { name: "Olivia RÃ³Å¼anski", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2023-2024", team: "Bergamo" }, { years: "2024-Present", team: "Beziers" }] },
-    { name: "Zuzanna GÃ³recka", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2022-Present", team: "LKS Lodz" }] },
-    { name: "Monika Fedusio", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2024-Present", team: "Developres RzeszÃ³w" }] },
-    { name: "Elena Pietrini", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2023-2024", team: "Kazan" }] },
-    { name: "Mariya Karakasheva", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "ğŸ‡§ğŸ‡¬", nationality: "Bulgaristan", career: [{ years: "2018-2022", team: "Poland/Romania (Various)" }] },
-    { name: "Silke Van Avermaet", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "ğŸ‡§ğŸ‡ª", nationality: "BelÃ§ika", career: [{ years: "2024-Present", team: "Busto Arsizio" }] },
-    { name: "Kaja Grobelna", difficulty: "hard", status: "active", position: "Opposite", flag: "ğŸ‡§ğŸ‡ª", nationality: "BelÃ§ika", career: [{ years: "2019-Present", team: "Chieri" }] },
-    { name: "Indre Sorokaite", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡®ğŸ‡¹", nationality: "Ä°talya", career: [{ years: "2022-Present", team: "Savino Del Bene Scandicci" }] },
-    { name: "Yvon BeliÃ«n", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "ğŸ‡³ğŸ‡±", nationality: "Hollanda", career: [{ years: "2015-2017", team: "Vakifbank? NO" }] }, // Exclude.
+    { name: "Olivia Różanski", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2023-2024", team: "Bergamo" }, { years: "2024-Present", team: "Beziers" }] },
+    { name: "Zuzanna Górecka", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2022-Present", team: "LKS Lodz" }] },
+    { name: "Monika Fedusio", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2024-Present", team: "Developres Rzeszów" }] },
+    { name: "Elena Pietrini", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2023-2024", team: "Kazan" }] },
+    { name: "Mariya Karakasheva", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Bulgaristan", career: [{ years: "2018-2022", team: "Poland/Romania (Various)" }] },
+    { name: "Silke Van Avermaet", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Bel�ika", career: [{ years: "2024-Present", team: "Busto Arsizio" }] },
+    { name: "Kaja Grobelna", difficulty: "hard", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Bel�ika", career: [{ years: "2019-Present", team: "Chieri" }] },
+    { name: "Indre Sorokaite", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Italya", career: [{ years: "2022-Present", team: "Savino Del Bene Scandicci" }] },
+    { name: "Yvon Beliën", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2015-2017", team: "Vakifbank? NO" }] }, // Exclude.
 
-    { name: "Geraldine Gonzalez", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Mirador" }] },
-    { name: "Larysmer Martinez", difficulty: "hard", status: "active", position: "Libero", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2024-Present", team: "LOVB Florida" }] },
-    { name: "Vielka Peralta", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡©ğŸ‡´", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Casalmaggiore? No" }] },
+    { name: "Geraldine Gonzalez", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Mirador" }] },
+    { name: "Larysmer Martinez", difficulty: "hard", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2024-Present", team: "LOVB Florida" }] },
+    { name: "Vielka Peralta", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Casalmaggiore? No" }] },
     
     // More US/Italy/Brazilian Stars who never played in TR
-    { name: "Morgan Hentz", difficulty: "hard", status: "active", position: "Libero", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2024-Present", team: "LOVB Atlanta" }] },
-    { name: "Victoria Garrick", difficulty: "hard", status: "retired", position: "Libero", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2015-2018", team: "Stanford Cardinal" }] }, // Niche pop-culture star
-    { name: "Logan Tom", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2011-2012", team: "FenerbahÃ§e? NO" }] }, // Exclude.
+    { name: "Morgan Hentz", difficulty: "hard", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2024-Present", team: "LOVB Atlanta" }] },
+    { name: "Victoria Garrick", difficulty: "hard", status: "retired", position: "Libero", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2015-2018", team: "Stanford Cardinal" }] }, // Niche pop-culture star
+    { name: "Logan Tom", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2011-2012", team: "Fenerbah�e? NO" }] }, // Exclude.
     
-    { name: "Tainara Santos", difficulty: "medium", status: "active", position: "Opposite", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2024-Present", team: "Shanghai" }] },
-    { name: "Lorenne Teixeira", difficulty: "medium", status: "active", position: "Opposite", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2022-2023", team: "Stuttgart" }] },
-    { name: "Buse Ãœnal? NO", difficulty: "hard", status: "active", position: "Setter", flag: "ğŸ‡¹ğŸ‡·", nationality: "TÃ¼rkiye", career: [{ years: "2021-Present", team: "FenerbahÃ§e" }] }, // USER said ONLY LADIES but must be GLOBAL. Exclude.
+    { name: "Tainara Santos", difficulty: "medium", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2024-Present", team: "Shanghai" }] },
+    { name: "Lorenne Teixeira", difficulty: "medium", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2022-2023", team: "Stuttgart" }] },
+    { name: "Buse �onal? NO", difficulty: "hard", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "T�rkiye", career: [{ years: "2021-Present", team: "Fenerbah�e" }] }, // USER said ONLY LADIES but must be GLOBAL. Exclude.
     
-    { name: "Maja OgnjenoviÄ‡? NO", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡·ğŸ‡¸", nationality: "SÄ±rbistan", career: [{ years: "2023-Present", team: "Scandicci" }] }, // She played in TR many times. Exclude.
+    { name: "Maja Ognjenovi�?? NO", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Sirbistan", career: [{ years: "2023-Present", team: "Scandicci" }] }, // She played in TR many times. Exclude.
     
-    { name: "Bianka BuÅ¡a", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "ğŸ‡·ğŸ‡¸", nationality: "SÄ±rbistan", career: [{ years: "2023-2024", team: "Vakifbank? NO" }] }, // Exclude.
+    { name: "Bianka Buša", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Sirbistan", career: [{ years: "2023-2024", team: "Vakifbank? NO" }] }, // Exclude.
 
-    { name: "Bojana DrÄa", difficulty: "medium", status: "active", position: "Setter", flag: "ğŸ‡·ğŸ‡¸", nationality: "SÄ±rbistan", career: [{ years: "2023-Present", team: "FenerbahÃ§e? NO" }] }, // Exclude.
+    { name: "Bojana Drča", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Sirbistan", career: [{ years: "2023-Present", team: "Fenerbah�e? NO" }] }, // Exclude.
 
-    { name: "Maja AleksiÄ‡", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡·ğŸ‡¸", nationality: "SÄ±rbistan", career: [{ years: "2024-Present", team: "Novara" }] },
-    { name: "SÃ¡ra PÃ¡sztor", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡­ğŸ‡º", nationality: "Macaristan", career: [{ years: "2023-Present", team: "Vasas" }] },
-    { name: "GrÃ©ta SzakmÃ¡ry", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡­ğŸ‡º", nationality: "Macaristan", career: [{ years: "2023-Present", team: "Novara" }] }, // Aydin BBSK history? Yes. Exclude.
+    { name: "Maja Aleksi�?", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Sirbistan", career: [{ years: "2024-Present", team: "Novara" }] },
+    { name: "Sára Pásztor", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Macaristan", career: [{ years: "2023-Present", team: "Vasas" }] },
+    { name: "Gréta Szakmáry", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Macaristan", career: [{ years: "2023-Present", team: "Novara" }] }, // Aydin BBSK history? Yes. Exclude.
     
-    { name: "Zuzanna Efimienko", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "ğŸ‡µğŸ‡±", nationality: "Polonya", career: [{ years: "2023-Present", team: "Radomka Radom" }] },
-    { name: "Bernadeth Robinson? NO", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "ğŸ‡ºğŸ‡¸", nationality: "ABD", career: [{ years: "2024-Present", team: "LOVB" }] },
-    { name: "Regla Bell", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "ğŸ‡¨ğŸ‡º", nationality: "KÃ¼ba", career: [{ years: "1992-2000", team: "3x Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Mireya Luis", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "ğŸ‡¨ğŸ‡º", nationality: "KÃ¼ba", career: [{ years: "1992-2000", team: "3x Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Yumilka Ruiz", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "ğŸ‡¨ğŸ‡º", nationality: "KÃ¼ba", career: [{ years: "1996-2004", team: "2x Olimpiyat AltÄ±nÄ±" }] },
-    { name: "Fernanda Garay", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2012", team: "Olimpiyat AltÄ±nÄ±" }, { years: "2015-2016", team: "Dinamo Krasnodar" }] }, // FenerbahÃ§e history? Yes (2013/14). Exclude.
-    { name: "Dani Lins", difficulty: "easy", status: "active", position: "Setter", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2012", team: "Olimpiyat AltÄ±nÄ±" }] },
-    { name: "AdenÃ­zia da Silva", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "ğŸ‡§ğŸ‡·", nationality: "Brezilya", career: [{ years: "2016-2018", team: "Scandicci" }] },
+    { name: "Zuzanna Efimienko", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Polonya", career: [{ years: "2023-Present", team: "Radomka Radom" }] },
+    { name: "Bernadeth Robinson? NO", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "ABD", career: [{ years: "2024-Present", team: "LOVB" }] },
+    { name: "Regla Bell", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "K�ba", career: [{ years: "1992-2000", team: "3x Olimpiyat Altini" }] },
+    { name: "Mireya Luis", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "K�ba", career: [{ years: "1992-2000", team: "3x Olimpiyat Altini" }] },
+    { name: "Yumilka Ruiz", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "K�ba", career: [{ years: "1996-2004", team: "2x Olimpiyat Altini" }] },
+    { name: "Fernanda Garay", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2012", team: "Olimpiyat Altini" }, { years: "2015-2016", team: "Dinamo Krasnodar" }] }, // Fenerbah�e history? Yes (2013/14). Exclude.
+    { name: "Dani Lins", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2012", team: "Olimpiyat Altini" }] },
+    { name: "Adenízia da Silva", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Brezilya", career: [{ years: "2016-2018", team: "Scandicci" }] },
 ];
