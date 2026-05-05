@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
     --bg-color: #020617;
@@ -150,7 +150,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
+    font-family: 'Outfit', 'Inter', sans-serif;
     background-color: #020617;
     background-image: 
         radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
@@ -465,9 +465,9 @@ header {
 .subtitle {
     text-align: center;
     font-size: 13px;
-    opacity: 0.7;
     margin-bottom: 20px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    opacity: 0.9;
 }
 
 /* Timer - Fixed Position */
@@ -541,7 +541,8 @@ header {
 
 .score-item b {
     color: var(--accent);
-    font-size: 16px;
+    font-size: 20px;
+    font-weight: 800;
 }
 
 /* Main Section */
@@ -825,11 +826,19 @@ header {
 
     .action-hub {
         gap: 8px;
+        flex-wrap: wrap;
     }
 
     .action-hub button {
         padding: 12px;
         font-size: 0.75rem;
+        flex: 1 1 30%;
+        min-width: 80px;
+    }
+
+    .guess-btn {
+        flex: 1 1 100% !important;
+        order: -1;
     }
 
     .nav-back-btn {

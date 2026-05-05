@@ -169,9 +169,9 @@
                     <div class="suggestions-box" id="suggestions"></div>
                 </div>
                 <div class="buttons action-hub">
-                    <button class="pass-btn" id="give-up-btn" data-i18n="btn_give_up">Pas</button>
-                    <button class="hint-btn" id="hint-btn" data-i18n="btn_hint">İpucu</button>
-                    <button class="guess-btn" id="submit-btn" data-i18n="btn_guess">Tahmin Et</button>
+                    <button class="pass-btn" id="give-up-btn" onclick="game.giveUp()" data-i18n="btn_give_up">Pas</button>
+                    <button class="hint-btn" id="hint-btn" onclick="game.showHint()" data-i18n="btn_hint">İpucu</button>
+                    <button class="guess-btn" id="submit-btn" onclick="game.checkGuess()" data-i18n="btn_guess">Tahmin Et</button>
                 </div>
             </div>
             <button id="back-btn" class="nav-back-btn" onclick="game.returnToMenu()">🏠</button>
