@@ -261,6 +261,24 @@
                 </div>
             </div>
         </section>
+        
+        <!-- info Modal -->
+        <div id="info-modal" class="modal-overlay hidden">
+            <div class="modal-box">
+                <button class="close-modal-btn" onclick="infoManager.close()">×</button>
+                <h2 id="info-title">Bilgi</h2>
+                <div id="info-content" class="modal-body-scroll"></div>
+                <button class="primary-btn" onclick="infoManager.close()" data-i18n="btn_close">Kapat</button>
+            </div>
+        </div>
+
+        <!-- Cookie Banner -->
+        <div id="cookie-banner" class="cookie-banner hidden">
+            <div class="cookie-content">
+                <p><span data-i18n="cookie_text">Bu site deneyim ve reklamlar için çerez kullanır.</span> <a href="#" onclick="infoManager.open('privacy'); return false;" data-i18n="cookie_info">Daha Fazla Bilgi</a></p>
+                <button id="accept-cookies" class="primary-btn small" data-i18n="cookie_accept">Kabul Et</button>
+            </div>
+        </div>
 
         <!-- Footer -->
         <footer class="app-footer">

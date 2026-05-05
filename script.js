@@ -7,7 +7,7 @@ var players = players || [];
 class SoundManager {
     constructor() {
         this.ctx = null;
-        this.enabled = localStorage.getitem('guess_player_sound') !== 'false';
+        this.enabled = localStorage.getItem('guess_player_sound') !== 'false';
     }
 
     init() {
@@ -18,13 +18,13 @@ class SoundManager {
 
     toggle() {
         this.enabled = !this.enabled;
-        localStorage.setitem('guess_player_sound', this.enabled);
+        localStorage.setItem('guess_player_sound', this.enabled);
         return this.enabled;
     }
 
     toggleUi() {
         const enabled = this.toggle();
-        const btn = document.getElementByid('sound-toggle');
+        const btn = document.getElementById('sound-toggle');
         if (btn) btn.innerText = enabled ? '🔊' : '🔇';
         if (enabled) {
             this.init();
@@ -136,7 +136,7 @@ class AchievementManager {
     render(user) {
         const unlocked = user.achievements || [];
         const lang = (window.game && window.game.currentLang) || 'tr';
-        const t = TRANSLATiONS[lang];
+        const t = TRANSLATIONS[lang];
 
         return `
             <div class="achievements-section">
@@ -170,7 +170,7 @@ function getFlagEmoji(countryCode) {
 
 const achievements = new AchievementManager();
 
-const TRANSLATiONS = {
+const TRANSLATIONS = {
     tr: {
         title_category: "CAREER GUESS",
         subtitle_category: "BranSini SeC ve BaSla!",
@@ -472,9 +472,9 @@ class Game {
         this.hintStep = 0;
         this.usedPlayers = new Set();
         this.currentPlayer = null;
-        this.timerinterval = null;
+        this.timerInterval = null;
         this.gameMode = 'classic'; // 'classic', 'timed', 'quiz'
-        this.currentindex = 0; // Tracking
+        this.currentIndex = 0; // Tracking
         this.questionCount = 0; // Tracking for quiz mode
 
         // Ensure activePlayers is initialized to avoid errors
@@ -485,21 +485,21 @@ class Game {
         this.currentSport = 'football'; // Default
 
         // DOM Elements
-        this.startScreen = document.getElementByid('category-screen'); // Entry point
-        this.gameContainer = document.getElementByid('game-container');
-        this.inputEl = document.getElementByid('guess-input');
-        this.submitBtn = document.getElementByid('submit-btn');
-        this.skipBtn = document.getElementByid('give-up-btn');
-        this.hintBtn = document.getElementByid('hint-btn');
-        this.scoreEl = document.getElementByid('score');
-        this.streakEl = document.getElementByid('streak');
-        this.messageEl = document.getElementByid('message-area');
-        this.timelineEl = document.getElementByid('career-timeline');
-        this.suggestionsEl = document.getElementByid('suggestions');
-        this.timerArea = document.getElementByid('timer-area');
-        this.timerVal = document.getElementByid('timer-val');
-        this.titleEl = document.getElementByid('game-title');
-        this.backBtn = document.getElementByid('back-btn');
+        this.startScreen = document.getElementById('category-screen'); // Entry point
+        this.gameContainer = document.getElementById('game-container');
+        this.inputEl = document.getElementById('guess-input');
+        this.submitBtn = document.getElementById('submit-btn');
+        this.skipBtn = document.getElementById('give-up-btn');
+        this.hintBtn = document.getElementById('hint-btn');
+        this.scoreEl = document.getElementById('score');
+        this.streakEl = document.getElementById('streak');
+        this.messageEl = document.getElementById('message-area');
+        this.timelineEl = document.getElementById('career-timeline');
+        this.suggestionsEl = document.getElementById('suggestions');
+        this.timerArea = document.getElementById('timer-area');
+        this.timerVal = document.getElementById('timer-val');
+        this.titleEl = document.getElementById('game-title');
+        this.backBtn = document.getElementById('back-btn');
 
         // Selectors
         this.statusButtons = document.querySelectorAll('.filter-btn');
@@ -573,25 +573,25 @@ class Game {
     }
 
     setLanguage(lang) {
-        if (!TRANSLATiONS[lang]) return;
+        if (!TRANSLATIONS[lang]) return;
         this.currentLang = lang;
 
         // Update all elements with data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (TRANSLATiONS[lang][key]) {
-                el.innerText = TRANSLATiONS[lang][key];
+            if (TRANSLATIONS[lang][key]) {
+                el.innerText = TRANSLATIONS[lang][key];
             }
         });
 
         // Update placeholders
-        if (this.inputEl && TRANSLATiONS[lang]['input_placeholder']) {
-            this.inputEl.placeholder = TRANSLATiONS[lang]['input_placeholder'];
+        if (this.inputEl && TRANSLATIONS[lang]['input_placeholder']) {
+            this.inputEl.placeholder = TRANSLATIONS[lang]['input_placeholder'];
         }
 
         // Update active dynamic elements if needed
         if (this.gameMode === 'timed' && this.hintBtn) {
-            const hintText = TRANSLATiONS[lang]['btn_hint'];
+            const hintText = TRANSLATIONS[lang]['btn_hint'];
             this.hintBtn.innerText = `${hintText} (-5s)`;
         }
     }
@@ -603,7 +603,7 @@ class Game {
 
     // Navigation Methods
     showScreen(id, pushState = true) {
-        const target = document.getElementByid(id);
+        const target = document.getElementById(id);
         if (!target) return;
 
         // Hide all screens
@@ -647,12 +647,12 @@ class Game {
                 if (sport === 'f1') titleKey = 'title_game_f1';
                 if (sport === 'tennis') titleKey = 'title_game_tennis';
 
-                this.titleEl.innerText = TRANSLATiONS[this.currentLang][titleKey] || titleKey;
+                this.titleEl.innerText = TRANSLATIONS[this.currentLang][titleKey] || titleKey;
 
                 // Update subtitle for national team mode
                 const subtitleKey = 'subtitle_game';
                 const subEl = document.querySelector('header p');
-                if (subEl) subEl.innerText = TRANSLATiONS[this.currentLang][subtitleKey];
+                if (subEl) subEl.innerText = TRANSLATIONS[this.currentLang][subtitleKey];
             }
 
             if (sport === 'f1' || sport === 'tennis') {
@@ -682,7 +682,7 @@ class Game {
             this.currentSport = 'esports_' + subGame; // e.g., 'esports_lol'
 
             // Set Titles dynamically (Generic for now, or specific if needed)
-            this.titleEl.innerText = `${TRANSLATiONS[this.currentLang]['esports']} - ${subGame.toUpperCase()}`;
+            this.titleEl.innerText = `${TRANSLATIONS[this.currentLang]['esports']} - ${subGame.toUpperCase()}`;
 
             // Skip Difficulty/Status -> Go to Mode Select
             this.playerStatus = 'all';
@@ -784,7 +784,7 @@ class Game {
 
             // Setup Ui based on mode
             this.updateUiForMode();
-            this.currentindex = 0; // New index-based tracking
+            this.currentIndex = 0; // New index-based tracking
             this.score = 0; // Reset score
             this.usedPlayers = new Set(); // Keep for backward compat/checks
             this.questionCount = 0; // Reset question count
@@ -835,7 +835,7 @@ class Game {
     }
 
     returnToMenu() {
-        const msg = TRANSLATiONS[this.currentLang]['confirm_exit'];
+        const msg = TRANSLATIONS[this.currentLang]['confirm_exit'];
         if (confirm(msg)) {
             location.reload();
         }
@@ -847,9 +847,9 @@ class Game {
         this.timerVal.innerText = this.timer;
         this.timerArea.classList.remove('hidden');
         // Fix: clear any existing interval
-        if (this.timerinterval) clearinterval(this.timerinterval);
+        if (this.timerInterval) clearInterval(this.timerInterval);
 
-        this.timerinterval = setinterval(() => {
+        this.timerInterval = setInterval(() => {
             this.timer--;
             if (typeof sounds !== 'undefined') sounds.playTick();
             this.timerVal.innerText = this.timer;
@@ -867,11 +867,11 @@ class Game {
     }
 
     gameOver() {
-        clearinterval(this.timerinterval);
+        clearInterval(this.timerInterval);
         if (typeof authManager !== 'undefined') {
             authManager.updateStats(this.currentSport, this.streak, this.score);
         }
-        const t = TRANSLATiONS[this.currentLang];
+        const t = TRANSLATIONS[this.currentLang];
         this.gameContainer.innerHTML = `
             <div class="game-over-premium" style="text-align:center; padding: 40px; animation: pageEnter 0.6s ease-out both;">
                 <h1 class="title">${t.msg_time_up || 'SÜRE DOLDU!'}</h1>
@@ -895,16 +895,16 @@ class Game {
                 this.questionCount++;
             }
 
-            if (this.currentindex >= this.activePlayers.length) {
-                if (this.timerinterval) clearinterval(this.timerinterval);
-                this.showMessage(TRANSLATiONS[this.currentLang]['msg_finished'], "success");
+            if (this.currentIndex >= this.activePlayers.length) {
+                if (this.timerInterval) clearInterval(this.timerInterval);
+                this.showMessage(TRANSLATIONS[this.currentLang]['msg_finished'], "success");
                 setTimeout(() => location.reload(), 3000);
                 return;
             }
 
-            let player = this.activePlayers[this.currentindex];
-            console.log(`Current index: ${this.currentindex}, Next Player: ${player ? player.name : 'NONE'}`);
-            this.currentindex++;
+            let player = this.activePlayers[this.currentIndex];
+            console.log(`Current index: ${this.currentIndex}, Next Player: ${player ? player.name : 'NONE'}`);
+            this.currentIndex++;
             this.currentPlayer = player;
             this.usedPlayers.add(player.name);
 
@@ -922,7 +922,7 @@ class Game {
                 this.hintStep = 0;
                 if (this.hintBtn) {
                     this.hintBtn.disabled = false;
-                    const hintText = TRANSLATiONS[this.currentLang]['btn_hint'];
+                    const hintText = TRANSLATIONS[this.currentLang]['btn_hint'];
                     this.hintBtn.innerText = this.gameMode === 'timed' ? `${hintText} (-5s)` : hintText;
                 }
                 if (this.suggestionsEl) this.suggestionsEl.classList.remove('visible');
@@ -960,7 +960,7 @@ class Game {
 
         const targetName = this.normalizeString(this.currentPlayer.name);
         const guessName = this.normalizeString(guess);
-        const t = TRANSLATiONS[this.currentLang];
+        const t = TRANSLATIONS[this.currentLang];
 
         if (targetName === guessName || this.checkPartialMatch(guessName, targetName)) {
             if (typeof sounds !== 'undefined') sounds.playCorrect();
@@ -983,7 +983,7 @@ class Game {
         if (!this.canGuess) return;
         this.canGuess = false; // Lock guessing
         
-        const t = TRANSLATiONS[this.currentLang];
+        const t = TRANSLATIONS[this.currentLang];
         this.score += 10; // +10 points flat
         this.streak++;
         this.updateStats(); // internal Ui update
@@ -1023,7 +1023,7 @@ class Game {
     }
 
     giveUp() {
-        const t = TRANSLATiONS[this.currentLang];
+        const t = TRANSLATIONS[this.currentLang];
         this.showMessage(`${t.msg_pass || 'Passed!'} ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "error");
         this.resetStreak();
         setTimeout(() => {
@@ -1038,7 +1038,7 @@ class Game {
             this.showFloatingText("-5s", "orange");
         }
 
-        const t = TRANSLATiONS[this.currentLang];
+        const t = TRANSLATIONS[this.currentLang];
 
         if (this.hintStep === 0) {
             // First Hint: Position
@@ -1165,7 +1165,7 @@ class Game {
         this.canGuess = true;
         this.doubleDipActive = false;
 
-        if (!this.timerinterval) this.startTimer();
+        if (!this.timerInterval) this.startTimer();
     }
 
     generateQuizOptions() {
@@ -1186,7 +1186,7 @@ class Game {
     }
 
     renderQuizButtons() {
-        const grid = document.getElementByid('quiz-options');
+        const grid = document.getElementById('quiz-options');
         if (!grid) return;
         grid.innerHTML = '';
 
@@ -1218,7 +1218,7 @@ class Game {
             btn.disabled = true;
 
             if (this.doubleDipActive) {
-                this.showMessage(TRANSLATiONS[this.currentLang]['joker_double_dip_active'] || "Double Dip Active! You have one more try.", "warning");
+                this.showMessage(TRANSLATIONS[this.currentLang]['joker_double_dip_active'] || "Double Dip Active! You have one more try.", "warning");
                 this.doubleDipActive = false; // Consumed
                 return;
             }
@@ -1242,7 +1242,7 @@ class Game {
     useJoker(type) {
         if (this.jokers[type]) return; // Already used
 
-        const btn = document.getElementByid(`joker-${type === '50:50' ? '50' : type === '2x' ? '2x' : 'time'}`);
+        const btn = document.getElementById(`joker-${type === '50:50' ? '50' : type === '2x' ? '2x' : 'time'}`);
         if (!btn) return;
 
         this.jokers[type] = true;
@@ -1264,17 +1264,17 @@ class Game {
             this.showMessage("Cift Cevap Hakki Tanimlandi!", "success");
         }
         else if (type === 'time') {
-            clearinterval(this.timerinterval);
-            this.timerinterval = null;
+            clearInterval(this.timerInterval);
+            this.timerInterval = null;
             this.showMessage("Süre Donduruldu!", "success");
         }
     }
 
     initJokers() {
         this.jokers = { '50:50': false, '2x': false, 'time': false };
-        const j50 = document.getElementByid('joker-50');
-        const j2x = document.getElementByid('joker-2x');
-        const jTime = document.getElementByid('joker-time');
+        const j50 = document.getElementById('joker-50');
+        const j2x = document.getElementById('joker-2x');
+        const jTime = document.getElementById('joker-time');
         if (j50) j50.disabled = false, j50.onclick = () => this.useJoker('50:50');
         if (j2x) j2x.disabled = false, j2x.onclick = () => this.useJoker('2x');
         if (jTime) jTime.disabled = false, jTime.onclick = () => this.useJoker('time');
@@ -1307,19 +1307,19 @@ class DailyChallenge {
     }
 
     getState(sport) {
-        return JSON.parse(localStorage.getitem(this.getStorageKey(sport)) || 'null') || { attempts: 0, won: false, guesses: [], hintsUsed: 0 };
+        return JSON.parse(localStorage.getItem(this.getStorageKey(sport)) || 'null') || { attempts: 0, won: false, guesses: [], hintsUsed: 0 };
     }
 
     saveState(sport, state) {
-        localStorage.setitem(this.getStorageKey(sport), JSON.stringify(state));
+        localStorage.setItem(this.getStorageKey(sport), JSON.stringify(state));
     }
 
     getStreak(sport) {
-        return parseint(localStorage.getitem(this.getStreakKey(sport)) || '0');
+        return parseint(localStorage.getItem(this.getStreakKey(sport)) || '0');
     }
 
     setStreak(sport, val) {
-        localStorage.setitem(this.getStreakKey(sport), val);
+        localStorage.setItem(this.getStreakKey(sport), val);
     }
 
     getDailyPlayer(sport) {
@@ -1351,7 +1351,7 @@ class DailyChallenge {
     }
 
     open() {
-        const modal = document.getElementByid('dc-modal');
+        const modal = document.getElementById('dc-modal');
         if (modal) modal.classList.remove('hidden');
         if (!this.currentSport) {
             this.showCategorySelect();
@@ -1361,7 +1361,7 @@ class DailyChallenge {
     }
 
     close() {
-        const modal = document.getElementByid('dc-modal');
+        const modal = document.getElementById('dc-modal');
         if (modal) modal.classList.add('hidden');
         this.currentSport = null;
     }
@@ -1395,7 +1395,7 @@ class DailyChallenge {
             `;
         }).join('');
 
-        const modal = document.getElementByid('dc-modal');
+        const modal = document.getElementById('dc-modal');
         if (modal) {
             modal.innerHTML = `
                 <div class="dc-box">
@@ -1483,7 +1483,7 @@ class DailyChallenge {
             </div>
             <div class="dc-attempts-left">🎯 ${attemptsLeft} hakkin kaldi</div>` : '';
 
-        const modal = document.getElementByid('dc-modal');
+        const modal = document.getElementById('dc-modal');
         if (modal) {
             modal.innerHTML = `
                 <div class="dc-box">
@@ -1508,7 +1508,7 @@ class DailyChallenge {
         }
 
         if (!done) {
-            const inp = document.getElementByid('dc-guess-input');
+            const inp = document.getElementById('dc-guess-input');
             if (inp) {
                 inp.addEventListener('keypress', e => { if (e.key === 'Enter') this.submitGuess(); });
                 inp.focus();
@@ -1523,7 +1523,7 @@ class DailyChallenge {
 
     handleSuggest(val) {
         if (!val || val.length < 2) {
-            document.getElementByid('dc-suggestions')?.classList.add('hidden');
+            document.getElementById('dc-suggestions')?.classList.add('hidden');
             return;
         }
         
@@ -1546,7 +1546,7 @@ class DailyChallenge {
         
         const norm = v => v.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         const matches = sourceArray.filter(p => norm(p.name).includes(norm(val))).slice(0, 6);
-        const box = document.getElementByid('dc-suggestions');
+        const box = document.getElementById('dc-suggestions');
         if (!box) return;
         if (matches.length === 0) { box.classList.add('hidden'); return; }
         box.innerHTML = matches.map(p =>
@@ -1556,15 +1556,15 @@ class DailyChallenge {
     }
 
     pickSuggestion(name) {
-        const inp = document.getElementByid('dc-guess-input');
+        const inp = document.getElementById('dc-guess-input');
         if (inp) inp.value = name;
-        document.getElementByid('dc-suggestions')?.classList.add('hidden');
+        document.getElementById('dc-suggestions')?.classList.add('hidden');
     }
 
     submitGuess() {
         const sport = this.currentSport;
         const state = this.getState(sport);
-        const inp = document.getElementByid('dc-guess-input');
+        const inp = document.getElementById('dc-guess-input');
         if (!inp) return;
         const guess = inp.value.trim();
         if (!guess) return;
@@ -1629,23 +1629,23 @@ class DailyChallenge {
 // ========================
 class AuthManager {
     constructor() {
-        this.users = JSON.parse(localStorage.getitem('guess_player_users')) || [];
-        this.currentUser = JSON.parse(localStorage.getitem('guess_player_current_user')) || null;
+        this.users = JSON.parse(localStorage.getItem('guess_player_users')) || [];
+        this.currentUser = JSON.parse(localStorage.getItem('guess_player_current_user')) || null;
 
-        this.overlay = document.getElementByid('auth-overlay');
-        this.loginForm = document.getElementByid('login-form-container');
-        this.signupForm = document.getElementByid('signup-form-container');
+        this.overlay = document.getElementById('auth-overlay');
+        this.loginForm = document.getElementById('login-form-container');
+        this.signupForm = document.getElementById('signup-form-container');
 
-        this.loginUser = document.getElementByid('login-username');
-        this.loginPass = document.getElementByid('login-password');
-        this.signupUser = document.getElementByid('signup-username');
-        this.signupEmail = document.getElementByid('signup-email');
-        this.signupPass = document.getElementByid('signup-password');
+        this.loginUser = document.getElementById('login-username');
+        this.loginPass = document.getElementById('login-password');
+        this.signupUser = document.getElementById('signup-username');
+        this.signupEmail = document.getElementById('signup-email');
+        this.signupPass = document.getElementById('signup-password');
 
-        this.loginBtn = document.getElementByid('login-submit-btn');
-        this.signupBtn = document.getElementByid('signup-submit-btn');
+        this.loginBtn = document.getElementById('login-submit-btn');
+        this.signupBtn = document.getElementById('signup-submit-btn');
 
-        this.authContainer = document.getElementByid('auth-buttons-container');
+        this.authContainer = document.getElementById('auth-buttons-container');
         this.avatarTab = 'all';
 
         this.init();
@@ -1655,8 +1655,8 @@ class AuthManager {
         if (this.loginBtn) this.loginBtn.onclick = () => this.login();
         if (this.signupBtn) this.signupBtn.onclick = () => this.signup();
 
-        const s2s = document.getElementByid('switch-to-signup');
-        const s2l = document.getElementByid('switch-to-login');
+        const s2s = document.getElementById('switch-to-signup');
+        const s2l = document.getElementById('switch-to-login');
         if (s2s) s2s.onclick = () => this.showForm('signup');
         if (s2l) s2l.onclick = () => this.showForm('login');
 
@@ -1690,7 +1690,7 @@ class AuthManager {
         const username = this.signupUser.value.trim();
         const email = this.signupEmail.value.trim();
         const password = this.signupPass.value;
-        const errorEl = document.getElementByid('signup-error');
+        const errorEl = document.getElementById('signup-error');
 
         if (username.length < 3 || password.length < 4) {
             this.showError(errorEl, "Kullanici adi en az 3, Sifre en az 4 karakter olmali.");
@@ -1723,7 +1723,7 @@ class AuthManager {
     login() {
         const username = this.loginUser.value.trim();
         const password = this.loginPass.value;
-        const errorEl = document.getElementByid('login-error');
+        const errorEl = document.getElementById('login-error');
 
         const user = this.users.find(u => u.username === username && u.password === password);
 
@@ -1747,7 +1747,7 @@ class AuthManager {
 
     openProfile() {
         if (!this.currentUser) return;
-        const modal = document.getElementByid('profile-modal');
+        const modal = document.getElementById('profile-modal');
         if (modal) {
             this.renderAvatarSelection();
             this.renderProfileStats();
@@ -1756,16 +1756,16 @@ class AuthManager {
     }
 
     closeProfile() {
-        const modal = document.getElementByid('profile-modal');
+        const modal = document.getElementById('profile-modal');
         if (modal) modal.classList.add('hidden');
     }
 
     renderProfileStats() {
-        const container = document.getElementByid('profile-stats-container');
+        const container = document.getElementById('profile-stats-container');
         if (!container || !this.currentUser) return;
 
         const lang = window.game ? window.game.currentLang : 'tr';
-        const t = TRANSLATiONS[lang];
+        const t = TRANSLATIONS[lang];
 
         const categories = [
             { id: 'football', name: t.football, icon: '⚽' },
@@ -1800,12 +1800,12 @@ class AuthManager {
             `;
         }).join('');
 
-        const avatarEl = document.getElementByid('profile-modal-avatar');
+        const avatarEl = document.getElementById('profile-modal-avatar');
         if (avatarEl) avatarEl.innerText = this.currentUser.avatar || '👤';
-        const nameEl = document.getElementByid('profile-username');
+        const nameEl = document.getElementById('profile-username');
         if (nameEl) nameEl.innerText = this.currentUser.username;
 
-        const achContainer = document.getElementByid('profile-achievements-container');
+        const achContainer = document.getElementById('profile-achievements-container');
         if (achContainer) achContainer.innerHTML = achievements.render(this.currentUser);
 
         this.renderRadarChart();
@@ -1813,7 +1813,7 @@ class AuthManager {
     }
 
     renderLeaderboard() {
-        const container = document.getElementByid('main-leaderboard-container');
+        const container = document.getElementById('main-leaderboard-container');
         if (!container) return;
 
         const allLocalUsers = Object.values(this.users).map(u => ({
@@ -1840,7 +1840,7 @@ class AuthManager {
         const topPlayers = finalBoard.slice(0, 10);
 
         const lang = window.game ? window.game.currentLang : 'tr';
-        const t = TRANSLATiONS[lang];
+        const t = TRANSLATIONS[lang];
 
         container.innerHTML = `
             <div class="leaderboard-section">
@@ -1860,11 +1860,11 @@ class AuthManager {
     }
 
     renderRadarChart() {
-        const container = document.getElementByid('radar-chart-container');
+        const container = document.getElementById('radar-chart-container');
         if (!container) return;
 
         const lang = window.game ? window.game.currentLang : 'tr';
-        const t = TRANSLATiONS[lang];
+        const t = TRANSLATIONS[lang];
 
         const cats = [
             { id: 'football', label: t.radar_football || 'Futbol' },
@@ -1965,7 +1965,7 @@ class AuthManager {
     }
 
     renderAvatarSelection() {
-        const grid = document.getElementByid('avatar-grid');
+        const grid = document.getElementById('avatar-grid');
         if (!grid) return;
 
         const avatars = {
@@ -2021,7 +2021,7 @@ class AuthManager {
         this.saveCurrentUser();
         this.updateUi();
         
-        const avatarEl = document.getElementByid('profile-modal-avatar');
+        const avatarEl = document.getElementById('profile-modal-avatar');
         if (avatarEl) avatarEl.innerText = emoji;
         this.renderAvatarSelection();
     }
@@ -2036,7 +2036,7 @@ class AuthManager {
         if (this.currentUser) {
             const avatar = this.currentUser.avatar || '👤';
             const lang = window.game ? window.game.currentLang : 'tr';
-            const t = TRANSLATiONS[lang];
+            const t = TRANSLATIONS[lang];
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
@@ -2050,7 +2050,7 @@ class AuthManager {
             `;
         } else {
             const lang = window.game ? window.game.currentLang : 'tr';
-            const t = TRANSLATiONS[lang];
+            const t = TRANSLATIONS[lang];
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
@@ -2061,11 +2061,11 @@ class AuthManager {
     }
 
     saveUsers() {
-        localStorage.setitem('guess_player_users', JSON.stringify(this.users));
+        localStorage.setItem('guess_player_users', JSON.stringify(this.users));
     }
 
     saveCurrentUser() {
-        localStorage.setitem('guess_player_current_user', JSON.stringify(this.currentUser));
+        localStorage.setItem('guess_player_current_user', JSON.stringify(this.currentUser));
     }
 
     showError(el, msg) {
@@ -2098,12 +2098,12 @@ class AuthManager {
 
 class CookieManager {
     constructor() {
-        this.banner = document.getElementByid('gp-cookie-panel');
+        this.banner = document.getElementById('gp-cookie-panel');
         this.init();
     }
 
     init() {
-        if (!localStorage.getitem('guess_player_cookies_accepted')) {
+        if (!localStorage.getItem('guess_player_cookies_accepted')) {
             setTimeout(() => {
                 if (this.banner) this.banner.classList.remove('hidden');
             }, 1000); 
@@ -2111,16 +2111,16 @@ class CookieManager {
     }
 
     accept() {
-        localStorage.setitem('guess_player_cookies_accepted', 'true');
+        localStorage.setItem('guess_player_cookies_accepted', 'true');
         if (this.banner) this.banner.classList.add('hidden');
     }
 }
 
-class infoManager {
+class InfoManager {
     constructor() {
-        this.modal = document.getElementByid('info-modal');
-        this.titleEl = document.getElementByid('info-title');
-        this.contentEl = document.getElementByid('info-content');
+        this.modal = document.getElementById('info-modal');
+        this.titleEl = document.getElementById('info-title');
+        this.contentEl = document.getElementById('info-content');
     }
 
     open(type) {
@@ -2145,8 +2145,8 @@ class infoManager {
                 break;
         }
 
-        this.titleEl.innerText = TRANSLATiONS[lang][titleKey] || 'info';
-        this.contentEl.innerText = TRANSLATiONS[lang][contentKey] || 'Content not waiting...';
+        this.titleEl.innerText = TRANSLATIONS[lang][titleKey] || 'info';
+        this.contentEl.innerText = TRANSLATIONS[lang][contentKey] || 'Content not waiting...';
 
         this.modal.classList.remove('hidden');
     }
@@ -2170,14 +2170,14 @@ class MultiplayerManager {
     }
 
     init() {
-        document.getElementByid('matchmaking-btn')?.addEventListener('click', () => this.toggleMatchmaking());
-        document.getElementByid('create-room-btn')?.addEventListener('click', () => this.createRoom());
-        document.getElementByid('join-room-btn')?.addEventListener('click', () => {
-            const id = document.getElementByid('room-id-input').value.toUpperCase();
+        document.getElementById('matchmaking-btn')?.addEventListener('click', () => this.toggleMatchmaking());
+        document.getElementById('create-room-btn')?.addEventListener('click', () => this.createRoom());
+        document.getElementById('join-room-btn')?.addEventListener('click', () => {
+            const id = document.getElementById('room-id-input').value.toUpperCase();
             if (id) this.joinRoom(id);
         });
-        document.getElementByid('start-game-btn')?.addEventListener('click', () => this.startGame());
-        document.getElementByid('multi-back-btn')?.addEventListener('click', () => this.leaveRoom());
+        document.getElementById('start-game-btn')?.addEventListener('click', () => this.startGame());
+        document.getElementById('multi-back-btn')?.addEventListener('click', () => this.leaveRoom());
     }
 
     async toggleMatchmaking() {
@@ -2212,12 +2212,12 @@ class MultiplayerManager {
 
     startQueue() {
         this.inQueue = true;
-        const btn = document.getElementByid('matchmaking-btn');
+        const btn = document.getElementById('matchmaking-btn');
         if (btn) btn.innerText = "Siradan Cik";
-        document.getElementByid('queue-status')?.classList.remove('hidden');
+        document.getElementById('queue-status')?.classList.remove('hidden');
         
         let seconds = 0;
-        this.queueTimerinterval = setinterval(() => {
+        this.queuetimerInterval = setInterval(() => {
             seconds++;
             const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
             const secs = (seconds % 60).toString().padStart(2, '0');
@@ -2228,10 +2228,10 @@ class MultiplayerManager {
 
     stopQueue() {
         this.inQueue = false;
-        const btn = document.getElementByid('matchmaking-btn');
+        const btn = document.getElementById('matchmaking-btn');
         if (btn) btn.innerText = "Hizli MaC Bul";
-        document.getElementByid('queue-status')?.classList.add('hidden');
-        clearinterval(this.queueTimerinterval);
+        document.getElementById('queue-status')?.classList.add('hidden');
+        clearInterval(this.queuetimerInterval);
         if (this.db) this.db.ref('queue').child(authManager.currentUser?.username || 'Guest').remove();
     }
 
@@ -2273,7 +2273,7 @@ class MultiplayerManager {
             const mockiD = "TEST";
             this.roomiD = mockiD;
             this.showRoomUi(mockiD);
-            const p1 = document.getElementByid('p1-name');
+            const p1 = document.getElementById('p1-name');
             if (p1) p1.innerText = authManager.currentUser?.username || 'Siz';
             alert("Simülasyon Modu: Oda oluSturuldu (KOD: TEST).");
         }
@@ -2281,8 +2281,8 @@ class MultiplayerManager {
 
     showRoomUi(id) {
         document.querySelector('.multi-actions')?.classList.add('hidden');
-        document.getElementByid('room-info')?.classList.remove('hidden');
-        const idEl = document.getElementByid('display-room-id');
+        document.getElementById('room-info')?.classList.remove('hidden');
+        const idEl = document.getElementById('display-room-id');
         if (idEl) {
             idEl.innerText = id;
             idEl.onclick = () => {
@@ -2319,12 +2319,12 @@ class MultiplayerManager {
             const p1 = data.players?.p1;
             const p2 = data.players?.p2;
 
-            if (p1) document.getElementByid('p1-name').innerText = p1.name;
+            if (p1) document.getElementById('p1-name').innerText = p1.name;
             if (p2) {
-                document.getElementByid('p2-name').innerText = p2.name;
-                document.getElementByid('p2-status').innerText = "HAZiR";
+                document.getElementById('p2-name').innerText = p2.name;
+                document.getElementById('p2-status').innerText = "HAZiR";
                 if (this.isHost && data.status === 'waiting') {
-                    document.getElementByid('start-game-btn').classList.remove('hidden');
+                    document.getElementById('start-game-btn').classList.remove('hidden');
                 }
             }
 
@@ -2336,7 +2336,7 @@ class MultiplayerManager {
                 const oppKey = this.isHost ? 'p2' : 'p1';
                 if (data.players[oppKey]) {
                     this.opponentScore = data.players[oppKey].score;
-                    document.getElementByid('opp-score').innerText = this.opponentScore;
+                    document.getElementById('opp-score').innerText = this.opponentScore;
                 }
             }
         });
@@ -2352,7 +2352,7 @@ class MultiplayerManager {
         const sport = game.currentSport || 'football';
         const diff = game.currentDifficulty || 'easy';
         game.startGame(diff);
-        document.getElementByid('multiplayer-hud')?.classList.remove('hidden');
+        document.getElementById('multiplayer-hud')?.classList.remove('hidden');
     }
 
     updateMyScore(score) {
@@ -2422,7 +2422,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.authManager = new AuthManager();
     window.cookieManager = new CookieManager();
-    window.infoManager = new infoManager();
+    window.infoManager = new InfoManager();
     window.multiplayerManager = new MultiplayerManager();
 
     const badge = document.querySelector('.daily-challenge-badge');
