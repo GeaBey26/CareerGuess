@@ -19,7 +19,7 @@ var nhlPlayers = [
     { name: "Artemi Panarin", difficulty: "easy", status: "active", position: "Left Wing", flag: "gY?ï¿½gY?ï¿½", nationality: "Russia", career: [{ years: "2015-2017", team: "Chicago Blackhawks" }, { years: "2017-2019", team: "Columbus Blue Jackets" }, { years: "2019-Present", team: "NY Rangers" }] },
     { name: "Connor Bedard", difficulty: "easy", status: "active", position: "Center", flag: "gY?ï¿½gY?ï¿½", nationality: "Canada", career: [{ years: "2023-Present", team: "Chicago Blackhawks" }] },
     { name: "Jack Hughes", difficulty: "easy", status: "active", position: "Center", flag: "gY?ï¿½gY?ï¿½", nationality: "USA", career: [{ years: "2019-Present", team: "NJ Devils" }] },
-    { name: "Marc-Andre Fleury", difficulty: "easy", status: "active", position: "Goalie", flag: "gY?ï¿½gY?ï¿½", nationality: "Canada", career: [{ years: "2003-2017", team: "Pittsburgh Penguins" }, { years: "2017-2021", team: "Vegas Golden Knights" }, { years: "2021-2022", team: "Chicago Blackhawks" }, { years: "2022-Present", team: "Minnesota Wild" }] },
+    { name: "Marc-Andre Fleury", difficulty: "easy", status: "retired", position: "Goalie", flag: "gY?ï¿½gY?ï¿½", nationality: "Canada", career: [{ years: "2003-2017", team: "Pittsburgh Penguins" }, { years: "2017-2021", team: "Vegas Golden Knights" }, { years: "2021-2022", team: "Chicago Blackhawks" }, { years: "2022-Present", team: "Minnesota Wild" }] },
 
     // --- MEDIUM (Stars & All-Stars) - Approx 40 ---
     { name: "Andrei Vasilevskiy", difficulty: "easy", status: "active", position: "Goalie", flag: "gY?ï¿½gY?ï¿½", nationality: "Russia", career: [{ years: "2014-Present", team: "Tampa Bay Lightning" }] },

@@ -26,7 +26,7 @@ var nflPlayers = [
     { name: "C.J. Stroud", difficulty: "easy", status: "active", position: "Quarterback", flag: "US", nationality: "ABD", career: [{ years: "2023-Present", team: "Houston Texans" }] },
 
     // --- MEDIUM (Stars / Pro Browlers) ---
-    { name: "Kirk Cousins", difficulty: "easy", status: "active", position: "Quarterback", flag: "US", nationality: "ABD", career: [{ years: "2012-2017", team: "Washington Redskins" }, { years: "2018-2023", team: "Minnesota Vikings" }, { years: "2024-Present", team: "Atlanta Falcons" }] },
+    { name: "Kirk Cousins", difficulty: "easy", status: "active", position: "Quarterback", flag: "US", nationality: "ABD", career: [{ years: "2012-2017", team: "Washington Redskins" }, { years: "2018-2023", team: "Minnesota Vikings" }, { years: "2024-2025", team: "Atlanta Falcons" }, { years: "2026-Present", team: "Las Vegas Raiders" }] },
     { name: "Saquon Barkley", difficulty: "easy", status: "active", position: "Running Back", flag: "US", nationality: "ABD", career: [{ years: "2018-2023", team: "New York Giants" }, { years: "2024-Present", team: "Philadelphia Eagles" }] },
     { name: "Derrick Henry", difficulty: "easy", status: "active", position: "Running Back", flag: "US", nationality: "ABD", career: [{ years: "2016-2023", team: "Tennessee Titans" }, { years: "2024-Present", team: "Baltimore Ravens" }] },
     { name: "Stefon Diggs", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2015-2019", team: "Minnesota Vikings" }, { years: "2020-2023", team: "Buffalo Bills" }, { years: "2024-Present", team: "Houston Texans" }] },
@@ -55,7 +55,7 @@ var nflPlayers = [
     { name: "Brandon Aiyuk", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2020-Present", team: "San Francisco 49ers" }] },
     { name: "DK Metcalf", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2019-Present", team: "Seattle Seahawks" }] },
     { name: "Terry McLaurin", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2019-Present", team: "Washington Commanders" }] },
-    { name: "Mike Evans", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2014-Present", team: "Tampa Bay Buccaneers" }] },
+    { name: "Mike Evans", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2014-2025", team: "Tampa Bay Buccaneers" }, { years: "2026-Present", team: "San Francisco 49ers" }] },
     { name: "Chris Godwin", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2017-Present", team: "Tampa Bay Buccaneers" }] },
     { name: "Amari Cooper", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2015-2018", team: "Oakland Raiders" }, { years: "2018-2021", team: "Dallas Cowboys" }, { years: "2022-2024", team: "Cleveland Browns" }, { years: "2024-Present", team: "Buffalo Bills" }] },
     { name: "Keenan Allen", difficulty: "easy", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2013-2023", team: "LA Chargers" }, { years: "2024-Present", team: "Chicago Bears" }] },
@@ -116,7 +116,7 @@ var nflPlayers = [
     { name: "Lavonte David", difficulty: "hard", status: "active", position: "Linebacker", flag: "US", nationality: "ABD", career: [{ years: "2012-Present", team: "Tampa Bay Buccaneers" }] },
     { name: "Demario Davis", difficulty: "hard", status: "active", position: "Linebacker", flag: "US", nationality: "ABD", career: [{ years: "2012", team: "NY Jets" }, { years: "2013-2015", team: "Cleveland Browns" }, { years: "2016-2017", team: "NY Jets" }, { years: "2018-Present", team: "New Orleans Saints" }] },
     { name: "Tyrann Mathieu", difficulty: "hard", status: "active", position: "Safety", flag: "US", nationality: "ABD", career: [{ years: "2013-2017", team: "Arizona Cardinals" }, { years: "2018", team: "Houston Texans" }, { years: "2019-2021", team: "Kansas City Chiefs" }, { years: "2022-Present", team: "New Orleans Saints" }] },
-    { name: "Justin Simmons", difficulty: "hard", status: "active", position: "Safety", flag: "US", nationality: "ABD", career: [{ years: "2016-2023", team: "Denver Broncos" }, { years: "2024-Present", team: "Atlanta Falcons" }] },
+    { name: "Justin Simmons", difficulty: "hard", status: "active", position: "Safety", flag: "US", nationality: "ABD", career: [{ years: "2016-2023", team: "Denver Broncos" }, { years: "2024-2025", team: "Atlanta Falcons" }, { years: "2026-Present", team: "Las Vegas Raiders" }] },
     { name: "Courtland Sutton", difficulty: "hard", status: "active", position: "Wide Receiver", flag: "US", nationality: "ABD", career: [{ years: "2018-Present", team: "Denver Broncos" }] },
 
 
