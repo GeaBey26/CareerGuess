@@ -1,6 +1,6 @@
 var basketballPlayers = [
     // --- EASY (Superstars / Global Icons) ---
-    { name: "Cooper Flagg", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2025-Present", team: "Dallas Mavericks" }] },
+    { name: "Cooper Flagg", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2025-2026", team: "Dallas Mavericks" }, { years: "2026-Present", team: "Washington Wizards" }] },
     { name: "Zaccharie Risacher", difficulty: "hard", status: "active", position: "Forvet", flag: "FR", nationality: "Fransa", career: [{ years: "2023-2024", team: "JL Bourg" }, { years: "2024-Present", team: "Atlanta Hawks" }] },
     { name: "Alex Sarr", difficulty: "hard", status: "active", position: "Pivot", flag: "FR", nationality: "Fransa", career: [{ years: "2023-2024", team: "Perth Wildcats" }, { years: "2024-Present", team: "Washington Wizards" }] },
     { name: "Russell Westbrook", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2008-2019", team: "OKC Thunder" }, { years: "2019-2020", team: "Houston Rockets" }, { years: "2021-2023", team: "LA Lakers" }, { years: "2023-2024", team: "LA Clippers" }, { years: "2024-Present", team: "Denver Nuggets" }] },
@@ -35,14 +35,14 @@ var basketballPlayers = [
     { name: "John Stockton", difficulty: "easy", status: "retired", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "1984-2003", team: "Utah Jazz" }] },
     { name: "Karl Malone", difficulty: "easy", status: "retired", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "1985-2004", team: "Utah Jazz" }] },
     { name: "Derrick Rose", difficulty: "easy", status: "retired", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2008-2024", team: "Bulls/Knicks/Grizzlies" }] },
-    { name: "Kawhi Leonard", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2011-2018", team: "San Antonio Spurs" }, { years: "2018-2019", team: "Toronto Raptors" }, { years: "2019-Present", team: "LA Clippers" }] },
+    { name: "Kawhi Leonard", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2011-2018", team: "San Antonio Spurs" }, { years: "2018-2019", team: "Toronto Raptors" }, { years: "2019-2025", team: "LA Clippers" }, { years: "2025-Present", team: "Philadelphia 76ers" }] },
     { name: "Paul George", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2010-2017", team: "Indiana Pacers" }, { years: "2017-2019", team: "OKC Thunder" }, { years: "2019-2024", team: "LA Clippers" }, { years: "2024-Present", team: "Philadelphia 76ers" }] },
     { name: "Jimmy Butler", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2011-2017", team: "Chicago Bulls" }, { years: "2017-2018", team: "Minnesota Timberwolves" }, { years: "2018-2019", team: "Philadelphia 76ers" }, { years: "2019-Present", team: "Miami Heat" }] },
     { name: "DevÇin Booker", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2015-Present", team: "Phoenix Suns" }] },
     { name: "Donovan Mitchell", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2017-2022", team: "Utah Jazz" }, { years: "2022-Present", team: "Cleveland Cavaliers" }] },
     { name: "Ja Morant", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2019-Present", team: "Memphis Grizzlies" }] },
-    { name: "Zion Williamson", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2019-Present", team: "New Orleans Pelicans" }] },
-    { name: "Trae Young", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2018-Present", team: "Atlanta Hawks" }] },
+    { name: "Zion Williamson", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2019-2025", team: "New Orleans Pelicans" }, { years: "2025-Present", team: "Toronto Raptors" }] },
+    { name: "Trae Young", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2018-2026", team: "Atlanta Hawks" }, { years: "2026-Present", team: "Washington Wizards" }] },
     { name: "Tyrese Haliburton", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2020-Present", team: "Indiana Pacers" }] },
     { name: "Jaylen Brown", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2016-Present", team: "Boston Celtics" }] },
     { name: "De'Aaron Fox", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2017-Present", team: "Sacramento Kings" }] },
@@ -100,7 +100,7 @@ var basketballPlayers = [
     { name: "Draymond Green", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2012-Present", team: "Golden State Warriors" }] },
     { name: "Andrew Wiggins", difficulty: "easy", status: "active", position: "Forvet", flag: "CA", nationality: "Kanada", career: [{ years: "2014-Present", team: "Warriors/Wolves" }] },
     { name: "Julius Randle", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2014-Present", team: "Wolves/Knicks/Lakers" }] },
-    { name: "Zach LaVine", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2014-2017", team: "Minnesota Timberwolves" }, { years: "2017-Present", team: "Chicago Bulls" }] },
+    { name: "Zach LaVine", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2014-2017", team: "Minnesota Timberwolves" }, { years: "2017-2025", team: "Chicago Bulls" }, { years: "2025-Present", team: "Sacramento Kings" }] },
 
     // --- HARD (Supporting Stars & NBA Icons) ---
     { name: "John Wall", difficulty: "hard", status: "retired", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2010-2023", team: "Washington Wizards" }] },
