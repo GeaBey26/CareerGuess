@@ -2,12 +2,12 @@
 var players = players || [];
 
 // ==========================================
-// SOUND MANAGER (WEB AUDIO API)
+// SOUND MANAGER (WEB AUDiO APi)
 // ==========================================
 class SoundManager {
     constructor() {
         this.ctx = null;
-        this.enabled = localStorage.getItem('guess_player_sound') !== 'false';
+        this.enabled = localStorage.getitem('guess_player_sound') !== 'false';
     }
 
     init() {
@@ -18,13 +18,13 @@ class SoundManager {
 
     toggle() {
         this.enabled = !this.enabled;
-        localStorage.setItem('guess_player_sound', this.enabled);
+        localStorage.setitem('guess_player_sound', this.enabled);
         return this.enabled;
     }
 
-    toggleUI() {
+    toggleUi() {
         const enabled = this.toggle();
-        const btn = document.getElementById('sound-toggle');
+        const btn = document.getElementByid('sound-toggle');
         if (btn) btn.innerText = enabled ? '🔊' : '🔇';
         if (enabled) {
             this.init();
@@ -39,7 +39,7 @@ class SoundManager {
         if (this.ctx.state === 'suspended') this.ctx.resume();
 
         const osc = this.ctx.createOscillator();
-        const gaÇin = this.ctx.createGain();
+        const gain = this.ctx.createGain();
 
         osc.type = type;
         osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
@@ -77,21 +77,21 @@ class SoundManager {
 const sounds = new SoundManager();
 
 // ==========================================
-// ACHIEVEMENT MANAGER
+// ACHiEVEMENT MANAGER
 // ==========================================
 class AchievementManager {
     constructor() {
         this.achievements = [
-            { id: 'first_win', icon: '🎯', tr: 'İlk Tahmin', en: 'First Guess', desc_tr: 'İlk oyuncuyu doğru Tahmin et.', desc_en: 'Guess your first player correctly.' },
-            { id: 'streak_5', icon: '🔥', tr: 'Sıcak Seri', en: 'Hot Streak', desc_tr: '5\'li seri yakala.', desc_en: 'Reach a streak of 5.' },
+            { id: 'first_win', icon: '🎯', tr: 'ilk Tahmin', en: 'First Guess', desc_tr: 'ilk oyuncuyu doGru Tahmin et.', desc_en: 'Guess your first player correctly.' },
+            { id: 'streak_5', icon: '🔥', tr: 'Sicak Seri', en: 'Hot Streak', desc_tr: '5\'li seri yakala.', desc_en: 'Reach a streak of 5.' },
             { id: 'streak_10', icon: '🎉', tr: 'Efsane Seri', en: 'Godlike Streak', desc_tr: '10\'lu seri yakala.', desc_en: 'Reach a streak of 10.' },
-            { id: 'score_100', icon: '💯', tr: 'Dalya', en: 'Century', desc_tr: 'Tek oyunda 100 puan yap.', desc_en: 'Score 100 points Çin a single game.' },
-            { id: 'daily_win', icon: '📅', tr: 'Günlük Kahraman', en: 'Daily Hero', desc_tr: 'Bir Günlük Yarışmayı tamamla.', desc_en: 'Complete one Daily Challenge.' },
-            { id: 'football_pro', icon: '⚽', tr: 'Futbol Gurmesi', en: 'Football Guru', desc_tr: 'Futbolda 500 toplam puan.', desc_en: 'Score 500 total points Çin Football.' },
-            { id: 'basket_pro', icon: '🏀', tr: 'Basketbol Üstadı', en: 'Hoops Master', desc_tr: 'Basketbolda 500 toplam puan.', desc_en: 'Score 500 total points Çin Basketball.' },
-            { id: 'f1_speed', icon: '🏎️', tr: 'Hız Tutkunu', en: 'Speed Demon', desc_tr: 'F1 kategorisinde oyna.', desc_en: 'Play Çin the F1 category.' },
-            { id: 'esport_gamer', icon: '🎮', tr: 'Gerçek Oyuncu', en: 'True Gamer', desc_tr: 'E-Spor kategorisinde oyna.', desc_en: 'Play Çin E-Sports category.' },
-            { id: 'multilingual', icon: '🌍', tr: 'Dünya İnsanı', en: 'Polyglot', desc_tr: '3 farklı dilde oyna.', desc_en: 'Play Çin 3 different languages.' }
+            { id: 'score_100', icon: '💯', tr: 'Dalya', en: 'Century', desc_tr: 'Tek oyunda 100 puan yap.', desc_en: 'Score 100 points in a single game.' },
+            { id: 'daily_win', icon: '📅', tr: 'Günlük Kahraman', en: 'Daily Hero', desc_tr: 'Bir Günlük YariSmayi tamamla.', desc_en: 'Complete one Daily Challenge.' },
+            { id: 'football_pro', icon: '⚽', tr: 'Futbol Gurmesi', en: 'Football Guru', desc_tr: 'Futbolda 500 toplam puan.', desc_en: 'Score 500 total points in Football.' },
+            { id: 'basket_pro', icon: '🏀', tr: 'Basketbol Üstadi', en: 'Hoops Master', desc_tr: 'Basketbolda 500 toplam puan.', desc_en: 'Score 500 total points in Basketball.' },
+            { id: 'f1_speed', icon: '🏎️', tr: 'Hiz Tutkunu', en: 'Speed Demon', desc_tr: 'F1 kategorisinde oyna.', desc_en: 'Play in the F1 category.' },
+            { id: 'esport_gamer', icon: '🎮', tr: 'GerCek Oyuncu', en: 'True Gamer', desc_tr: 'E-Spor kategorisinde oyna.', desc_en: 'Play in E-Sports category.' },
+            { id: 'multilingual', icon: '🌍', tr: 'Dünya insani', en: 'Polyglot', desc_tr: '3 farkli dilde oyna.', desc_en: 'Play in 3 different languages.' }
         ];
     }
 
@@ -125,7 +125,7 @@ class AchievementManager {
             authManager.saveUsers();
             authManager.saveCurrentUser();
             newlyUnlocked.forEach(ach => {
-                const msg = `🏆 BAŞARIM AÇILDI: ${ach.tr}`;
+                const msg = `🏆 BASARiM ACiLDi: ${ach.tr}`;
                 if (window.game) window.game.showMessage(msg, 'success');
                 if (typeof sounds !== 'undefined') sounds.playLevelUp();
             });
@@ -136,11 +136,11 @@ class AchievementManager {
     render(user) {
         const unlocked = user.achievements || [];
         const lang = (window.game && window.game.currentLang) || 'tr';
-        const t = TRANSLATIONS[lang];
+        const t = TRANSLATiONS[lang];
 
         return `
             <div class="achievements-section">
-                <span class="section-title">${t.achievements_title || 'BAŞARIMLAR'}</span>
+                <span class="section-title">${t.achievements_title || 'BASARiMLAR'}</span>
                 <div class="achievements-grid">
                     ${this.achievements.map(ach => {
                         const name = lang === 'tr' ? ach.tr : (ach.en || ach.tr);
@@ -158,7 +158,7 @@ class AchievementManager {
     }
 }
 
-// 🔥 FLAG OLUŞTUR (ASLA BOZULMAZ)
+// 🔥 FLAG OLUSTUR (ASLA BOZULMAZ)
 function getFlagEmoji(countryCode) {
     if (!countryCode) return "";
     return countryCode
@@ -170,23 +170,23 @@ function getFlagEmoji(countryCode) {
 
 const achievements = new AchievementManager();
 
-const TRANSLATIONS = {
+const TRANSLATiONS = {
     tr: {
         title_category: "CAREER GUESS",
-        subtitle_category: "Branşını Seç ve Başla!",
+        subtitle_category: "BranSini SeC ve BaSla!",
         football: "FUTBOL",
         basketball: "BASKETBOL",
         nhl: "NHL",
         nfl: "NFL",
         volleyball: "VOLEYBOL",
-        cricket: "KRİKET",
+        cricket: "KRiKET",
         f1: "FORMULA 1",
-        tennis: "TENİS",
+        tennis: "TENiS",
         esports: "E-SPOR",
-        title_esports_select: "OYUN SEÇ VE BAŞLA",
+        title_esports_select: "OYUN SEC VE BASLA",
         subtitle_esports: "Hangi oyunu oynamak istersin?",
         back: "← Geri",
-        title_setup: "OYUN AYARLARI",
+        title_setup: "OYUN AYARLARi",
         status_all: "Hepsi",
         status_active: "Aktif",
         status_retired: "Emekli",
@@ -194,59 +194,59 @@ const TRANSLATIONS = {
         diff_easy: "KOLAY",
         diff_medium: "ORTA",
         diff_hard: "ZOR",
-        title_mode: "OYUN TÜRÜ SEÇ",
-        subtitle_mode: "Nasıl oynamak istersin?",
-        mode_classic: "SÜRESİZ",
+        title_mode: "OYUN TÜRÜ SEC",
+        subtitle_mode: "Nasil oynamak istersin?",
+        mode_classic: "SÜRESiZ",
         mode_classic_desc: "Rahat rahat, acele yok.",
-        mode_timed: "SÜRELİ",
-        mode_timed_desc: "60 saniye. Hızını göster!",
+        mode_timed: "SÜRELi",
+        mode_timed_desc: "60 saniye. Hizini gOster!",
         title_game_football: "CAREER GUESS",
         title_game_basketball: "CAREER GUESS (BASKETBOL)",
         title_game_nhl: "CAREER GUESS (NHL)",
         title_game_nfl: "CAREER GUESS (NFL)",
         title_game_volleyball: "CAREER GUESS (VOLEYBOL)",
-        title_game_cricket: "CAREER GUESS (KRİKET)",
+        title_game_cricket: "CAREER GUESS (KRiKET)",
         title_game_f1: "CAREER GUESS (F1)",
-        title_game_tennis: "CAREER GUESS (TENİS)",
+        title_game_tennis: "CAREER GUESS (TENiS)",
         title_game_esports: "CAREER GUESS (E-SPOR)",
-        subtitle_game: "Kariyer geçmişine bak ve oyuncuyu Tahmin et!",
+        subtitle_game: "Kariyer geCmiSine bak ve oyuncuyu Tahmin et!",
         score: "Skor",
         streak: "Seri",
-        input_placeholder: "İsim yaz...",
+        input_placeholder: "isim yaz...",
         btn_give_up: "Pes Et",
-        btn_hint: "İpucu",
+        btn_hint: "ipucu",
         btn_guess: "Tahmin Et",
-        msg_correct: "Doğru! +10 Puan",
-        msg_wrong: "Yanlış Cevap! -10 Puan",
-        msg_used_hint: "İpucu Kullanıldı",
-        hint_1_prefix: "İpucu 1: Pozisyon -",
-        hint_2_prefix: "İpucu 2: Ülke -",
-        msg_pass: "Pas geçildi.",
-        msg_finished: "Tebrikler! Tüm oyuncuları bildin!",
-        msg_time_up: "SÜRE BİTTİ!",
+        msg_correct: "DoGru! +10 Puan",
+        msg_wrong: "YanliS Cevap! -10 Puan",
+        msg_used_hint: "ipucu Kullanildi",
+        hint_1_prefix: "ipucu 1: Pozisyon -",
+        hint_2_prefix: "ipucu 2: Ülke -",
+        msg_pass: "Pas geCildi.",
+        msg_finished: "Tebrikler! Tüm oyunculari bildin!",
+        msg_time_up: "SÜRE BiTTi!",
         msg_total_score: "Toplam Skor:",
         btn_play_again: "TEKRAR OYNA",
-        confirm_exit: "Çıkmak istediğine emin misin? Oyun sıfırlanacak.",
-        btn_login: "Giriş Yap",
-        btn_signup: "Kayıt Ol",
-        btn_register: "Kayıt Ol",
-        btn_logout: "Çıkış Yap",
-        profile_title: "OYUNCU PROFİLİ",
-        achievements_title: "BAŞARIMLAR",
-        leaderboard_title: "LİDERLİK TABLOSU",
+        confirm_exit: "Cikmak istediGine emin misin? Oyun sifirlanacak.",
+        btn_login: "GiriS Yap",
+        btn_signup: "Kayit Ol",
+        btn_register: "Kayit Ol",
+        btn_logout: "CikiS Yap",
+        profile_title: "OYUNCU PROFiLi",
+        achievements_title: "BASARiMLAR",
+        leaderboard_title: "LiDERLiK TABLOSU",
         stat_max_streak: "Max Seri:",
         stat_highscore: "En Yüksek Skor:",
-        lb_you: "(SENSİN)",
-        footer_rights: "Tüm hakları saklıdır.",
-        footer_privacy: "Gizlilik Politikası",
-        footer_terms: "Kullanım Şartları",
-        cookie_text: "Bu site deneyim ve reklamlar için çerez kullanır.",
+        lb_you: "(SENSiN)",
+        footer_rights: "Tüm haklari saklidir.",
+        footer_privacy: "Gizlilik Politikasi",
+        footer_terms: "Kullanim Sartlari",
+        cookie_text: "Bu site deneyim ve reklamlar iin Cerez kullanir.",
         cookie_info: "Daha Fazla Bilgi",
         cookie_accept: "Kabul Et",
         btn_close: "Kapat",
-        cookie_info_title: "Çerez Bilgisi",
-        privacy_content: "GİZLİLİK POLİTİKASI\n\n1. Veriler\nİlerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nÇerez kullanan üçüncü taraf reklamlar gösterebiliriz.\n\n3. İletişim\nSorularınız için bizimle iletişime geçin.",
-        terms_content: "KULLANIM ŞARTLARI\n\n1. Kullanım\nBu oyun eğlence amaçlıdır.\n\n2. Telif Hakkı\nİçerikler ve tasarım koruma altındadır.\n\n3. Sorumluluk\nOyun 'olduğu gibi' sunulur. Kesintilerden sorumlu değiliz.",
+        cookie_info_title: "Cerez Bilgisi",
+        privacy_content: "GiZLiLiK POLiTiKASi\n\n1. Veriler\nilerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nCerez kullanan üCüncü taraf reklamlar gOsterebiliriz.\n\n3. iletiSim\nSorulariniz iin bizimle iletiSime gein.",
+        terms_content: "KULLANiM SARTLARi\n\n1. Kullanim\nBu oyun eGlence amaClidir.\n\n2. Telif Hakki\niCerikler ve tasarim koruma altindadir.\n\n3. Sorumluluk\nOyun 'olduGu gibi' sunulur. Kesintilerden sorumlu deGiliz.",
     },
     en: {
         title_category: "CAREER GUESS",
@@ -256,35 +256,35 @@ const TRANSLATIONS = {
         nhl: "NHL",
         nfl: "NFL",
         volleyball: "VOLLEYBALL",
-        cricket: "CRICKET",
+        cricket: "CRiCKET",
         f1: "FORMULA 1",
-        tennis: "TENNIS",
+        tennis: "TENNiS",
         esports: "E-SPORTS",
         title_esports_select: "CHOOSE GAME",
         subtitle_esports: "Which game do you want to play?",
         back: "← Back",
-        title_setup: "SETTINGS",
+        title_setup: "SETTiNGS",
         status_all: "All",
         status_active: "Active",
         status_retired: "Retired",
         status_tr: "Turkish",
         diff_easy: "EASY",
-        diff_medium: "MEDIUM",
+        diff_medium: "MEDiUM",
         diff_hard: "HARD",
         title_mode: "GAME MODE",
         subtitle_mode: "How do you want to play?",
-        mode_classic: "CLASSIC",
+        mode_classic: "CLASSiC",
         mode_classic_desc: "No rush, just fun.",
-        mode_timed: "TIMED",
+        mode_timed: "TiMED",
         mode_timed_desc: "60 seconds. Show your speed!",
         title_game_football: "CAREER GUESS",
         title_game_basketball: "CAREER GUESS (BASKETBALL)",
         title_game_nhl: "CAREER GUESS (NHL)",
         title_game_nfl: "CAREER GUESS (NFL)",
         title_game_volleyball: "CAREER GUESS (VOLLEYBALL)",
-        title_game_cricket: "CAREER GUESS (CRICKET)",
+        title_game_cricket: "CAREER GUESS (CRiCKET)",
         title_game_f1: "CAREER GUESS (F1)",
-        title_game_tennis: "CAREER GUESS (TENNIS)",
+        title_game_tennis: "CAREER GUESS (TENNiS)",
         title_game_esports: "CAREER GUESS (E-SPORTS)",
         subtitle_game: "Check the career path and guess the player!",
         score: "Score",
@@ -300,16 +300,16 @@ const TRANSLATIONS = {
         hint_2_prefix: "Hint 2: Nationality -",
         msg_pass: "Passed.",
         msg_finished: "Congratulations! You guessed all players!",
-        msg_time_up: "TIME'S UP!",
+        msg_time_up: "TiME'S UP!",
         msg_total_score: "Total Score:",
-        btn_play_again: "PLAY AGAIN",
+        btn_play_again: "PLAY AGAiN",
         confirm_exit: "Are you sure you want to exit? Progress will be lost.",
         btn_login: "Login",
         btn_signup: "Sign Up",
         btn_register: "Sign Up",
         btn_logout: "Logout",
-        profile_title: "PLAYER PROFILE",
-        achievements_title: "ACHIEVEMENTS",
+        profile_title: "PLAYER PROFiLE",
+        achievements_title: "ACHiEVEMENTS",
         leaderboard_title: "LEADERBOARD",
         stat_max_streak: "Max Streak:",
         stat_highscore: "High Score:",
@@ -318,11 +318,11 @@ const TRANSLATIONS = {
         footer_privacy: "Privacy Policy",
         footer_terms: "Terms of Use",
         cookie_text: "This site uses cookies for experience and ads.",
-        cookie_info: "More Info",
+        cookie_info: "More info",
         cookie_accept: "Accept",
         btn_close: "Close",
-        cookie_info_title: "Cookie Information",
-        privacy_content: "PRIVACY POLICY\n\n1. Data\nProgress is saved locally.\n\n2. Ads\nWe may show third-party ads using cookies.\n\n3. Contact\nContact us for questions.",
+        cookie_info_title: "Cookie information",
+        privacy_content: "PRiVACY POLiCY\n\n1. Data\nProgress is saved locally.\n\n2. Ads\nWe may show third-party ads using cookies.\n\n3. Contact\nContact us for questions.",
         terms_content: "TERMS OF USE\n\n1. Use\nThis game is for entertainment only.\n\n2. Copyright\nContents are protected.\n\n3. Liability\nGame is provided 'as is'.",
     },
     es: {
@@ -332,27 +332,27 @@ const TRANSLATIONS = {
         basketball: "BALONCESTO",
         nhl: "NHL",
         nfl: "NFL",
-        volleyball: "VOLEIBOL",
+        volleyball: "VOLEiBOL",
         cricket: "CRÍQUET",
         f1: "FÓRMULA 1",
-        tennis: "TENİS",
+        tennis: "TENiS",
         esports: "E-SPORTS",
-        title_esports_select: "ELIGE JUEGO",
+        title_esports_select: "ELiGE JUEGO",
         subtitle_esports: "¿Qué juego quieres jugar?",
         back: "← Volver",
-        title_setup: "CONFIGURACIÓN",
+        title_setup: "CONFiGURACiÓN",
         status_all: "Todos",
         status_active: "Activo",
         status_retired: "Retirado",
         status_tr: "Turcos",
-        diff_easy: "FÁCIL",
-        diff_medium: "MEDIO",
-        diff_hard: "DIFÍCIL",
+        diff_easy: "FÁCiL",
+        diff_medium: "MEDiO",
+        diff_hard: "DiFÍCiL",
         title_mode: "MODO DE JUEGO",
         subtitle_mode: "¿Cómo quieres jugar?",
-        mode_classic: "CLÁSICO",
+        mode_classic: "CLÁSiCO",
         mode_classic_desc: "Sin prisa, solo diversión.",
-        mode_timed: "CON TIEMPO",
+        mode_timed: "CON TiEMPO",
         mode_timed_desc: "60 segundos. ¡Demuestra tu velocidad!",
         score: "Puntuación",
         streak: "Racha",
@@ -361,23 +361,23 @@ const TRANSLATIONS = {
         btn_hint: "Pista",
         btn_guess: "Adivinar",
         msg_correct: "¡Correcto! +10 Pts",
-        msg_wrong: "¡Incorrecto! -10 Pts",
+        msg_wrong: "¡incorrecto! -10 Pts",
         msg_used_hint: "Pista Usada",
         hint_1_prefix: "Pista 1: Posición -",
         hint_2_prefix: "Pista 2: Nacionalidad -",
         msg_pass: "Saltado.",
         msg_finished: "¡Felicidades! ¡Has adivinado todos los jugadores!",
-        msg_time_up: "¡SE ACABÓ EL TIEMPO!",
+        msg_time_up: "¡SE ACABÓ EL TiEMPO!",
         msg_total_score: "Puntuación Total:",
         btn_play_again: "JUGAR DE NUEVO",
         confirm_exit: "¿Seguro que quieres salir? El progreso se perderá.",
-        btn_login: "Iniciar Sesión",
+        btn_login: "iniciar Sesión",
         btn_signup: "Registrarse",
         btn_register: "Registrarse",
         btn_logout: "Cerrar Sesión",
-        profile_title: "PERFIL DE JUGADOR",
+        profile_title: "PERFiL DE JUGADOR",
         achievements_title: "LOGROS",
-        leaderboard_title: "TABLA DE CLASIFICACIÓN",
+        leaderboard_title: "TABLA DE CLASiFiCACiÓN",
         stat_max_streak: "Racha Máxima:",
         stat_highscore: "Puntuación Más Alta:",
         lb_you: "(TÚ)",
@@ -385,12 +385,12 @@ const TRANSLATIONS = {
         footer_privacy: "Política de Privacidad",
         footer_terms: "Términos de Uso",
         cookie_text: "Este sitio utiliza cookies para experiencia y anuncios.",
-        cookie_info: "Más Información",
+        cookie_info: "Más información",
         cookie_accept: "Aceptar",
         btn_close: "Cerrar",
-        cookie_info_title: "Información de Cookies",
-        privacy_content: "POLÍTICA DE PRIVACIDAD\n\n1. Data\nProgreso guardado localmente.\n\n2. Anuncios\nPodemos mostrar anuncios de terceros que usen cookies.\n\n3. Contacto\nContáctenos si tiene dudas.",
-        terms_content: "TÉRMINOS DE USO\n\n1. Uso\nEste juego es solo para entretenimiento.\n\n2. Derechos\nContenido protegido.\n\n3. Responsabilidad\nEl juego se proporciona 'tal cual'.",
+        cookie_info_title: "información de Cookies",
+        privacy_content: "POLÍTiCA DE PRiVACiDAD\n\n1. Data\nProgreso guardado localmente.\n\n2. Anuncios\nPodemos mostrar anuncios de terceros que usen cookies.\n\n3. Contacto\nContáctenos si tiene dudas.",
+        terms_content: "TÉRMiNOS DE USO\n\n1. Uso\nEste juego es solo para entretenimiento.\n\n2. Derechos\nContenido protegido.\n\n3. Responsabilidad\nEl juego se proporciona 'tal cual'.",
     },
     hi: {
         title_category: "CAREER GUESS",
@@ -472,9 +472,9 @@ class Game {
         this.hintStep = 0;
         this.usedPlayers = new Set();
         this.currentPlayer = null;
-        this.timerInterval = null;
+        this.timerinterval = null;
         this.gameMode = 'classic'; // 'classic', 'timed', 'quiz'
-        this.currentIndex = 0; // Tracking
+        this.currentindex = 0; // Tracking
         this.questionCount = 0; // Tracking for quiz mode
 
         // Ensure activePlayers is initialized to avoid errors
@@ -485,21 +485,21 @@ class Game {
         this.currentSport = 'football'; // Default
 
         // DOM Elements
-        this.startScreen = document.getElementById('category-screen'); // Entry point
-        this.gameContainer = document.getElementById('game-container');
-        this.inputEl = document.getElementById('guess-input');
-        this.submitBtn = document.getElementById('submit-btn');
-        this.skipBtn = document.getElementById('give-up-btn');
-        this.hintBtn = document.getElementById('hint-btn');
-        this.scoreEl = document.getElementById('score');
-        this.streakEl = document.getElementById('streak');
-        this.messageEl = document.getElementById('message-area');
-        this.timelineEl = document.getElementById('career-timeline');
-        this.suggestionsEl = document.getElementById('suggestions');
-        this.timerArea = document.getElementById('timer-area');
-        this.timerVal = document.getElementById('timer-val');
-        this.titleEl = document.getElementById('game-title');
-        this.backBtn = document.getElementById('back-btn');
+        this.startScreen = document.getElementByid('category-screen'); // Entry point
+        this.gameContainer = document.getElementByid('game-container');
+        this.inputEl = document.getElementByid('guess-input');
+        this.submitBtn = document.getElementByid('submit-btn');
+        this.skipBtn = document.getElementByid('give-up-btn');
+        this.hintBtn = document.getElementByid('hint-btn');
+        this.scoreEl = document.getElementByid('score');
+        this.streakEl = document.getElementByid('streak');
+        this.messageEl = document.getElementByid('message-area');
+        this.timelineEl = document.getElementByid('career-timeline');
+        this.suggestionsEl = document.getElementByid('suggestions');
+        this.timerArea = document.getElementByid('timer-area');
+        this.timerVal = document.getElementByid('timer-val');
+        this.titleEl = document.getElementByid('game-title');
+        this.backBtn = document.getElementByid('back-btn');
 
         // Selectors
         this.statusButtons = document.querySelectorAll('.filter-btn');
@@ -513,9 +513,9 @@ class Game {
             window.location.hash = 'category-screen';
         }
         window.onhashchange = () => {
-            const screenId = window.location.hash.substring(1);
-            if (screenId) {
-                this.showScreen(screenId, false);
+            const screenid = window.location.hash.substring(1);
+            if (screenid) {
+                this.showScreen(screenid, false);
             } else {
                 this.showScreen('category-screen', false);
             }
@@ -560,7 +560,7 @@ class Game {
             });
         });
 
-        // Initialize Language
+        // initialize Language
         this.setLanguage('tr');
     }
 
@@ -573,25 +573,25 @@ class Game {
     }
 
     setLanguage(lang) {
-        if (!TRANSLATIONS[lang]) return;
+        if (!TRANSLATiONS[lang]) return;
         this.currentLang = lang;
 
         // Update all elements with data-i18n
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
-            if (TRANSLATIONS[lang][key]) {
-                el.innerText = TRANSLATIONS[lang][key];
+            if (TRANSLATiONS[lang][key]) {
+                el.innerText = TRANSLATiONS[lang][key];
             }
         });
 
         // Update placeholders
-        if (this.inputEl && TRANSLATIONS[lang]['input_placeholder']) {
-            this.inputEl.placeholder = TRANSLATIONS[lang]['input_placeholder'];
+        if (this.inputEl && TRANSLATiONS[lang]['input_placeholder']) {
+            this.inputEl.placeholder = TRANSLATiONS[lang]['input_placeholder'];
         }
 
         // Update active dynamic elements if needed
         if (this.gameMode === 'timed' && this.hintBtn) {
-            const hintText = TRANSLATIONS[lang]['btn_hint'];
+            const hintText = TRANSLATiONS[lang]['btn_hint'];
             this.hintBtn.innerText = `${hintText} (-5s)`;
         }
     }
@@ -603,7 +603,7 @@ class Game {
 
     // Navigation Methods
     showScreen(id, pushState = true) {
-        const target = document.getElementById(id);
+        const target = document.getElementByid(id);
         if (!target) return;
 
         // Hide all screens
@@ -614,7 +614,7 @@ class Game {
         });
         
         target.classList.remove('hidden');
-        // Smooth fade-Çin without causing a white flash
+        // Smooth fade-in without causing a white flash
         target.style.opacity = '0';
         target.style.animation = 'none';
         requestAnimationFrame(() => {
@@ -647,12 +647,12 @@ class Game {
                 if (sport === 'f1') titleKey = 'title_game_f1';
                 if (sport === 'tennis') titleKey = 'title_game_tennis';
 
-                this.titleEl.innerText = TRANSLATIONS[this.currentLang][titleKey] || titleKey;
+                this.titleEl.innerText = TRANSLATiONS[this.currentLang][titleKey] || titleKey;
 
                 // Update subtitle for national team mode
                 const subtitleKey = 'subtitle_game';
                 const subEl = document.querySelector('header p');
-                if (subEl) subEl.innerText = TRANSLATIONS[this.currentLang][subtitleKey];
+                if (subEl) subEl.innerText = TRANSLATiONS[this.currentLang][subtitleKey];
             }
 
             if (sport === 'f1' || sport === 'tennis') {
@@ -682,7 +682,7 @@ class Game {
             this.currentSport = 'esports_' + subGame; // e.g., 'esports_lol'
 
             // Set Titles dynamically (Generic for now, or specific if needed)
-            this.titleEl.innerText = `${TRANSLATIONS[this.currentLang]['esports']} - ${subGame.toUpperCase()}`;
+            this.titleEl.innerText = `${TRANSLATiONS[this.currentLang]['esports']} - ${subGame.toUpperCase()}`;
 
             // Skip Difficulty/Status -> Go to Mode Select
             this.playerStatus = 'all';
@@ -701,7 +701,7 @@ class Game {
             console.log("DEBUG: players type:", typeof players);
             // Check global players
             if (typeof players === 'undefined') {
-                alert("Veri tabanı hatası! (players)");
+                alert("Veri tabani hatasi! (players)");
                 return;
             }
 
@@ -774,17 +774,17 @@ class Game {
 
             console.log(`Filtered Players Count: ${this.activePlayers.length} for ${difficulty}/${this.playerStatus}`);
 
-            // RANDOMIZE: Shuffle the filtered list so every game session is unique
+            // RANDOMiZE: Shuffle the filtered list so every game session is unique
             this.activePlayers = this.shuffleArray([...this.activePlayers]);
 
             if (this.activePlayers.length === 0) {
-                alert(`HATA: ${this.currentSport} kategorisinde bu zorlukta oyuncu bulunamadı!`);
+                alert(`HATA: ${this.currentSport} kategorisinde bu zorlukta oyuncu bulunamadi!`);
                 return;
             }
 
-            // Setup UI based on mode
-            this.updateUIForMode();
-            this.currentIndex = 0; // New index-based tracking
+            // Setup Ui based on mode
+            this.updateUiForMode();
+            this.currentindex = 0; // New index-based tracking
             this.score = 0; // Reset score
             this.usedPlayers = new Set(); // Keep for backward compat/checks
             this.questionCount = 0; // Reset question count
@@ -794,7 +794,7 @@ class Game {
                 this.timer = 15; // 15s for quiz
             }
 
-            // UI Transition
+            // Ui Transition
             document.querySelectorAll('.start-screen').forEach(el => el.classList.add('hidden'));
             this.gameContainer.classList.remove('hidden');
 
@@ -821,7 +821,7 @@ class Game {
             if (e.key === 'Enter') this.checkGuess();
         });
 
-        this.inputEl.addEventListener('input', (e) => this.handleInput(e.target.value));
+        this.inputEl.addEventListener('input', (e) => this.handleinput(e.target.value));
 
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.input-area')) {
@@ -835,7 +835,7 @@ class Game {
     }
 
     returnToMenu() {
-        const msg = TRANSLATIONS[this.currentLang]['confirm_exit'];
+        const msg = TRANSLATiONS[this.currentLang]['confirm_exit'];
         if (confirm(msg)) {
             location.reload();
         }
@@ -847,9 +847,9 @@ class Game {
         this.timerVal.innerText = this.timer;
         this.timerArea.classList.remove('hidden');
         // Fix: clear any existing interval
-        if (this.timerInterval) clearInterval(this.timerInterval);
+        if (this.timerinterval) clearinterval(this.timerinterval);
 
-        this.timerInterval = setInterval(() => {
+        this.timerinterval = setinterval(() => {
             this.timer--;
             if (typeof sounds !== 'undefined') sounds.playTick();
             this.timerVal.innerText = this.timer;
@@ -867,11 +867,11 @@ class Game {
     }
 
     gameOver() {
-        clearInterval(this.timerInterval);
+        clearinterval(this.timerinterval);
         if (typeof authManager !== 'undefined') {
             authManager.updateStats(this.currentSport, this.streak, this.score);
         }
-        const t = TRANSLATIONS[this.currentLang];
+        const t = TRANSLATiONS[this.currentLang];
         this.gameContainer.innerHTML = `
             <div class="game-over-premium" style="text-align:center; padding: 40px; animation: pageEnter 0.6s ease-out both;">
                 <h1 class="title">${t.msg_time_up || 'SÜRE DOLDU!'}</h1>
@@ -895,16 +895,16 @@ class Game {
                 this.questionCount++;
             }
 
-            if (this.currentIndex >= this.activePlayers.length) {
-                if (this.timerInterval) clearInterval(this.timerInterval);
-                this.showMessage(TRANSLATIONS[this.currentLang]['msg_finished'], "success");
+            if (this.currentindex >= this.activePlayers.length) {
+                if (this.timerinterval) clearinterval(this.timerinterval);
+                this.showMessage(TRANSLATiONS[this.currentLang]['msg_finished'], "success");
                 setTimeout(() => location.reload(), 3000);
                 return;
             }
 
-            let player = this.activePlayers[this.currentIndex];
-            console.log(`Current Index: ${this.currentIndex}, Next Player: ${player ? player.name : 'NONE'}`);
-            this.currentIndex++;
+            let player = this.activePlayers[this.currentindex];
+            console.log(`Current index: ${this.currentindex}, Next Player: ${player ? player.name : 'NONE'}`);
+            this.currentindex++;
             this.currentPlayer = player;
             this.usedPlayers.add(player.name);
 
@@ -922,7 +922,7 @@ class Game {
                 this.hintStep = 0;
                 if (this.hintBtn) {
                     this.hintBtn.disabled = false;
-                    const hintText = TRANSLATIONS[this.currentLang]['btn_hint'];
+                    const hintText = TRANSLATiONS[this.currentLang]['btn_hint'];
                     this.hintBtn.innerText = this.gameMode === 'timed' ? `${hintText} (-5s)` : hintText;
                 }
                 if (this.suggestionsEl) this.suggestionsEl.classList.remove('visible');
@@ -960,7 +960,7 @@ class Game {
 
         const targetName = this.normalizeString(this.currentPlayer.name);
         const guessName = this.normalizeString(guess);
-        const t = TRANSLATIONS[this.currentLang];
+        const t = TRANSLATiONS[this.currentLang];
 
         if (targetName === guessName || this.checkPartialMatch(guessName, targetName)) {
             if (typeof sounds !== 'undefined') sounds.playCorrect();
@@ -983,13 +983,13 @@ class Game {
         if (!this.canGuess) return;
         this.canGuess = false; // Lock guessing
         
-        const t = TRANSLATIONS[this.currentLang];
+        const t = TRANSLATiONS[this.currentLang];
         this.score += 10; // +10 points flat
         this.streak++;
-        this.updateStats(); // Internal UI update
+        this.updateStats(); // internal Ui update
         
         // Multiplayer Sync
-        if (typeof multiplayerManager !== 'undefined' && multiplayerManager.roomID) {
+        if (typeof multiplayerManager !== 'undefined' && multiplayerManager.roomiD) {
             multiplayerManager.updateMyScore(this.score);
         }
         if (typeof authManager !== 'undefined') {
@@ -1004,7 +1004,7 @@ class Game {
             this.showFloatingText("+5s", "green");
         }
 
-        console.log("WÇin Handled. Moving to next Çin 1.5s...");
+        console.log("Win Handled. Moving to next in 1.5s...");
         setTimeout(() => {
             console.log("Timeout fired. Calling nextRound...");
             this.nextRound();
@@ -1023,7 +1023,7 @@ class Game {
     }
 
     giveUp() {
-        const t = TRANSLATIONS[this.currentLang];
+        const t = TRANSLATiONS[this.currentLang];
         this.showMessage(`${t.msg_pass || 'Passed!'} ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "error");
         this.resetStreak();
         setTimeout(() => {
@@ -1038,20 +1038,20 @@ class Game {
             this.showFloatingText("-5s", "orange");
         }
 
-        const t = TRANSLATIONS[this.currentLang];
+        const t = TRANSLATiONS[this.currentLang];
 
         if (this.hintStep === 0) {
             // First Hint: Position
             this.showMessage(`${t.hint_1_prefix || 'Position:'} ${this.currentPlayer.position}`, "success");
             this.hintStep = 1;
             const penaltyText = this.gameMode === 'timed' ? ` (-5s)` : "";
-            this.hintBtn.innerText = `${t.btn_hint || 'İpucu'} 2${penaltyText}`; 
+            this.hintBtn.innerText = `${t.btn_hint || 'ipucu'} 2${penaltyText}`; 
         } else if (this.hintStep === 1) {
             // Second Hint: Nationality
             this.showMessage(`${t.hint_2_prefix || 'Nationality:'} ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.nationality}`, "success");
             this.hintStep = 2; // Locked
             this.hintBtn.disabled = true;
-            this.hintBtn.innerText = t.msg_used_hint || 'İpucu Kullanıldı';
+            this.hintBtn.innerText = t.msg_used_hint || 'ipucu Kullanildi';
         }
     }
 
@@ -1066,19 +1066,19 @@ class Game {
     normalizeString(str) {
         if (!str) return "";
         return str
-            .replace(/Ğ/g, 'g')
+            .replace(/G/g, 'g')
             .replace(/Ü/g, 'u')
-            .replace(/Ş/g, 's')
-            .replace(/I/g, 'i')
-            .replace(/İ/g, 'i')
-            .replace(/Ö/g, 'o')
-            .replace(/Ç/g, 'c')
-            .replace(/ğ/g, 'g')
+            .replace(/S/g, 's')
+            .replace(/i/g, 'i')
+            .replace(/i/g, 'i')
+            .replace(/O/g, 'o')
+            .replace(/C/g, 'c')
+            .replace(/G/g, 'g')
             .replace(/ü/g, 'u')
-            .replace(/ş/g, 's')
-            .replace(/ı/g, 'i')
-            .replace(/ö/g, 'o')
-            .replace(/ç/g, 'c')
+            .replace(/S/g, 's')
+            .replace(/i/g, 'i')
+            .replace(/O/g, 'o')
+            .replace(/C/g, 'c')
             .toLowerCase();
     }
 
@@ -1102,7 +1102,7 @@ class Game {
         this.messageEl.classList.remove('hidden');
     }
 
-    handleInput(val) {
+    handleinput(val) {
         if (!val || val.length < 1) {
             this.suggestionsEl.classList.remove('visible');
             return;
@@ -1148,7 +1148,7 @@ class Game {
         this.suggestionsEl.classList.add('visible');
     }
 
-    updateUIForMode() {
+    updateUiForMode() {
         // Reset manual display overrides
         if (this.inputEl && this.inputEl.parentElement) {
             this.inputEl.parentElement.style.display = '';
@@ -1165,7 +1165,7 @@ class Game {
         this.canGuess = true;
         this.doubleDipActive = false;
 
-        if (!this.timerInterval) this.startTimer();
+        if (!this.timerinterval) this.startTimer();
     }
 
     generateQuizOptions() {
@@ -1186,7 +1186,7 @@ class Game {
     }
 
     renderQuizButtons() {
-        const grid = document.getElementById('quiz-options');
+        const grid = document.getElementByid('quiz-options');
         if (!grid) return;
         grid.innerHTML = '';
 
@@ -1218,14 +1218,14 @@ class Game {
             btn.disabled = true;
 
             if (this.doubleDipActive) {
-                this.showMessage(TRANSLATIONS[this.currentLang]['joker_double_dip_active'] || "Double Dip Active! You have one more try.", "warning");
+                this.showMessage(TRANSLATiONS[this.currentLang]['joker_double_dip_active'] || "Double Dip Active! You have one more try.", "warning");
                 this.doubleDipActive = false; // Consumed
                 return;
             }
 
             this.score = Math.max(0, this.score - 10);
             this.updateStats();
-            this.showMessage("Yanlış Cevap! -10 Puan", "error");
+            this.showMessage("YanliS Cevap! -10 Puan", "error");
             this.resetStreak();
 
             const correctBtn = Array.from(document.querySelectorAll('.option-btn'))
@@ -1242,7 +1242,7 @@ class Game {
     useJoker(type) {
         if (this.jokers[type]) return; // Already used
 
-        const btn = document.getElementById(`joker-${type === '50:50' ? '50' : type === '2x' ? '2x' : 'time'}`);
+        const btn = document.getElementByid(`joker-${type === '50:50' ? '50' : type === '2x' ? '2x' : 'time'}`);
         if (!btn) return;
 
         this.jokers[type] = true;
@@ -1257,24 +1257,24 @@ class Game {
                 b.disabled = true;
                 b.style.opacity = '0.3';
             });
-            this.showMessage("50:50 Kullanıldı! İki yanlış şık elendi.", "success");
+            this.showMessage("50:50 Kullanildi! iki yanliS Sik elendi.", "success");
         }
         else if (type === '2x') {
             this.doubleDipActive = true;
-            this.showMessage("Çift Cevap Hakkı Tanımlandı!", "success");
+            this.showMessage("Cift Cevap Hakki Tanimlandi!", "success");
         }
         else if (type === 'time') {
-            clearInterval(this.timerInterval);
-            this.timerInterval = null;
+            clearinterval(this.timerinterval);
+            this.timerinterval = null;
             this.showMessage("Süre Donduruldu!", "success");
         }
     }
 
     initJokers() {
         this.jokers = { '50:50': false, '2x': false, 'time': false };
-        const j50 = document.getElementById('joker-50');
-        const j2x = document.getElementById('joker-2x');
-        const jTime = document.getElementById('joker-time');
+        const j50 = document.getElementByid('joker-50');
+        const j2x = document.getElementByid('joker-2x');
+        const jTime = document.getElementByid('joker-time');
         if (j50) j50.disabled = false, j50.onclick = () => this.useJoker('50:50');
         if (j2x) j2x.disabled = false, j2x.onclick = () => this.useJoker('2x');
         if (jTime) jTime.disabled = false, jTime.onclick = () => this.useJoker('time');
@@ -1283,7 +1283,7 @@ class Game {
 
 
 // =====================================================
-// DAILY CHALLENGE SYSTEM
+// DAiLY CHALLENGE SYSTEM
 // =====================================================
 class DailyChallenge {
     constructor() {
@@ -1307,19 +1307,19 @@ class DailyChallenge {
     }
 
     getState(sport) {
-        return JSON.parse(localStorage.getItem(this.getStorageKey(sport)) || 'null') || { attempts: 0, won: false, guesses: [], hintsUsed: 0 };
+        return JSON.parse(localStorage.getitem(this.getStorageKey(sport)) || 'null') || { attempts: 0, won: false, guesses: [], hintsUsed: 0 };
     }
 
     saveState(sport, state) {
-        localStorage.setItem(this.getStorageKey(sport), JSON.stringify(state));
+        localStorage.setitem(this.getStorageKey(sport), JSON.stringify(state));
     }
 
     getStreak(sport) {
-        return parseInt(localStorage.getItem(this.getStreakKey(sport)) || '0');
+        return parseint(localStorage.getitem(this.getStreakKey(sport)) || '0');
     }
 
     setStreak(sport, val) {
-        localStorage.setItem(this.getStreakKey(sport), val);
+        localStorage.setitem(this.getStreakKey(sport), val);
     }
 
     getDailyPlayer(sport) {
@@ -1339,7 +1339,7 @@ class DailyChallenge {
         if (!sourceArray || sourceArray.length === 0) return null;
 
         const dateStr = this.todayKey.replace(/-/g, '');
-        let seed = parseInt(dateStr.slice(-6)) + sport.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        let seed = parseint(dateStr.slice(-6)) + sport.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
         seed = ((seed * 1664525 + 1013904223) >>> 0);
         const idx = seed % sourceArray.length;
         return sourceArray[idx];
@@ -1351,7 +1351,7 @@ class DailyChallenge {
     }
 
     open() {
-        const modal = document.getElementById('dc-modal');
+        const modal = document.getElementByid('dc-modal');
         if (modal) modal.classList.remove('hidden');
         if (!this.currentSport) {
             this.showCategorySelect();
@@ -1361,7 +1361,7 @@ class DailyChallenge {
     }
 
     close() {
-        const modal = document.getElementById('dc-modal');
+        const modal = document.getElementByid('dc-modal');
         if (modal) modal.classList.add('hidden');
         this.currentSport = null;
     }
@@ -1390,12 +1390,12 @@ class DailyChallenge {
                     <div class="dc-cat-icon">${cat.icon}</div>
                     <div class="dc-cat-name">${cat.name}</div>
                     ${streak > 0 ? `<div class="dc-cat-streak">🔥 ${streak}</div>` : ''}
-                    ${completed ? '<div class="dc-cat-status">✓ Tamamlandı</div>' : ''}
+                    ${completed ? '<div class="dc-cat-status">✓ Tamamlandi</div>' : ''}
                 </div>
             `;
         }).join('');
 
-        const modal = document.getElementById('dc-modal');
+        const modal = document.getElementByid('dc-modal');
         if (modal) {
             modal.innerHTML = `
                 <div class="dc-box">
@@ -1406,7 +1406,7 @@ class DailyChallenge {
                     <div class="dc-header">
                         <div class="dc-fire">🔥</div>
                         <h2 class="dc-title">Günlük Meydan Okuma</h2>
-                        <p class="dc-date">Kategori Seç</p>
+                        <p class="dc-date">Kategori SeC</p>
                     </div>
                     <div class="dc-cat-grid">
                         ${cardsHTML}
@@ -1432,15 +1432,15 @@ class DailyChallenge {
         const revealedTeamsCount = Math.min(1 + attempts, totalTeams);
         const career = player.career.slice(0, revealedTeamsCount);
         
-        let extraInfo = [];
+        let extrainfo = [];
         if (attempts >= totalTeams) {
-            extraInfo.push(`📍 Ülke: ${getFlagEmoji(player.flag)} ${player.nationality}`);
+            extrainfo.push(`📍 Ülke: ${getFlagEmoji(player.flag)} ${player.nationality}`);
         }
         if (attempts >= totalTeams + 1) {
-            extraInfo.push(`👤 Mevki: ${player.position}`);
+            extrainfo.push(`👤 Mevki: ${player.position}`);
         }
         
-        return { career, extraInfo };
+        return { career, extrainfo };
     }
 
     renderModal() {
@@ -1448,14 +1448,14 @@ class DailyChallenge {
         const p = this.player;
         const state = this.getState(sport);
         const done = this.isCompleted(sport);
-        const { career, extraInfo } = this.getVisibleClues(p, state.attempts);
+        const { career, extrainfo } = this.getVisibleClues(p, state.attempts);
         const attemptsLeft = this.maxAttempts - state.attempts;
 
         const careerHTML = career.map(s =>
             `<div class="dc-career-item"><span class="dc-year">${s.years}</span><span class="dc-team">${s.team}</span></div>`
         ).join('');
 
-        const extraHTML = extraInfo.map(info => `<div class="dc-info-item">${info}</div>`).join('');
+        const extraHTML = extrainfo.map(info => `<div class="dc-info-item">${info}</div>`).join('');
 
         const guessesHTML = state.guesses.map(g =>
             `<div class="dc-guess ${g.correct ? 'correct' : 'wrong'}">${g.correct ? '✅' : '❌'} ${g.text}</div>`
@@ -1467,11 +1467,11 @@ class DailyChallenge {
             resultSection = `
                 <div class="dc-result ${state.won ? 'won' : 'lost'}">
                     <div class="dc-result-icon">${state.won ? '🏆' : '💀'}</div>
-                    <div class="dc-result-text">${state.won ? 'Tebrikler! Bildin!' : 'Maalesef Olmadı!'}</div>
+                    <div class="dc-result-text">${state.won ? 'Tebrikler! Bildin!' : 'Maalesef Olmadi!'}</div>
                     <div class="dc-answer">Cevap: <strong>${p.name}</strong></div>
                     <div class="dc-streak-info">Güncel Seri: 🔥 ${streak}</div>
-                    <button class="dc-share-btn" onclick="dailyChallenge.share('${sport}')">📋 Sonucu Paylaş</button>
-                    <div class="dc-next-time">Yeni oyuncu yarın gelecek!</div>
+                    <button class="dc-share-btn" onclick="dailyChallenge.share('${sport}')">📋 Sonucu PaylaS</button>
+                    <div class="dc-next-time">Yeni oyuncu yarin gelecek!</div>
                 </div>`;
         }
 
@@ -1481,9 +1481,9 @@ class DailyChallenge {
                 <div id="dc-suggestions" class="dc-suggestions hidden"></div>
                 <button class="dc-submit-btn" onclick="dailyChallenge.submitGuess()">Tahmin Et</button>
             </div>
-            <div class="dc-attempts-left">🎯 ${attemptsLeft} hakkın kaldı</div>` : '';
+            <div class="dc-attempts-left">🎯 ${attemptsLeft} hakkin kaldi</div>` : '';
 
-        const modal = document.getElementById('dc-modal');
+        const modal = document.getElementByid('dc-modal');
         if (modal) {
             modal.innerHTML = `
                 <div class="dc-box">
@@ -1508,7 +1508,7 @@ class DailyChallenge {
         }
 
         if (!done) {
-            const inp = document.getElementById('dc-guess-input');
+            const inp = document.getElementByid('dc-guess-input');
             if (inp) {
                 inp.addEventListener('keypress', e => { if (e.key === 'Enter') this.submitGuess(); });
                 inp.focus();
@@ -1523,7 +1523,7 @@ class DailyChallenge {
 
     handleSuggest(val) {
         if (!val || val.length < 2) {
-            document.getElementById('dc-suggestions')?.classList.add('hidden');
+            document.getElementByid('dc-suggestions')?.classList.add('hidden');
             return;
         }
         
@@ -1546,7 +1546,7 @@ class DailyChallenge {
         
         const norm = v => v.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
         const matches = sourceArray.filter(p => norm(p.name).includes(norm(val))).slice(0, 6);
-        const box = document.getElementById('dc-suggestions');
+        const box = document.getElementByid('dc-suggestions');
         if (!box) return;
         if (matches.length === 0) { box.classList.add('hidden'); return; }
         box.innerHTML = matches.map(p =>
@@ -1556,15 +1556,15 @@ class DailyChallenge {
     }
 
     pickSuggestion(name) {
-        const inp = document.getElementById('dc-guess-input');
+        const inp = document.getElementByid('dc-guess-input');
         if (inp) inp.value = name;
-        document.getElementById('dc-suggestions')?.classList.add('hidden');
+        document.getElementByid('dc-suggestions')?.classList.add('hidden');
     }
 
     submitGuess() {
         const sport = this.currentSport;
         const state = this.getState(sport);
-        const inp = document.getElementById('dc-guess-input');
+        const inp = document.getElementByid('dc-guess-input');
         if (!inp) return;
         const guess = inp.value.trim();
         if (!guess) return;
@@ -1597,7 +1597,7 @@ class DailyChallenge {
         if (navigator.clipboard) {
             navigator.clipboard.writeText(text).then(() => {
                 const btn = document.querySelector('.dc-share-btn');
-                if (btn) { btn.textContent = '✅ Kopyalandı!'; setTimeout(() => btn.textContent = '📋 Paylaş', 2000); }
+                if (btn) { btn.textContent = '✅ Kopyalandi!'; setTimeout(() => btn.textContent = '📋 PaylaS', 2000); }
             });
         }
     }
@@ -1625,27 +1625,27 @@ class DailyChallenge {
 
 
 // ========================
-// AUTHENTICATION MANAGER
+// AUTHENTiCATiON MANAGER
 // ========================
 class AuthManager {
     constructor() {
-        this.users = JSON.parse(localStorage.getItem('guess_player_users')) || [];
-        this.currentUser = JSON.parse(localStorage.getItem('guess_player_current_user')) || null;
+        this.users = JSON.parse(localStorage.getitem('guess_player_users')) || [];
+        this.currentUser = JSON.parse(localStorage.getitem('guess_player_current_user')) || null;
 
-        this.overlay = document.getElementById('auth-overlay');
-        this.loginForm = document.getElementById('login-form-container');
-        this.signupForm = document.getElementById('signup-form-container');
+        this.overlay = document.getElementByid('auth-overlay');
+        this.loginForm = document.getElementByid('login-form-container');
+        this.signupForm = document.getElementByid('signup-form-container');
 
-        this.loginUser = document.getElementById('login-username');
-        this.loginPass = document.getElementById('login-password');
-        this.signupUser = document.getElementById('signup-username');
-        this.signupEmail = document.getElementById('signup-email');
-        this.signupPass = document.getElementById('signup-password');
+        this.loginUser = document.getElementByid('login-username');
+        this.loginPass = document.getElementByid('login-password');
+        this.signupUser = document.getElementByid('signup-username');
+        this.signupEmail = document.getElementByid('signup-email');
+        this.signupPass = document.getElementByid('signup-password');
 
-        this.loginBtn = document.getElementById('login-submit-btn');
-        this.signupBtn = document.getElementById('signup-submit-btn');
+        this.loginBtn = document.getElementByid('login-submit-btn');
+        this.signupBtn = document.getElementByid('signup-submit-btn');
 
-        this.authContainer = document.getElementById('auth-buttons-container');
+        this.authContainer = document.getElementByid('auth-buttons-container');
         this.avatarTab = 'all';
 
         this.init();
@@ -1655,12 +1655,12 @@ class AuthManager {
         if (this.loginBtn) this.loginBtn.onclick = () => this.login();
         if (this.signupBtn) this.signupBtn.onclick = () => this.signup();
 
-        const s2s = document.getElementById('switch-to-signup');
-        const s2l = document.getElementById('switch-to-login');
+        const s2s = document.getElementByid('switch-to-signup');
+        const s2l = document.getElementByid('switch-to-login');
         if (s2s) s2s.onclick = () => this.showForm('signup');
         if (s2l) s2l.onclick = () => this.showForm('login');
 
-        this.updateUI();
+        this.updateUi();
     }
 
     openModal(mode) {
@@ -1672,7 +1672,7 @@ class AuthManager {
     closeModal() {
         if (!this.overlay) return;
         this.overlay.classList.add('hidden');
-        this.clearInputs();
+        this.clearinputs();
         document.querySelectorAll('.error-msg').forEach(el => el.classList.add('hidden'));
     }
 
@@ -1690,15 +1690,15 @@ class AuthManager {
         const username = this.signupUser.value.trim();
         const email = this.signupEmail.value.trim();
         const password = this.signupPass.value;
-        const errorEl = document.getElementById('signup-error');
+        const errorEl = document.getElementByid('signup-error');
 
         if (username.length < 3 || password.length < 4) {
-            this.showError(errorEl, "Kullanıcı adı en az 3, şifre en az 4 karakter olmalı.");
+            this.showError(errorEl, "Kullanici adi en az 3, Sifre en az 4 karakter olmali.");
             return;
         }
 
         if (this.users.find(u => u.username === username)) {
-            this.showError(errorEl, "Bu kullanıcı adı zaten alınmış.");
+            this.showError(errorEl, "Bu kullanici adi zaten alinmiS.");
             return;
         }
 
@@ -1716,14 +1716,14 @@ class AuthManager {
         this.currentUser = newUser;
         this.saveCurrentUser();
         this.closeModal();
-        this.updateUI();
-        if (window.game) window.game.showMessage("Kayıt başarılı! Hoş geldin, " + username, "success");
+        this.updateUi();
+        if (window.game) window.game.showMessage("Kayit baSarili! HoS geldin, " + username, "success");
     }
 
     login() {
         const username = this.loginUser.value.trim();
         const password = this.loginPass.value;
-        const errorEl = document.getElementById('login-error');
+        const errorEl = document.getElementByid('login-error');
 
         const user = this.users.find(u => u.username === username && u.password === password);
 
@@ -1731,23 +1731,23 @@ class AuthManager {
             this.currentUser = user;
             this.saveCurrentUser();
             this.closeModal();
-            this.updateUI();
+            this.updateUi();
         } else {
-            this.showError(errorEl, "Kullanıcı adı veya şÅifre hatalı.");
+            this.showError(errorEl, "Kullanici adi veya SÅifre hatali.");
         }
     }
 
     logout() {
-        if (confirm("Çıkış yapmak istiyor musun?")) {
+        if (confirm("CikiS yapmak istiyor musun?")) {
             this.currentUser = null;
-            localStorage.removeItem('guess_player_current_user');
-            this.updateUI();
+            localStorage.removeitem('guess_player_current_user');
+            this.updateUi();
         }
     }
 
     openProfile() {
         if (!this.currentUser) return;
-        const modal = document.getElementById('profile-modal');
+        const modal = document.getElementByid('profile-modal');
         if (modal) {
             this.renderAvatarSelection();
             this.renderProfileStats();
@@ -1756,16 +1756,16 @@ class AuthManager {
     }
 
     closeProfile() {
-        const modal = document.getElementById('profile-modal');
+        const modal = document.getElementByid('profile-modal');
         if (modal) modal.classList.add('hidden');
     }
 
     renderProfileStats() {
-        const container = document.getElementById('profile-stats-container');
+        const container = document.getElementByid('profile-stats-container');
         if (!container || !this.currentUser) return;
 
         const lang = window.game ? window.game.currentLang : 'tr';
-        const t = TRANSLATIONS[lang];
+        const t = TRANSLATiONS[lang];
 
         const categories = [
             { id: 'football', name: t.football, icon: '⚽' },
@@ -1800,12 +1800,12 @@ class AuthManager {
             `;
         }).join('');
 
-        const avatarEl = document.getElementById('profile-modal-avatar');
+        const avatarEl = document.getElementByid('profile-modal-avatar');
         if (avatarEl) avatarEl.innerText = this.currentUser.avatar || '👤';
-        const nameEl = document.getElementById('profile-username');
+        const nameEl = document.getElementByid('profile-username');
         if (nameEl) nameEl.innerText = this.currentUser.username;
 
-        const achContainer = document.getElementById('profile-achievements-container');
+        const achContainer = document.getElementByid('profile-achievements-container');
         if (achContainer) achContainer.innerHTML = achievements.render(this.currentUser);
 
         this.renderRadarChart();
@@ -1813,7 +1813,7 @@ class AuthManager {
     }
 
     renderLeaderboard() {
-        const container = document.getElementById('main-leaderboard-container');
+        const container = document.getElementByid('main-leaderboard-container');
         if (!container) return;
 
         const allLocalUsers = Object.values(this.users).map(u => ({
@@ -1825,7 +1825,7 @@ class AuthManager {
 
         const rivals = [
             { username: 'TahminCan (Global #1)', score: 2200, avatar: '🦥' },
-            { username: 'Gol Kralı', score: 1500, avatar: '⚽' },
+            { username: 'Gol Krali', score: 1500, avatar: '⚽' },
             { username: 'E-Sporcu', score: 850, avatar: '🎮' }
         ];
 
@@ -1840,17 +1840,17 @@ class AuthManager {
         const topPlayers = finalBoard.slice(0, 10);
 
         const lang = window.game ? window.game.currentLang : 'tr';
-        const t = TRANSLATIONS[lang];
+        const t = TRANSLATiONS[lang];
 
         container.innerHTML = `
             <div class="leaderboard-section">
-                <span class="section-title">${t.leaderboard_title || 'LİDERLİK TABLOSU'}</span>
+                <span class="section-title">${t.leaderboard_title || 'LiDERLiK TABLOSU'}</span>
                 <div class="leaderboard-list">
                     ${topPlayers.map((u, i) => `
                         <div class="leaderboard-item ${u.isMe ? 'is-me' : ''}">
                             <div class="rank">#${i + 1}</div>
                             <div class="lb-avatar">${u.avatar}</div>
-                            <div class="lb-name">${u.username} ${u.isMe ? t.lb_you || '(SENSİN)' : ''}</div>
+                            <div class="lb-name">${u.username} ${u.isMe ? t.lb_you || '(SENSiN)' : ''}</div>
                             <div class="lb-score">${u.score} ${t.lb_puan || 'Puan'}</div>
                         </div>
                     `).join('')}
@@ -1860,11 +1860,11 @@ class AuthManager {
     }
 
     renderRadarChart() {
-        const container = document.getElementById('radar-chart-container');
+        const container = document.getElementByid('radar-chart-container');
         if (!container) return;
 
         const lang = window.game ? window.game.currentLang : 'tr';
-        const t = TRANSLATIONS[lang];
+        const t = TRANSLATiONS[lang];
 
         const cats = [
             { id: 'football', label: t.radar_football || 'Futbol' },
@@ -1881,7 +1881,7 @@ class AuthManager {
         const size = 250;
         const center = size / 2;
         const radius = 80;
-        const angleStep = (Math.PI * 2) / cats.length;
+        const angleStep = (Math.Pi * 2) / cats.length;
 
         const stats = this.currentUser.stats || {};
         const values = cats.map(c => Math.min(100, (stats[c.id]?.highscore || 0)));
@@ -1890,7 +1890,7 @@ class AuthManager {
         for (let i = 1; i <= 5; i++) {
             const r = (radius / 5) * i;
             const points = cats.map((_, j) => {
-                const angle = j * angleStep - Math.PI / 2;
+                const angle = j * angleStep - Math.Pi / 2;
                 return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
             }).join(' ');
             gridLines += `<polygon points="${points}" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />`;
@@ -1898,7 +1898,7 @@ class AuthManager {
 
         let axisAndLabels = '';
         cats.forEach((cat, i) => {
-            const angle = i * angleStep - Math.PI / 2;
+            const angle = i * angleStep - Math.Pi / 2;
             const x = center + radius * Math.cos(angle);
             const y = center + radius * Math.sin(angle);
             const lx = center + (radius + 25) * Math.cos(angle);
@@ -1912,7 +1912,7 @@ class AuthManager {
 
         const dataPoints = values.map((v, i) => {
             const r = (radius * v) / 100;
-            const angle = i * angleStep - Math.PI / 2;
+            const angle = i * angleStep - Math.Pi / 2;
             return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
         }).join(' ');
 
@@ -1925,7 +1925,7 @@ class AuthManager {
                 </polygon>
                 ${values.map((v, i) => {
                     const r = (radius * v) / 100;
-                    const angle = i * angleStep - Math.PI / 2;
+                    const angle = i * angleStep - Math.Pi / 2;
                     return `<circle cx="${center + r * Math.cos(angle)}" cy="${center + r * Math.sin(angle)}" r="3" fill="#22c55e" />`;
                 }).join('')}
             </svg>
@@ -1952,9 +1952,9 @@ class AuthManager {
         }
 
         if (updated) {
-            const userIndex = this.users.findIndex(u => u.username === this.currentUser.username);
-            if (userIndex !== -1) {
-                this.users[userIndex].stats = this.currentUser.stats;
+            const userindex = this.users.findindex(u => u.username === this.currentUser.username);
+            if (userindex !== -1) {
+                this.users[userindex].stats = this.currentUser.stats;
             }
             this.saveUsers();
             this.saveCurrentUser();
@@ -1965,7 +1965,7 @@ class AuthManager {
     }
 
     renderAvatarSelection() {
-        const grid = document.getElementById('avatar-grid');
+        const grid = document.getElementByid('avatar-grid');
         if (!grid) return;
 
         const avatars = {
@@ -2014,29 +2014,29 @@ class AuthManager {
         if (!this.currentUser) return;
         this.currentUser.avatar = emoji;
         
-        const idx = this.users.findIndex(u => u.username === this.currentUser.username);
+        const idx = this.users.findindex(u => u.username === this.currentUser.username);
         if (idx !== -1) this.users[idx].avatar = emoji;
 
         this.saveUsers();
         this.saveCurrentUser();
-        this.updateUI();
+        this.updateUi();
         
-        const avatarEl = document.getElementById('profile-modal-avatar');
+        const avatarEl = document.getElementByid('profile-modal-avatar');
         if (avatarEl) avatarEl.innerText = emoji;
         this.renderAvatarSelection();
     }
 
-    updateUI() {
+    updateUi() {
         if (!this.authContainer) return;
 
-        const soundIcon = sounds.enabled ? '🔊' : '🔇';
-        const soundBtn = `<button id="sound-toggle" class="auth-btn utility-btn" onclick="sounds.toggleUI()" title="Ses">${soundIcon}</button>`;
+        const soundicon = sounds.enabled ? '🔊' : '🔇';
+        const soundBtn = `<button id="sound-toggle" class="auth-btn utility-btn" onclick="sounds.toggleUi()" title="Ses">${soundicon}</button>`;
         const lbBtn = `<button id="leaderboard-top-btn" class="auth-btn utility-btn" onclick="game.showLeaderboard()" title="Liderlik">🏆</button>`;
 
         if (this.currentUser) {
             const avatar = this.currentUser.avatar || '👤';
             const lang = window.game ? window.game.currentLang : 'tr';
-            const t = TRANSLATIONS[lang];
+            const t = TRANSLATiONS[lang];
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
@@ -2045,27 +2045,27 @@ class AuthManager {
                         <span class="user-avatar-icon">${avatar}</span>
                         <span class="username-text">${this.currentUser.username}</span>
                     </button>
-                    <button class="auth-btn logout" onclick="authManager.logout()">${t.btn_logout || 'Çıkış'}</button>
+                    <button class="auth-btn logout" onclick="authManager.logout()">${t.btn_logout || 'CikiS'}</button>
                 </div>
             `;
         } else {
             const lang = window.game ? window.game.currentLang : 'tr';
-            const t = TRANSLATIONS[lang];
+            const t = TRANSLATiONS[lang];
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
-                <button class="auth-btn Login" onclick="authManager.openModal('login')">${t.btn_Login || 'Giriş Yap'}</button>
-                <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayıt Ol'}</button>
+                <button class="auth-btn Login" onclick="authManager.openModal('login')">${t.btn_Login || 'GiriS Yap'}</button>
+                <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayit Ol'}</button>
             `;
         }
     }
 
     saveUsers() {
-        localStorage.setItem('guess_player_users', JSON.stringify(this.users));
+        localStorage.setitem('guess_player_users', JSON.stringify(this.users));
     }
 
     saveCurrentUser() {
-        localStorage.setItem('guess_player_current_user', JSON.stringify(this.currentUser));
+        localStorage.setitem('guess_player_current_user', JSON.stringify(this.currentUser));
     }
 
     showError(el, msg) {
@@ -2077,7 +2077,7 @@ class AuthManager {
         }
     }
 
-    clearInputs() {
+    clearinputs() {
         if (this.loginUser) this.loginUser.value = '';
         if (this.loginPass) this.loginPass.value = '';
         if (this.signupUser) this.signupUser.value = '';
@@ -2086,7 +2086,7 @@ class AuthManager {
     }
 
     exportData() {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.users));
+        const dataStr = "data:text/json;charset=utf-8," + encodeURiComponent(JSON.stringify(this.users));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "guess_player_users.json");
@@ -2098,12 +2098,12 @@ class AuthManager {
 
 class CookieManager {
     constructor() {
-        this.banner = document.getElementById('gp-cookie-panel');
+        this.banner = document.getElementByid('gp-cookie-panel');
         this.init();
     }
 
     init() {
-        if (!localStorage.getItem('guess_player_cookies_accepted')) {
+        if (!localStorage.getitem('guess_player_cookies_accepted')) {
             setTimeout(() => {
                 if (this.banner) this.banner.classList.remove('hidden');
             }, 1000); 
@@ -2111,16 +2111,16 @@ class CookieManager {
     }
 
     accept() {
-        localStorage.setItem('guess_player_cookies_accepted', 'true');
+        localStorage.setitem('guess_player_cookies_accepted', 'true');
         if (this.banner) this.banner.classList.add('hidden');
     }
 }
 
-class InfoManager {
+class infoManager {
     constructor() {
-        this.modal = document.getElementById('info-modal');
-        this.titleEl = document.getElementById('info-title');
-        this.contentEl = document.getElementById('info-content');
+        this.modal = document.getElementByid('info-modal');
+        this.titleEl = document.getElementByid('info-title');
+        this.contentEl = document.getElementByid('info-content');
     }
 
     open(type) {
@@ -2145,8 +2145,8 @@ class InfoManager {
                 break;
         }
 
-        this.titleEl.innerText = TRANSLATIONS[lang][titleKey] || 'Info';
-        this.contentEl.innerText = TRANSLATIONS[lang][contentKey] || 'Content not waiting...';
+        this.titleEl.innerText = TRANSLATiONS[lang][titleKey] || 'info';
+        this.contentEl.innerText = TRANSLATiONS[lang][contentKey] || 'Content not waiting...';
 
         this.modal.classList.remove('hidden');
     }
@@ -2160,7 +2160,7 @@ class InfoManager {
 
 class MultiplayerManager {
     constructor() {
-        this.roomID = null;
+        this.roomiD = null;
         this.isHost = false;
         this.opponent = null;
         this.inQueue = false;
@@ -2170,14 +2170,14 @@ class MultiplayerManager {
     }
 
     init() {
-        document.getElementById('matchmaking-btn')?.addEventListener('click', () => this.toggleMatchmaking());
-        document.getElementById('create-room-btn')?.addEventListener('click', () => this.createRoom());
-        document.getElementById('join-room-btn')?.addEventListener('click', () => {
-            const id = document.getElementById('room-id-input').value.toUpperCase();
+        document.getElementByid('matchmaking-btn')?.addEventListener('click', () => this.toggleMatchmaking());
+        document.getElementByid('create-room-btn')?.addEventListener('click', () => this.createRoom());
+        document.getElementByid('join-room-btn')?.addEventListener('click', () => {
+            const id = document.getElementByid('room-id-input').value.toUpperCase();
             if (id) this.joinRoom(id);
         });
-        document.getElementById('start-game-btn')?.addEventListener('click', () => this.startGame());
-        document.getElementById('multi-back-btn')?.addEventListener('click', () => this.leaveRoom());
+        document.getElementByid('start-game-btn')?.addEventListener('click', () => this.startGame());
+        document.getElementByid('multi-back-btn')?.addEventListener('click', () => this.leaveRoom());
     }
 
     async toggleMatchmaking() {
@@ -2193,17 +2193,17 @@ class MultiplayerManager {
             const queueRef = this.db.ref('queue');
             queueRef.once('value', snapshot => {
                 const queue = snapshot.val() || {};
-                const playersInQueue = Object.keys(queue);
+                const playersinQueue = Object.keys(queue);
                 
-                if (playersInQueue.length > 0) {
-                    const rival = playersInQueue[0];
-                    const roomId = `MATCH_${Date.now()}`;
+                if (playersinQueue.length > 0) {
+                    const rival = playersinQueue[0];
+                    const roomid = `MATCH_${Date.now()}`;
                     queueRef.child(rival).remove();
-                    this.joinRoom(roomId, true); 
+                    this.joinRoom(roomid, true); 
                 } else {
                     queueRef.child(authManager.currentUser?.username || 'Guest').set({ joinedAt: Date.now() });
                     queueRef.child(authManager.currentUser?.username || 'Guest').on('value', snap => {
-                        if (snap.val() && snap.val().roomId) this.joinRoom(snap.val().roomId, false);
+                        if (snap.val() && snap.val().roomid) this.joinRoom(snap.val().roomid, false);
                     });
                 }
             });
@@ -2212,12 +2212,12 @@ class MultiplayerManager {
 
     startQueue() {
         this.inQueue = true;
-        const btn = document.getElementById('matchmaking-btn');
-        if (btn) btn.innerText = "Sıradan Çık";
-        document.getElementById('queue-status')?.classList.remove('hidden');
+        const btn = document.getElementByid('matchmaking-btn');
+        if (btn) btn.innerText = "Siradan Cik";
+        document.getElementByid('queue-status')?.classList.remove('hidden');
         
         let seconds = 0;
-        this.queueTimerInterval = setInterval(() => {
+        this.queueTimerinterval = setinterval(() => {
             seconds++;
             const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
             const secs = (seconds % 60).toString().padStart(2, '0');
@@ -2228,10 +2228,10 @@ class MultiplayerManager {
 
     stopQueue() {
         this.inQueue = false;
-        const btn = document.getElementById('matchmaking-btn');
-        if (btn) btn.innerText = "Hızlı Maç Bul";
-        document.getElementById('queue-status')?.classList.add('hidden');
-        clearInterval(this.queueTimerInterval);
+        const btn = document.getElementByid('matchmaking-btn');
+        if (btn) btn.innerText = "Hizli MaC Bul";
+        document.getElementByid('queue-status')?.classList.add('hidden');
+        clearinterval(this.queueTimerinterval);
         if (this.db) this.db.ref('queue').child(authManager.currentUser?.username || 'Guest').remove();
     }
 
@@ -2243,7 +2243,7 @@ class MultiplayerManager {
         
         try {
             const id = Math.random().toString(36).substring(2, 6).toUpperCase();
-            this.roomID = id;
+            this.roomiD = id;
             this.isHost = true;
             
             await this.db.ref(`rooms/${id}`).set({
@@ -2255,7 +2255,7 @@ class MultiplayerManager {
                 createdAt: Date.now()
             });
 
-            this.showRoomUI(id);
+            this.showRoomUi(id);
             this.listenToRoom(id);
         } catch (error) {
             alert("Hata: " + error.message);
@@ -2266,37 +2266,37 @@ class MultiplayerManager {
         if (type === 'queue') {
             this.startQueue();
             setTimeout(() => {
-                alert("Simülasyon Modu: Firebase anahtarlarınız eksik olduğu için gerçek eşleşme yapılamıyor.");
+                alert("Simülasyon Modu: Firebase anahtarlariniz eksik olduGu iin gerCek eSleSme yapilamiyor.");
                 this.stopQueue();
             }, 5000);
         } else {
-            const mockID = "TEST";
-            this.roomID = mockID;
-            this.showRoomUI(mockID);
-            const p1 = document.getElementById('p1-name');
+            const mockiD = "TEST";
+            this.roomiD = mockiD;
+            this.showRoomUi(mockiD);
+            const p1 = document.getElementByid('p1-name');
             if (p1) p1.innerText = authManager.currentUser?.username || 'Siz';
-            alert("Simülasyon Modu: Oda oluşturuldu (KOD: TEST).");
+            alert("Simülasyon Modu: Oda oluSturuldu (KOD: TEST).");
         }
     }
 
-    showRoomUI(id) {
+    showRoomUi(id) {
         document.querySelector('.multi-actions')?.classList.add('hidden');
-        document.getElementById('room-info')?.classList.remove('hidden');
-        const idEl = document.getElementById('display-room-id');
+        document.getElementByid('room-info')?.classList.remove('hidden');
+        const idEl = document.getElementByid('display-room-id');
         if (idEl) {
             idEl.innerText = id;
             idEl.onclick = () => {
                 navigator.clipboard.writeText(id);
-                alert("Oda kodu kopyalandı!");
+                alert("Oda kodu kopyalandi!");
             };
         }
     }
 
     async joinRoom(id, isMatchmaking = false) {
         const snapshot = await this.db.ref(`rooms/${id}`).once('value');
-        if (!snapshot.exists() && !isMatchmaking) return alert("Oda bulunamadı!");
+        if (!snapshot.exists() && !isMatchmaking) return alert("Oda bulunamadi!");
 
-        this.roomID = id;
+        this.roomiD = id;
         this.isHost = isMatchmaking;
 
         if (!this.isHost) {
@@ -2307,7 +2307,7 @@ class MultiplayerManager {
             });
         }
 
-        this.showRoomUI(id);
+        this.showRoomUi(id);
         this.listenToRoom(id);
     }
 
@@ -2319,12 +2319,12 @@ class MultiplayerManager {
             const p1 = data.players?.p1;
             const p2 = data.players?.p2;
 
-            if (p1) document.getElementById('p1-name').innerText = p1.name;
+            if (p1) document.getElementByid('p1-name').innerText = p1.name;
             if (p2) {
-                document.getElementById('p2-name').innerText = p2.name;
-                document.getElementById('p2-status').innerText = "HAZIR";
+                document.getElementByid('p2-name').innerText = p2.name;
+                document.getElementByid('p2-status').innerText = "HAZiR";
                 if (this.isHost && data.status === 'waiting') {
-                    document.getElementById('start-game-btn').classList.remove('hidden');
+                    document.getElementByid('start-game-btn').classList.remove('hidden');
                 }
             }
 
@@ -2336,7 +2336,7 @@ class MultiplayerManager {
                 const oppKey = this.isHost ? 'p2' : 'p1';
                 if (data.players[oppKey]) {
                     this.opponentScore = data.players[oppKey].score;
-                    document.getElementById('opp-score').innerText = this.opponentScore;
+                    document.getElementByid('opp-score').innerText = this.opponentScore;
                 }
             }
         });
@@ -2344,7 +2344,7 @@ class MultiplayerManager {
 
     startGame() {
         if (!this.isHost) return;
-        this.db.ref(`rooms/${this.roomID}`).update({ status: 'playing' });
+        this.db.ref(`rooms/${this.roomiD}`).update({ status: 'playing' });
     }
 
     beginActualGame() {
@@ -2352,18 +2352,18 @@ class MultiplayerManager {
         const sport = game.currentSport || 'football';
         const diff = game.currentDifficulty || 'easy';
         game.startGame(diff);
-        document.getElementById('multiplayer-hud')?.classList.remove('hidden');
+        document.getElementByid('multiplayer-hud')?.classList.remove('hidden');
     }
 
     updateMyScore(score) {
-        if (!this.roomID || !this.db) return;
+        if (!this.roomiD || !this.db) return;
         const key = this.isHost ? 'p1' : 'p2';
-        this.db.ref(`rooms/${this.roomID}/players/${key}`).update({ score });
+        this.db.ref(`rooms/${this.roomiD}/players/${key}`).update({ score });
     }
 
     leaveRoom() {
-        if (this.roomID && this.db) {
-            this.db.ref(`rooms/${this.roomID}`).remove();
+        if (this.roomiD && this.db) {
+            this.db.ref(`rooms/${this.roomiD}`).remove();
         }
         game.showScreen('category-screen');
     }
@@ -2422,7 +2422,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     window.authManager = new AuthManager();
     window.cookieManager = new CookieManager();
-    window.infoManager = new InfoManager();
+    window.infoManager = new infoManager();
     window.multiplayerManager = new MultiplayerManager();
 
     const badge = document.querySelector('.daily-challenge-badge');
@@ -2431,5 +2431,5 @@ document.addEventListener('DOMContentLoaded', () => {
         badge.onclick = () => dailyChallenge.open();
     }
     
-    if (window.authManager) window.authManager.updateUI();
+    if (window.authManager) window.authManager.updateUi();
 });

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Outfit:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
     --bg-color: #020617;
@@ -85,7 +85,7 @@
 .auth-btn {
     padding: 7px 18px;
     border-radius: 50px;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.25s cubic-bezier(.4,0,.2,1);
@@ -688,7 +688,7 @@ header {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     width: 100%;
-    z-index: 100;
+    z-index: 10000; /* Extremely high z-index to stay on top */
 }
 
 .modern-input-wrapper {
