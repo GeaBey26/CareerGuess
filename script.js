@@ -158,6 +158,16 @@ class AchievementManager {
     }
 }
 
+// 🔥 FLAG OLUŞTUR (ASLA BOZULMAZ)
+function getFlagEmoji(countryCode) {
+    if (!countryCode) return "";
+    return countryCode
+        .toUpperCase()
+        .replace(/./g, char => 
+            String.fromCodePoint(127397 + char.charCodeAt())
+        );
+}
+
 const achievements = new AchievementManager();
 
 const TRANSLATIONS = {
