@@ -82,7 +82,7 @@ const sounds = new SoundManager();
 class AchievementManager {
     constructor() {
         this.achievements = [
-            { id: 'first_win', icon: '🎯', tr: 'İİlk Tahmin', en: 'First Guess', desc_tr: 'İİlk oyuncuyu doğru tahmin et.', desc_en: 'Guess your first player correctly.' },
+            { id: 'first_win', icon: '🎯', tr: 'İlk Tahmin', en: 'First Guess', desc_tr: 'İlk oyuncuyu doğru tahmin et.', desc_en: 'Guess your first player correctly.' },
             { id: 'streak_5', icon: '🔥', tr: 'Sıcak Seri', en: 'Hot Streak', desc_tr: '5\'li seri yakala.', desc_en: 'Reach a streak of 5.' },
             { id: 'streak_10', icon: '🎉', tr: 'Efsane Seri', en: 'Godlike Streak', desc_tr: '10\'lu seri yakala.', desc_en: 'Reach a streak of 10.' },
             { id: 'score_100', icon: '💯', tr: 'Dalya', en: 'Century', desc_tr: 'Tek oyunda 100 puan yap.', desc_en: 'Score 100 points in a single game.' },
@@ -204,20 +204,20 @@ const TRANSLATIONS = {
         streak: "Seri",
         input_placeholder: "İsim yaz...",
         btn_give_up: "Pes Et",
-        btn_hint: "İİpucu",
+        btn_hint: "İpucu",
         btn_guess: "Tahmin Et",
         msg_correct: "Doğru! +10 Puan",
-        msg_wrong: "Yanlışış Cevap! -10 Puan",
-        msg_used_hint: "İİpucu Kullanıldı",
-        hint_1_prefix: "İİpucu 1: Pozisyon -",
-        hint_2_prefix: "İİpucu 2: Üİlke -",
+        msg_wrong: "Yanlış Cevap! -10 Puan",
+        msg_used_hint: "İpucu Kullanıldı",
+        hint_1_prefix: "İpucu 1: Pozisyon -",
+        hint_2_prefix: "İpucu 2: Ülke -",
         msg_pass: "Pas geçildi.",
         msg_finished: "Tebrikler! Tüm oyuncuları bildin!",
         msg_time_up: "SÜRE BİTTİ!",
         msg_total_score: "Toplam Skor:",
         btn_play_again: "TEKRAR OYNA",
         confirm_exit: "Çıkmak istediğine emin misin? Oyun sıfırlanacak.",
-        btn_login: "Girişş Yap",
+        btn_login: "Giriş Yap",
         btn_signup: "Kayıt Ol",
         btn_logout: "Çıkış Yap",
         profile_title: "OYUNCU PROFİLİ",
@@ -686,7 +686,7 @@ class Game {
             console.log("DEBUG: players type:", typeof players);
             // Check global players
             if (typeof players === 'undefined') {
-                alert("Veri tabanıı hatası! (players)");
+                alert("Veri tabanı hatası! (players)");
                 return;
             }
 
@@ -1034,13 +1034,13 @@ class Game {
             this.showMessage(`${t.hint_1_prefix || 'Position:'} ${this.currentPlayer.position}`, "success");
             this.hintStep = 1;
             const penaltyText = this.gameMode === 'timed' ? ` (-5s)` : "";
-            this.hintBtn.innerText = `${t.btn_hint || 'İİpucu'} 2${penaltyText}`; 
+            this.hintBtn.innerText = `${t.btn_hint || 'İpucu'} 2${penaltyText}`; 
         } else if (this.hintStep === 1) {
             // Second Hint: Nationality
             this.showMessage(`${t.hint_2_prefix || 'Nationality:'} ${this.currentPlayer.flag} ${this.currentPlayer.nationality}`, "success");
             this.hintStep = 2; // Locked
             this.hintBtn.disabled = true;
-            this.hintBtn.innerText = t.msg_used_hint || 'İİpucu Kullanıldı';
+            this.hintBtn.innerText = t.msg_used_hint || 'İpucu Kullanıldı';
         }
     }
 
@@ -1214,7 +1214,7 @@ class Game {
 
             this.score = Math.max(0, this.score - 10);
             this.updateStats();
-            this.showMessage("Yanlışış Cevap! -10 Puan", "error");
+            this.showMessage("Yanlış Cevap! -10 Puan", "error");
             this.resetStreak();
 
             const correctBtn = Array.from(document.querySelectorAll('.option-btn'))
@@ -1423,7 +1423,7 @@ class DailyChallenge {
         
         let extraInfo = [];
         if (attempts >= totalTeams) {
-            extraInfo.push(`📍 Üİlke: ${player.nationality}`);
+            extraInfo.push(`📍 Ülke: ${player.nationality}`);
         }
         if (attempts >= totalTeams + 1) {
             extraInfo.push(`👤 Mevki: ${player.position}`);
@@ -2051,7 +2051,7 @@ class AuthManager {
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
-                <button class="auth-btn login" onclick="authManager.openModal('login')">${t.btn_login || 'Girişş Yap'}</button>
+                <button class="auth-btn login" onclick="authManager.openModal('login')">${t.btn_login || 'Giriş Yap'}</button>
                 <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayıt Ol'}</button>
             `;
         }
