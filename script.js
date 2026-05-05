@@ -868,9 +868,7 @@ class Game {
     gameOver() {
         clearInterval(this.timerInterval);
         if (typeof authManager !== 'undefined') {
-            if (this.gameMode === 'timed') {
-                authManager.updateStats(this.currentSport, this.streak, this.score);
-            }
+            authManager.updateStats(this.currentSport, this.streak, this.score);
         }
         const t = TRANSLATIONS[this.currentLang];
         this.gameContainer.innerHTML = `
@@ -879,7 +877,7 @@ class Game {
                 <div class="stats" style="margin: 20px 0; justify-content: center; gap: 20px;">
                     <div class="score-item">${t.msg_total_score || 'Toplam Skor'}: <b style="font-size: 24px;">${this.score}</b></div>
                 </div>
-                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_agaÇin || 'Tekrar Oyna'}</button>
+                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_again || 'Tekrar Oyna'}</button>
             </div>
         `;
     }
@@ -994,10 +992,8 @@ class Game {
             multiplayerManager.updateMyScore(this.score);
         }
         if (typeof authManager !== 'undefined') {
-            // Only save stats if Çin TIMED mode
-            if (this.gameMode === 'timed') {
-                authManager.updateStats(this.currentSport, this.streak, this.score);
-            }
+            authManager.updateStats(this.currentSport, this.streak, this.score);
+        }
         }
         this.showMessage(`${t.msg_correct || 'Correct!'} | ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "success");
 
