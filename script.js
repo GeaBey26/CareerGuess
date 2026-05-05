@@ -1652,7 +1652,7 @@ class AuthManager {
         this.loginBtn = document.getElementById('login-submit-btn');
         this.signupBtn = document.getElementById('signup-submit-btn');
 
-        this.authContainer = document.querySelector('.auth-buttons');
+        this.authContainer = document.getElementById('auth-buttons-container');
         this.avatarTab = 'all';
 
         this.init();
@@ -1977,15 +1977,15 @@ class AuthManager {
 
         const avatars = {
             football: ['⚽', '🧤', '🧦', '👟', '🟨', '🟥', '📢', '🏟️'],
-            basketball: ['🏀', '⛹️', '🧺', '👟', '⏳', '👑', '🔥', '💪'],
-            nfl: ['🏈', '🛡️', '🏃‍♂️', '🎯', '🚩', '🏟️'],
-            nhl: ['🏒', '⛸️', '🧤', '🧔', '❄️', '🏑', '🛡️'],
-            volleyball: ['🏐', '🏐', '👍', '👟', '🏐', '💪', '✨'],
-            cricket: ['🏏', '🥎', '🏟️', '🧢', '☀️', '🌳', '🧦'],
-            f1: ['🏎️', '🏁', '🚥', '🚧', '🔧', '⛽', '🏎️', '🛠️'],
-            tennis: ['🎾', '🎾', '🏟️', '👟', '🏆', '💨', '🥎'],
-            esports: ['⌨️', '🖱️', '🎧', '🕹️', '⚔️', '🔫', '🎯', '💻', '🎮'],
-            others: ['👤', '😎', '🔥', '✨', '🌟', '💎', '🏀', '🚀']
+            basketball: ['🏀', '⛹️', '🧺', '⏳', '👑', '🔥', '💪'],
+            nfl: ['🏈', '🛡️', '🏃‍♂️', '🎯', '🚩'],
+            nhl: ['🏒', '⛸️', '🧔', '❄️', '🏑'],
+            volleyball: ['🏐', '👍', '✨'],
+            cricket: ['🏏', '🥎', '🧢', '🌳'],
+            f1: ['🏎️', '🏁', '🚥', '🚧', '🔧', '⛽', '🛠️'],
+            tennis: ['🎾', '🏆', '💨'],
+            esports: ['⌨️', '🖱️', '🎧', '🕹️', '💻'],
+            others: ['👤', '😎', '🌟', '💎', '🚀']
         };
 
         let list = [];
