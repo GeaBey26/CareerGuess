@@ -7,18 +7,18 @@ var volleyballPlayers = [
     { name: "Anna Danesi", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "IT", nationality: "İtalya", career: [{ years: "2024-Present", team: "Vero Volley Milano" }, { years: "2024", team: "Olimpiyat Altini" }] },
     { name: "Ekaterina Antropova", difficulty: "easy", status: "active", position: "Opposite", flag: "IT", nationality: "İtalya", career: [{ years: "2021-Present", team: "Savino Del Bene Scandicci" }, { years: "2024", team: "Olimpiyat Altini" }] },
     { name: "Sarah Fahr", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "IT", nationality: "İtalya", career: [{ years: "2020-Present", team: "Imoco Volley Conegliano" }] },
-    { name: "Li Yingying", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }, { years: "2024", team: "Olimpiyat �eyrek Final" }] },
+    { name: "Li Yingying", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "CN", nationality: "Çin", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }, { years: "2024", team: "Olimpiyat �eyrek Final" }] },
     { name: "Sarina Koga", difficulty: "easy", status: "retired", position: "Outside Hitter", flag: "JP", nationality: "Japonya", career: [{ years: "2015-2024", team: "NEC Red Rockets" }, { years: "2024", team: "VNL G�m�s Madalya" }] },
     { name: "Mayu Ishikawa", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "JP", nationality: "Japonya", career: [{ years: "2024-Present", team: "Igor Gorgonzola Novara" }] },
     { name: "Annie Drews", difficulty: "easy", status: "active", position: "Opposite", flag: "US", nationality: "ABD", career: [{ years: "2019-2024", team: "JT Marvelous" }, { years: "2024-Present", team: "LOVB Madison" }] },
     { name: "Justine Wong-Orantes", difficulty: "easy", status: "active", position: "Libero", flag: "US", nationality: "ABD", career: [{ years: "2020-2022", team: "Wiesbaden" }, { years: "2024-Present", team: "LOVB Omaha" }] },
     { name: "Haleigh Washington", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "US", nationality: "ABD", career: [{ years: "2022-2024", team: "Scandicci" }, { years: "2024-Present", team: "LOVB Salt Lake" }] },
     { name: "Kathryn Plummer", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "US", nationality: "ABD", career: [{ years: "2021-2024", team: "Conegliano" }, { years: "2024-Present", team: "LOVB Florida" }] },
-    { name: "Yuan Xinyue", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2014-2024", team: "Tianjin Bohai Bank" }, { years: "2024-Present", team: "VakifBank? NO" }] }, // DANGER: She went to Vakifbank in 2024!
+    { name: "Yuan Xinyue", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "CN", nationality: "Çin", career: [{ years: "2014-2024", team: "Tianjin Bohai Bank" }, { years: "2024-Present", team: "VakifBank? NO" }] }, // DANGER: She went to Vakifbank in 2024!
     // I will exclude Yuan Xinyue because she signed with VakifBank for 24/25.
     
-    { name: "Gong Xiangyu", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Jiangsu Zenith Steel" }] },
-    { name: "Diao Linyu", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2014-Present", team: "Jiangsu Zenith Steel" }] },
+    { name: "Gong Xiangyu", difficulty: "easy", status: "active", position: "Opposite", flag: "CN", nationality: "Çin", career: [{ years: "2015-Present", team: "Jiangsu Zenith Steel" }] },
+    { name: "Diao Linyu", difficulty: "easy", status: "active", position: "Setter", flag: "CN", nationality: "Çin", career: [{ years: "2014-Present", team: "Jiangsu Zenith Steel" }] },
     { name: "Brenda Castillo", difficulty: "easy", status: "active", position: "Libero", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2023-2024", team: "Milano" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
     { name: "Rosamaria Montibeller", difficulty: "easy", status: "active", position: "Opposite", flag: "BR", nationality: "Brezilya", career: [{ years: "2021-2022", team: "Novara" }, { years: "2023-Present", team: "Denso Airybees" }] },
     { name: "Roberta Ratzke", difficulty: "easy", status: "active", position: "Setter", flag: "BR", nationality: "Brezilya", career: [{ years: "2021-Present", team: "ŁKS Łódź" }] },
@@ -73,10 +73,10 @@ var volleyballPlayers = [
     { name: "Pri Daroit", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "BR", nationality: "Brezilya", career: [{ years: "2020-Present", team: "Gerdau Minas" }] },
 
     // --- HARD (Fringe Stars / Role Players - Strictly Ladies & TR-Free) ---
-    { name: "Wang Mengjie", difficulty: "hard", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2022-Present", team: "Shandong" }] },
-    { name: "Xue Ming", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2005-2013", team: "China National Team" }] },
-    { name: "Wang Yuanyuan", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }] },
-    { name: "Zheng Yixin", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2023-Present", team: "Fujian" }] },
+    { name: "Wang Mengjie", difficulty: "hard", status: "active", position: "Libero", flag: "CN", nationality: "Çin", career: [{ years: "2022-Present", team: "Shandong" }] },
+    { name: "Xue Ming", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "CN", nationality: "Çin", career: [{ years: "2005-2013", team: "China National Team" }] },
+    { name: "Wang Yuanyuan", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "CN", nationality: "Çin", career: [{ years: "2015-Present", team: "Tianjin Bohai Bank" }] },
+    { name: "Zheng Yixin", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "CN", nationality: "Çin", career: [{ years: "2023-Present", team: "Fujian" }] },
     { name: "Haruyo Shimamura", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "JP", nationality: "Japonya", career: [{ years: "2010-Present", team: "NEC Red Rockets" }] },
     { name: "Nanami Seki", difficulty: "hard", status: "active", position: "Setter", flag: "JP", nationality: "Japonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
     { name: "Mami Uchiseto", difficulty: "hard", status: "retired", position: "Outside Hitter", flag: "JP", nationality: "Japonya", career: [{ years: "2017-2018", team: "Gricignano (Italy)" }] },

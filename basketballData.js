@@ -1,5 +1,7 @@
 var basketballPlayers = [
     // --- EASY (Superstars / Global Icons) ---
+    { name: "Zaccharie Risacher", difficulty: "hard", status: "active", position: "Forvet", flag: "FR", nationality: "Fransa", career: [{ years: "2023-2024", team: "JL Bourg" }, { years: "2024-Present", team: "Atlanta Hawks" }] },
+    { name: "Alex Sarr", difficulty: "hard", status: "active", position: "Pivot", flag: "FR", nationality: "Fransa", career: [{ years: "2023-2024", team: "Perth Wildcats" }, { years: "2024-Present", team: "Washington Wizards" }] },
     { name: "Russell Westbrook", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2008-2019", team: "OKC Thunder" }, { years: "2019-2020", team: "Houston Rockets" }, { years: "2021-2023", team: "LA Lakers" }, { years: "2023-2024", team: "LA Clippers" }, { years: "2024-Present", team: "Denver Nuggets" }] },
     { name: "LeBron James", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2003-2010", team: "Cleveland Cavaliers" }, { years: "2010-2014", team: "Miami Heat" }, { years: "2014-2018", team: "Cleveland Cavaliers" }, { years: "2018-Present", team: "LA Lakers" }] },
     { name: "Stephen Curry", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2009-Present", team: "Golden State Warriors" }] },

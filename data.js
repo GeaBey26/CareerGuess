@@ -1,6 +1,8 @@
 console.log("data.js script start");
 var players = [
     // --- EASY (Active Global Megastars) ---
+    { name: "Riccardo Calafiori", difficulty: "medium", status: "active", position: "Defans", flag: "IT", nationality: "İtalya", career: [{ years: "2022-2023", team: "Basel" }, { years: "2023-2024", team: "Bologna" }, { years: "2024-Present", team: "Arsenal" }] },
+    { name: "Joshua Zirkzee", difficulty: "medium", status: "active", position: "Forvet", flag: "NL", nationality: "Hollanda", career: [{ years: "2019-2022", team: "Bayern Munich" }, { years: "2022-2024", team: "Bologna" }, { years: "2024-Present", team: "Man Utd" }] },
     { name: "Cristiano Ronaldo", difficulty: "easy", status: "active", position: "Forvet", flag: "PT", nationality: "Portekiz", career: [{ years: "2002-2003", team: "Sporting CP" }, { years: "2003-2009", team: "Man Utd" }, { years: "2009-2018", team: "Real Madrid" }, { years: "2018-2021", team: "Juventus" }, { years: "2021-2022", team: "Man Utd" }, { years: "2023-Present", team: "Al Nassr" }] },
     { name: "Lionel Messi", difficulty: "easy", status: "active", position: "Forvet", flag: "AR", nationality: "Arjantin", career: [{ years: "2004-2021", team: "Barcelona" }, { years: "2021-2023", team: "PSG" }, { years: "2023-Present", team: "Inter Miami" }] },
     { name: "Kylian Mbappe", difficulty: "easy", status: "active", position: "Forvet", flag: "FR", nationality: "Fransa", career: [{ years: "2015-2017", team: "Monaco" }, { years: "2017-2024", team: "PSG" }, { years: "2024-Present", team: "Real Madrid" }] },
