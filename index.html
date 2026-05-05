@@ -486,6 +486,10 @@
           }
         }
 
+        function safeText(text) {
+          return fixEncoding(text).normalize("NFC");
+        }
+
         // 🔥 TÜM SAYFAYI TARAYIP DÜZELTİR
         function fixAllText() {
           document.querySelectorAll("*").forEach(el => {
