@@ -994,7 +994,7 @@ class Game {
         if (typeof authManager !== 'undefined') {
             authManager.updateStats(this.currentSport, this.streak, this.score);
         }
-        }
+        
         this.showMessage(`${t.msg_correct || 'Correct!'} | ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "success");
 
         if (this.gameMode === 'timed') {
@@ -1620,15 +1620,7 @@ class DailyChallenge {
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOM Loaded");
-    new Game();
-    window.dailyChallenge = new DailyChallenge();
-    dailyChallenge.init();
 
-    const badge = document.querySelector('.daily-challenge-badge');
-    if (badge) badge.style.cursor = 'pointer', badge.onclick = () => dailyChallenge.open();
-});
 
 
 // ========================
@@ -2163,9 +2155,7 @@ class InfoManager {
     }
 }
 
-const authManager = new AuthManager();
-const cookieManager = new CookieManager();
-const infoManager = new InfoManager();
+// Managers are now initialized inside DOMContentLoaded for safety
 
 class MultiplayerManager {
     constructor() {
@@ -2421,4 +2411,24 @@ document.querySelectorAll('button, .card').forEach(el => {
     clickSound.currentTime = 0;
     clickSound.play().catch(err => console.log('Audio play blocked:', err));
   });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("CareerGuess initializing...");
+    window.game = new Game();
+    window.dailyChallenge = new DailyChallenge();
+    dailyChallenge.init();
+    
+    window.authManager = new AuthManager();
+    window.cookieManager = new CookieManager();
+    window.infoManager = new InfoManager();
+    window.multiplayerManager = new MultiplayerManager();
+
+    const badge = document.querySelector('.daily-challenge-badge');
+    if (badge) {
+        badge.style.cursor = 'pointer';
+        badge.onclick = () => dailyChallenge.open();
+    }
+    
+    if (window.authManager) window.authManager.updateUI();
 });
