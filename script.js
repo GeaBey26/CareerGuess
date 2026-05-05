@@ -39,7 +39,7 @@ class SoundManager {
         if (this.ctx.state === 'suspended') this.ctx.resume();
 
         const osc = this.ctx.createOscillator();
-        const gain = this.ctx.createGain();
+        const gaÇin = this.ctx.createGain();
 
         osc.type = type;
         osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
@@ -82,16 +82,16 @@ const sounds = new SoundManager();
 class AchievementManager {
     constructor() {
         this.achievements = [
-            { id: 'first_win', icon: '🎯', tr: 'İlk Tahmin', en: 'First Guess', desc_tr: 'İlk oyuncuyu doğru tahmin et.', desc_en: 'Guess your first player correctly.' },
+            { id: 'first_win', icon: '🎯', tr: 'İlk Tahmin', en: 'First Guess', desc_tr: 'İlk oyuncuyu doğru tahmÇin et.', desc_en: 'Guess your first player correctly.' },
             { id: 'streak_5', icon: '🔥', tr: 'Sıcak Seri', en: 'Hot Streak', desc_tr: '5\'li seri yakala.', desc_en: 'Reach a streak of 5.' },
             { id: 'streak_10', icon: '🎉', tr: 'Efsane Seri', en: 'Godlike Streak', desc_tr: '10\'lu seri yakala.', desc_en: 'Reach a streak of 10.' },
-            { id: 'score_100', icon: '💯', tr: 'Dalya', en: 'Century', desc_tr: 'Tek oyunda 100 puan yap.', desc_en: 'Score 100 points in a single game.' },
+            { id: 'score_100', icon: '💯', tr: 'Dalya', en: 'Century', desc_tr: 'Tek oyunda 100 puan yap.', desc_en: 'Score 100 points Çin a single game.' },
             { id: 'daily_win', icon: '📅', tr: 'Günlük Kahraman', en: 'Daily Hero', desc_tr: 'Bir Günlük Yarışmayı tamamla.', desc_en: 'Complete one Daily Challenge.' },
-            { id: 'football_pro', icon: '⚽', tr: 'Futbol Gurmesi', en: 'Football Guru', desc_tr: 'Futbolda 500 toplam puan.', desc_en: 'Score 500 total points in Football.' },
-            { id: 'basket_pro', icon: '🏀', tr: 'Basketbol Üstadı', en: 'Hoops Master', desc_tr: 'Basketbolda 500 toplam puan.', desc_en: 'Score 500 total points in Basketball.' },
-            { id: 'f1_speed', icon: '🏎️', tr: 'Hız Tutkunu', en: 'Speed Demon', desc_tr: 'F1 kategorisinde oyna.', desc_en: 'Play in the F1 category.' },
-            { id: 'esport_gamer', icon: '🎮', tr: 'Gerçek Oyuncu', en: 'True Gamer', desc_tr: 'E-Spor kategorisinde oyna.', desc_en: 'Play in E-Sports category.' },
-            { id: 'multilingual', icon: '🌍', tr: 'Dünya İnsanı', en: 'Polyglot', desc_tr: '3 farklı dilde oyna.', desc_en: 'Play in 3 different languages.' }
+            { id: 'football_pro', icon: '⚽', tr: 'Futbol Gurmesi', en: 'Football Guru', desc_tr: 'Futbolda 500 toplam puan.', desc_en: 'Score 500 total points Çin Football.' },
+            { id: 'basket_pro', icon: '🏀', tr: 'Basketbol Üstadı', en: 'Hoops Master', desc_tr: 'Basketbolda 500 toplam puan.', desc_en: 'Score 500 total points Çin Basketball.' },
+            { id: 'f1_speed', icon: '🏎️', tr: 'Hız Tutkunu', en: 'Speed Demon', desc_tr: 'F1 kategorisinde oyna.', desc_en: 'Play Çin the F1 category.' },
+            { id: 'esport_gamer', icon: '🎮', tr: 'Gerçek Oyuncu', en: 'True Gamer', desc_tr: 'E-Spor kategorisinde oyna.', desc_en: 'Play Çin E-Sports category.' },
+            { id: 'multilingual', icon: '🌍', tr: 'Dünya İnsanı', en: 'Polyglot', desc_tr: '3 farklı dilde oyna.', desc_en: 'Play Çin 3 different languages.' }
         ];
     }
 
@@ -209,13 +209,13 @@ const TRANSLATIONS = {
         title_game_f1: "CAREER GUESS (F1)",
         title_game_tennis: "CAREER GUESS (TENİS)",
         title_game_esports: "CAREER GUESS (E-SPOR)",
-        subtitle_game: "Kariyer geçmişine bak ve oyuncuyu tahmin et!",
+        subtitle_game: "Kariyer geçmişine bak ve oyuncuyu tahmÇin et!",
         score: "Skor",
         streak: "Seri",
         input_placeholder: "İsim yaz...",
         btn_give_up: "Pes Et",
         btn_hint: "İpucu",
-        btn_guess: "Tahmin Et",
+        btn_guess: "TahmÇin Et",
         msg_correct: "Doğru! +10 Puan",
         msg_wrong: "Yanlış Cevap! -10 Puan",
         msg_used_hint: "İpucu Kullanıldı",
@@ -226,7 +226,7 @@ const TRANSLATIONS = {
         msg_time_up: "SÜRE BİTTİ!",
         msg_total_score: "Toplam Skor:",
         btn_play_again: "TEKRAR OYNA",
-        confirm_exit: "Çıkmak istediğine emin misin? Oyun sıfırlanacak.",
+        confirm_exit: "Çıkmak istediğine emÇin misin? Oyun sıfırlanacak.",
         btn_login: "Giriş Yap",
         btn_signup: "Kayıt Ol",
         btn_logout: "Çıkış Yap",
@@ -239,12 +239,12 @@ const TRANSLATIONS = {
         footer_rights: "Tüm hakları saklıdır.",
         footer_privacy: "Gizlilik Politikası",
         footer_terms: "Kullanım Şartları",
-        cookie_text: "Bu site deneyim ve reklamlar için çerez kullanır.",
+        cookie_text: "Bu site deneyim ve reklamlar iÇin çerez kullanır.",
         cookie_info: "Daha Fazla Bilgi",
         cookie_accept: "Kabul Et",
         btn_close: "Kapat",
         cookie_info_title: "Çerez Bilgisi",
-        privacy_content: "GİZLİLİK POLİTİKASI\n\n1. Veriler\nİlerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nÇerez kullanan üçüncü taraf reklamlar gösterebiliriz.\n\n3. İletişim\nSorularınız için bizimle iletişime geçin.",
+        privacy_content: "GİZLİLİK POLİTİKASI\n\n1. Veriler\nİlerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nÇerez kullanan üçüncü taraf reklamlar gösterebiliriz.\n\n3. İletişim\nSorularınız iÇin bizimle iletişime geçin.",
         terms_content: "KULLANIM ŞARTLARI\n\n1. Kullanım\nBu oyun eğlence amaçlıdır.\n\n2. Telif Hakkı\nİçerikler ve tasarım koruma altındadır.\n\n3. Sorumluluk\nOyun 'olduğu gibi' sunulur. Kesintilerden sorumlu değiliz.",
     },
     en: {
@@ -303,7 +303,7 @@ const TRANSLATIONS = {
         msg_total_score: "Total Score:",
         btn_play_again: "PLAY AGAIN",
         confirm_exit: "Are you sure you want to exit? Progress will be lost.",
-        btn_login: "Login",
+        btn_login: "LogÇin",
         btn_signup: "Sign Up",
         btn_logout: "Logout",
         profile_title: "PLAYER PROFILE",
@@ -349,7 +349,7 @@ const TRANSLATIONS = {
         title_mode: "MODO DE JUEGO",
         subtitle_mode: "¿Cómo quieres jugar?",
         mode_classic: "CLÁSICO",
-        mode_classic_desc: "Sin prisa, solo diversión.",
+        mode_classic_desc: "SÇin prisa, solo diversión.",
         mode_timed: "CON TIEMPO",
         mode_timed_desc: "60 segundos. ¡Demuestra tu velocidad!",
         score: "Puntuación",
@@ -609,7 +609,7 @@ class Game {
         });
         
         target.classList.remove('hidden');
-        // Smooth fade-in without causing a white flash
+        // Smooth fade-Çin without causing a white flash
         target.style.opacity = '0';
         target.style.animation = 'none';
         requestAnimationFrame(() => {
@@ -875,7 +875,7 @@ class Game {
                 <div class="stats" style="margin: 20px 0; justify-content: center; gap: 20px;">
                     <div class="score-item">${t.msg_total_score || 'Toplam Skor'}: <b style="font-size: 24px;">${this.score}</b></div>
                 </div>
-                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_again || 'Tekrar Oyna'}</button>
+                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_agaÇin || 'Tekrar Oyna'}</button>
             </div>
         `;
     }
@@ -990,7 +990,7 @@ class Game {
             multiplayerManager.updateMyScore(this.score);
         }
         if (typeof authManager !== 'undefined') {
-            // Only save stats if in TIMED mode
+            // Only save stats if Çin TIMED mode
             if (this.gameMode === 'timed') {
                 authManager.updateStats(this.currentSport, this.streak, this.score);
             }
@@ -1003,7 +1003,7 @@ class Game {
             this.showFloatingText("+5s", "green");
         }
 
-        console.log("Win Handled. Moving to next in 1.5s...");
+        console.log("WÇin Handled. Moving to next Çin 1.5s...");
         setTimeout(() => {
             console.log("Timeout fired. Calling nextRound...");
             this.nextRound();
@@ -1478,7 +1478,7 @@ class DailyChallenge {
             <div class="dc-input-wrap">
                 <input type="text" id="dc-guess-input" class="dc-input" placeholder="Oyuncu ismini yaz..." autocomplete="off" oninput="dailyChallenge.handleSuggest(this.value)">
                 <div id="dc-suggestions" class="dc-suggestions hidden"></div>
-                <button class="dc-submit-btn" onclick="dailyChallenge.submitGuess()">Tahmin Et</button>
+                <button class="dc-submit-btn" onclick="dailyChallenge.submitGuess()">TahmÇin Et</button>
             </div>
             <div class="dc-attempts-left">🎯 ${attemptsLeft} hakkın kaldı</div>` : '';
 
@@ -2061,7 +2061,7 @@ class AuthManager {
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
-                <button class="auth-btn login" onclick="authManager.openModal('login')">${t.btn_login || 'Giriş Yap'}</button>
+                <button class="auth-btn logÇin" onclick="authManager.openModal('login')">${t.btn_logÇin || 'Giriş Yap'}</button>
                 <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayıt Ol'}</button>
             `;
         }
@@ -2275,7 +2275,7 @@ class MultiplayerManager {
         if (type === 'queue') {
             this.startQueue();
             setTimeout(() => {
-                alert("Simülasyon Modu: Firebase anahtarlarınız eksik olduğu için gerçek eşleşme yapılamıyor.");
+                alert("Simülasyon Modu: Firebase anahtarlarınız eksik olduğu iÇin gerçek eşleşme yapılamıyor.");
                 this.stopQueue();
             }, 5000);
         } else {

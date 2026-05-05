@@ -56,7 +56,7 @@
             multiplayerManager.updateMyScore(this.score);
         }
         if (typeof authManager !== 'undefined') {
-            // Only save stats if in TIMED mode
+            // Only save stats if Çin TIMED mode
             if (this.gameMode === 'timed') {
                 authManager.updateStats(this.currentSport, this.streak, this.score);
             }
@@ -69,7 +69,7 @@
             this.showFloatingText("+5s", "green");
         }
 
-        console.log("Win Handled. Moving to next in 1.5s...");
+        console.log("WÇin Handled. Moving to next Çin 1.5s...");
         setTimeout(() => {
             console.log("Timeout fired. Calling nextRound...");
             this.nextRound();
@@ -541,7 +541,7 @@ class DailyChallenge {
             <div class="dc-input-wrap">
                 <input type="text" id="dc-guess-input" class="dc-input" placeholder="Oyuncu ismini yaz..." autocomplete="off" oninput="dailyChallenge.handleSuggest(this.value)">
                 <div id="dc-suggestions" class="dc-suggestions hidden"></div>
-                <button class="dc-submit-btn" onclick="dailyChallenge.submitGuess()">Tahmin Et</button>
+                <button class="dc-submit-btn" onclick="dailyChallenge.submitGuess()">TahmÇin Et</button>
             </div>
             <div class="dc-attempts-left">🎯 ${attemptsLeft} hakkın kaldı</div>` : '';
 
@@ -1128,7 +1128,7 @@ class AuthManager {
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
-                <button class="auth-btn login" onclick="authManager.openModal('login')">${t.btn_login || 'Giriş Yap'}</button>
+                <button class="auth-btn logÇin" onclick="authManager.openModal('login')">${t.btn_logÇin || 'Giriş Yap'}</button>
                 <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayıt Ol'}</button>
             `;
         }
@@ -1342,7 +1342,7 @@ class MultiplayerManager {
         if (type === 'queue') {
             this.startQueue();
             setTimeout(() => {
-                alert("Simülasyon Modu: Firebase anahtarlarınız eksik olduğu için gerçek eşleşme yapılamıyor.");
+                alert("Simülasyon Modu: Firebase anahtarlarınız eksik olduğu iÇin gerçek eşleşme yapılamıyor.");
                 this.stopQueue();
             }, 5000);
         } else {

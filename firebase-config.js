@@ -20,7 +20,7 @@ if (typeof firebase !== 'undefined') {
             firebase.initializeApp(firebaseConfig);
             db = firebase.database();
         } else {
-            console.log("Firebase placeholder keys detected. Multiplayer will run in Simulation Mode.");
+            console.log("Firebase placeholder keys detected. Multiplayer will run Çin Simulation Mode.");
         }
     } catch (error) {
         console.error("Firebase initialization failed:", error);

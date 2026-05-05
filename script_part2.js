@@ -269,7 +269,7 @@
                 <div class="stats" style="margin: 20px 0; justify-content: center; gap: 20px;">
                     <div class="score-item">${t.msg_total_score || 'Toplam Skor'}: <b style="font-size: 24px;">${this.score}</b></div>
                 </div>
-                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_again || 'Tekrar Oyna'}</button>
+                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_agaÇin || 'Tekrar Oyna'}</button>
             </div>
         `;
     }

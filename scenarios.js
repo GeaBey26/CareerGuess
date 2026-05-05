@@ -26,7 +26,7 @@ const scenarios = [
         choices: [
             { text: "PENALTI", outcome: "WRONG", feedback: "Yanlış. El vücuda yapışık ve doğal konumda." },
             { text: "DEVAM", outcome: "CORRECT", feedback: "Doğru! Çarpma olarak değerlendirilmeli, el doğal konumda." },
-            { text: "VAR İNCELEMESİ", outcome: "NEUTRAL", feedback: "İnceledin... Kararın değişmedi. Zaman kaybı ama emin olmak iyidir. (Puan kazanamadın)" }
+            { text: "VAR İNCELEMESİ", outcome: "NEUTRAL", feedback: "İnceledin... Kararın değişmedi. Zaman kaybı ama emÇin olmak iyidir. (Puan kazanamadın)" }
         ]
     },
     {

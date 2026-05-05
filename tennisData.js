@@ -64,7 +64,7 @@ var tennisPlayers = [
     { name: "Leylah Fernandez", difficulty: "hard", status: "active", position: "Tenisçi", flag: "CA", nationality: "Kanada", career: [{ years: "Final", team: "US Open Finalisti (2021)" }] },
     { name: "Bianca Andreescu", difficulty: "hard", status: "active", position: "Tenisçi", flag: "CA", nationality: "Kanada", career: [{ years: "Rekor", team: "US Open Åampiyonu (2019)" }] },
     { name: "Sloane Stephens", difficulty: "hard", status: "active", position: "Tenisçi", flag: "US", nationality: "ABD", career: [{ years: "Rekor", team: "US Open Åampiyonu (2017)" }] },
-    { name: "Sofia Kenin", difficulty: "hard", status: "active", position: "Tenisçi", flag: "US", nationality: "ABD", career: [{ years: "Rekor", team: "Australian Open Åampiyonu (2020)" }] },
+    { name: "Sofia KenÇin", difficulty: "hard", status: "active", position: "Tenisçi", flag: "US", nationality: "ABD", career: [{ years: "Rekor", team: "Australian Open Åampiyonu (2020)" }] },
     { name: "Flavia Pennetta", difficulty: "hard", status: "retired", position: "Tenisçi", flag: "??‡®??‡¹", nationality: "İtalya", career: [{ years: "Rekor", team: "US Open Åampiyonu (2015)" }] },
     { name: "Mirra Andreeva", difficulty: "hard", status: "active", position: "Tenisçi", flag: "RU", nationality: "Rusya", career: [{ years: "Slam", team: "French Open Yarı Finalisti (17 Yaş)" }] },
     { name: "Diana Shnaider", difficulty: "hard", status: "active", position: "Tenisçi", flag: "RU", nationality: "Rusya", career: [{ years: "Başarı", team: "3 Farklı Zeminde 3 Åampiyonluk (2024)" }] },
