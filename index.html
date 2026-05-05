@@ -169,12 +169,12 @@
                     <div class="suggestions-box" id="suggestions"></div>
                 </div>
                 <div class="buttons action-hub">
-                    <button class="pass-btn" id="give-up-btn" onclick="game.giveUp()" data-i18n="btn_give_up">Pas</button>
-                    <button class="hint-btn" id="hint-btn" onclick="game.showHint()" data-i18n="btn_hint">İpucu</button>
-                    <button class="guess-btn" id="submit-btn" onclick="game.checkGuess()" data-i18n="btn_guess">Tahmin Et</button>
+                    <button class="pass-btn" id="give-up-btn" onclick="window.game.giveUp()" data-i18n="btn_give_up">Pas</button>
+                    <button class="hint-btn" id="hint-btn" onclick="window.game.showHint()" data-i18n="btn_hint">İpucu</button>
+                    <button class="guess-btn" id="submit-btn" onclick="window.game.checkGuess()" data-i18n="btn_guess">Tahmin Et</button>
                 </div>
             </div>
-            <button id="back-btn" class="nav-back-btn" onclick="game.returnToMenu()">🏠</button>
+            <button id="back-btn" class="nav-back-btn" onclick="window.game.returnToMenu()">🏠</button>
             <div id="message-area" class="message hidden"></div>
         </div>
 
@@ -227,7 +227,7 @@
 
         <!-- Leaderboard Screen -->
         <div id="leaderboard-screen" class="start-screen hidden">
-            <button class="back-btn" onclick="game.showScreen('category-screen')">← Geri</button>
+            <button class="back-btn" onclick="window.game.showScreen('category-screen')">← Geri</button>
             <div class="start-content">
                 <h1 class="logo">LİDERLİK TABLOSU 🏆</h1>
                 <div id="main-leaderboard-container"></div>
@@ -237,7 +237,7 @@
         <!-- Multiplayer Screen -->
         <section id="multiplayer-screen" class="start-screen hidden">
             <div class="start-content">
-                <button class="back-btn" onclick="game.showScreen('category-screen')">← Geri</button>
+                <button class="back-btn" onclick="window.game.showScreen('category-screen')">← Geri</button>
                 <h1 class="logo">MULTIPLAYER ⚡</h1>
                 <div class="multi-actions">
                     <button class="primary-btn" id="matchmaking-btn">Hızlı Maç Bul</button>

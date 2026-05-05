@@ -463,6 +463,7 @@ const TRANSLATIONS = {
 
 class Game {
     constructor() {
+        window.game = this;
         this.currentLang = 'tr'; // Default language
 
         this.score = 0;
@@ -950,8 +951,8 @@ class Game {
     }
 
     checkGuess() {
-        if (!this.canGuess) {
-            console.log("Guessing is currently locked (Transitioning...)");
+        if (!this.canGuess || !this.currentPlayer) {
+            console.log("Guessing blocked (Transitioning or no player)");
             return;
         }
         const guess = this.inputEl.value.trim().toLowerCase();
