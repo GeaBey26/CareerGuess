@@ -475,6 +475,31 @@
         <script src="script.js" charset="utf-8"></script>
     </div> <!-- Close main container here -->
 
+
+    <script>
+        // 🔥 GLOBAL ENCODING FIX
+        function fixEncoding(text) {
+          try {
+            return decodeURIComponent(escape(text));
+          } catch (e) {
+            return text;
+          }
+        }
+
+        // 🔥 TÜM SAYFAYI TARAYIP DÜZELTİR
+        function fixAllText() {
+          document.querySelectorAll("*").forEach(el => {
+            if (el.children.length === 0 && el.innerText) {
+              el.innerText = fixEncoding(el.innerText);
+            }
+          });
+        }
+
+        // SAYFA YÜKLENİNCE ÇALIŞ
+        window.addEventListener("load", () => {
+          fixAllText();
+        });
+    </script>
 </body>
 
 </html>
