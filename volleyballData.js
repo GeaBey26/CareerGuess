@@ -19,11 +19,11 @@ var volleyballPlayers = [
     
     { name: "Gong Xiangyu", difficulty: "easy", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2015-Present", team: "Jiangsu Zenith Steel" }] },
     { name: "Diao Linyu", difficulty: "easy", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "�in", career: [{ years: "2014-Present", team: "Jiangsu Zenith Steel" }] },
-    { name: "Brenda Castillo", difficulty: "easy", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2023-2024", team: "Milano" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
+    { name: "Brenda Castillo", difficulty: "easy", status: "active", position: "Libero", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2023-2024", team: "Milano" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
     { name: "Rosamaria Montibeller", difficulty: "easy", status: "active", position: "Opposite", flag: "BR", nationality: "Brezilya", career: [{ years: "2021-2022", team: "Novara" }, { years: "2023-Present", team: "Denso Airybees" }] },
     { name: "Roberta Ratzke", difficulty: "easy", status: "active", position: "Setter", flag: "BR", nationality: "Brezilya", career: [{ years: "2021-Present", team: "ŁKS Łódź" }] },
     { name: "Kotona Hayashi", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "JP", nationality: "Japonya", career: [{ years: "2018-Present", team: "JT Marvelous" }] },
-    { name: "Indy Baijens", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Schwerin" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
+    { name: "Indy Baijens", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "NL", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Schwerin" }, { years: "2024-Present", team: "Savino Del Bene Scandicci" }] },
     { name: "Britt Herbots", difficulty: "easy", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Bel�ika", career: [{ years: "2023-Present", team: "Savino Del Bene Scandicci" }] },
     { name: "Marina Lubian", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "IT", nationality: "İtalya", career: [{ years: "2022-Present", team: "Imoco Volley Conegliano" }] },
     { name: "Sarah Fahr", difficulty: "easy", status: "active", position: "Middle Blocker", flag: "IT", nationality: "İtalya", career: [{ years: "2020-Present", team: "Imoco Volley Conegliano" }] },
@@ -45,10 +45,10 @@ var volleyballPlayers = [
     { name: "Nanami Seki", difficulty: "medium", status: "active", position: "Setter", flag: "JP", nationality: "Japonya", career: [{ years: "2024-Present", team: "Imoco Volley Conegliano" }] },
     { name: "Arisa Inoue", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "JP", nationality: "Japonya", career: [{ years: "2023-2024", team: "Nantes" }] },
     { name: "Manami Kojima", difficulty: "medium", status: "active", position: "Libero", flag: "JP", nationality: "Japonya", career: [{ years: "2024-Present", team: "LOVB Salt Lake" }] },
-    { name: "Yonkaira Peña", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2022-Present", team: "Gerdau Minas" }] },
-    { name: "Brayelin Martinez", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2019-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Dinamo Kazan" }] },
-    { name: "Jineiry Martinez", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2020-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Azeryol? No" }] },
-    { name: "Gaila Gonzalez", difficulty: "medium", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2022-2024", team: "Dinamo Kazan" }] }, // Did she play in Kuzeyboru? Yes. Exclude.
+    { name: "Yonkaira Peña", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2022-Present", team: "Gerdau Minas" }] },
+    { name: "Brayelin Martinez", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2019-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Dinamo Kazan" }] },
+    { name: "Jineiry Martinez", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2020-2024", team: "Praia Clube" }, { years: "2024-Present", team: "Azeryol? No" }] },
+    { name: "Gaila Gonzalez", difficulty: "medium", status: "active", position: "Opposite", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2022-2024", team: "Dinamo Kazan" }] }, // Did she play in Kuzeyboru? Yes. Exclude.
 
     { name: "Caterina Bosetti", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "IT", nationality: "İtalya", career: [{ years: "2024-Present", team: "Vakifbank? NO" }] }, // She is in Vakifbank now. Exclude.
 
@@ -59,11 +59,11 @@ var volleyballPlayers = [
     { name: "Agnieszka Korneluk", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "PL", nationality: "Polonya", career: [{ years: "2024-Present", team: "Resovia Rzeszów" }] },
     { name: "Maria Stenzel", difficulty: "medium", status: "active", position: "Libero", flag: "PL", nationality: "Polonya", career: [{ years: "2023-Present", team: "Radomka Radom" }] },
     { name: "Katarzyna Wenerska", difficulty: "medium", status: "active", position: "Setter", flag: "PL", nationality: "Polonya", career: [{ years: "2021-Present", team: "Developres Rzeszów" }] },
-    { name: "Eline Timmerman", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Stuttgart" }] }, // In Galatasaray now? Yes. Exclude.
+    { name: "Eline Timmerman", difficulty: "medium", status: "active", position: "Middle Blocker", flag: "NL", nationality: "Hollanda", career: [{ years: "2021-2024", team: "Stuttgart" }] }, // In Galatasaray now? Yes. Exclude.
     
-    { name: "Britt Bongaerts", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2022-Present", team: "Stuttgart" }] },
-    { name: "Laura Dijkema", difficulty: "medium", status: "active", position: "Setter", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2024-Present", team: "LOVB Omaha" }] },
-    { name: "Nika Daalderop", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2023-Present", team: "Milano" }] }, // Vakifbank history? Yes. Exclude.
+    { name: "Britt Bongaerts", difficulty: "medium", status: "active", position: "Setter", flag: "NL", nationality: "Hollanda", career: [{ years: "2022-Present", team: "Stuttgart" }] },
+    { name: "Laura Dijkema", difficulty: "medium", status: "active", position: "Setter", flag: "NL", nationality: "Hollanda", career: [{ years: "2024-Present", team: "LOVB Omaha" }] },
+    { name: "Nika Daalderop", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "NL", nationality: "Hollanda", career: [{ years: "2023-Present", team: "Milano" }] }, // Vakifbank history? Yes. Exclude.
 
     { name: "Julia Bergmann", difficulty: "medium", status: "active", position: "Outside Hitter", flag: "BR", nationality: "Brezilya", career: [{ years: "2023-Present", team: "THY? NO" }] }, // THY history. Exclude.
     
@@ -90,11 +90,11 @@ var volleyballPlayers = [
     { name: "Silke Van Avermaet", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Bel�ika", career: [{ years: "2024-Present", team: "Busto Arsizio" }] },
     { name: "Kaja Grobelna", difficulty: "hard", status: "active", position: "Opposite", flag: "gY?�gY?�", nationality: "Bel�ika", career: [{ years: "2019-Present", team: "Chieri" }] },
     { name: "Indre Sorokaite", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "IT", nationality: "İtalya", career: [{ years: "2022-Present", team: "Savino Del Bene Scandicci" }] },
-    { name: "Yvon Beliën", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Hollanda", career: [{ years: "2015-2017", team: "Vakifbank? NO" }] }, // Exclude.
+    { name: "Yvon Beliën", difficulty: "hard", status: "retired", position: "Middle Blocker", flag: "NL", nationality: "Hollanda", career: [{ years: "2015-2017", team: "Vakifbank? NO" }] }, // Exclude.
 
-    { name: "Geraldine Gonzalez", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Mirador" }] },
-    { name: "Larysmer Martinez", difficulty: "hard", status: "active", position: "Libero", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2024-Present", team: "LOVB Florida" }] },
-    { name: "Vielka Peralta", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "gY?�gY?�", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Casalmaggiore? No" }] },
+    { name: "Geraldine Gonzalez", difficulty: "hard", status: "active", position: "Middle Blocker", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Mirador" }] },
+    { name: "Larysmer Martinez", difficulty: "hard", status: "active", position: "Libero", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2024-Present", team: "LOVB Florida" }] },
+    { name: "Vielka Peralta", difficulty: "hard", status: "active", position: "Outside Hitter", flag: "DO", nationality: "Dominik Cum.", career: [{ years: "2023-Present", team: "Casalmaggiore? No" }] },
     
     // More US/Italy/Brazilian Stars who never played in TR
     { name: "Morgan Hentz", difficulty: "hard", status: "active", position: "Libero", flag: "US", nationality: "ABD", career: [{ years: "2024-Present", team: "LOVB Atlanta" }] },

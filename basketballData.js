@@ -1,5 +1,6 @@
 var basketballPlayers = [
     // --- EASY (Superstars / Global Icons) ---
+    { name: "Russell Westbrook", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2008-2019", team: "OKC Thunder" }, { years: "2019-2020", team: "Houston Rockets" }, { years: "2021-2023", team: "LA Lakers" }, { years: "2023-2024", team: "LA Clippers" }, { years: "2024-Present", team: "Denver Nuggets" }] },
     { name: "LeBron James", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2003-2010", team: "Cleveland Cavaliers" }, { years: "2010-2014", team: "Miami Heat" }, { years: "2014-2018", team: "Cleveland Cavaliers" }, { years: "2018-Present", team: "LA Lakers" }] },
     { name: "Stephen Curry", difficulty: "easy", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2009-Present", team: "Golden State Warriors" }] },
     { name: "Kevin Durant", difficulty: "easy", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2007-2016", team: "OKC Thunder" }, { years: "2016-2019", team: "Golden State Warriors" }, { years: "2019-2022", team: "Brooklyn Nets" }, { years: "2022-Present", team: "Phoenix Suns" }] },
@@ -111,7 +112,7 @@ var basketballPlayers = [
     { name: "Alex Caruso", difficulty: "hard", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2017-Present", team: "OKC/Bulls/Lakers" }] },
     { name: "Josh Hart", difficulty: "hard", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2017-Present", team: "Knicks/Blazers/Pelicans/Lakers" }] },
     { name: "OG Anunoby", difficulty: "hard", status: "active", position: "Forvet", flag: "gY?ï¿½gY?ï¿½", nationality: "Ingiltere", career: [{ years: "2017-Present", team: "Knicks/Raptors" }] },
-    { name: "Mikal Bridges", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2018-Present", team: "Knicks/Nets/Suns" }] },
+    { name: "Mikal Bridges", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2018-2023", team: "Phoenix Suns" }, { years: "2023-2024", team: "Brooklyn Nets" }, { years: "2024-Present", team: "NY Knicks" }] },
     { name: "Myles Turner", difficulty: "hard", status: "active", position: "Pivot", flag: "US", nationality: "ABD", career: [{ years: "2015-Present", team: "Indiana Pacers" }] },
     { name: "Jaren Jackson Jr.", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2018-Present", team: "Memphis Grizzlies" }] },
     { name: "Desmond Bane", difficulty: "hard", status: "active", position: "Guard", flag: "US", nationality: "ABD", career: [{ years: "2020-Present", team: "Memphis Grizzlies" }] },
@@ -128,7 +129,7 @@ var basketballPlayers = [
     { name: "Kevon Looney", difficulty: "hard", status: "active", position: "Pivot", flag: "US", nationality: "ABD", career: [{ years: "2015-Present", team: "Golden State Warriors" }] },
     { name: "Ivica Zubac", difficulty: "hard", status: "active", position: "Pivot", flag: "gY?ï¿½gY?ï¿½", nationality: "Hirvatistan", career: [{ years: "2016-Present", team: "LA Clippers" }] },
     { name: "Andrew Bogut", difficulty: "hard", status: "retired", position: "Pivot", flag: "AU", nationality: "Avustralya", career: [{ years: "2005-2019", team: "Warriors/Bucks" }] },
-    { name: "Buddy Hield", difficulty: "hard", status: "active", position: "Guard", flag: "gY?ï¿½gY?ï¿½", nationality: "Bahamalar", career: [{ years: "2016-Present", team: "Warriors/76ers/Pacers/Kings" }] },
+    { name: "Buddy Hield", difficulty: "hard", status: "active", position: "Guard", flag: "gY?ï¿½gY?ï¿½", nationality: "Bahamalar", career: [{ years: "2016-Present", team: "Kings/Pacers/76ers" }, { years: "2024-Present", team: "Golden State Warriors" }] },
     { name: "Harrison Barnes", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2012-Present", team: "Spurs/Kings/Mavs/Warriors" }] },
     { name: "Tobias Harris", difficulty: "hard", status: "active", position: "Forvet", flag: "US", nationality: "ABD", career: [{ years: "2011-Present", team: "Pistons/76ers/Clippers" }] },
     { name: "Clint Capela", difficulty: "hard", status: "active", position: "Pivot", flag: "gY?ï¿½gY?ï¿½", nationality: "Isviï¿½re", career: [{ years: "2014-Present", team: "Hawks/Rockets" }] },
