@@ -1,4 +1,4 @@
-// Player database moved to data.js
+﻿// Player database moved to data.js
 var players = players || [];
 
 // ==========================================
@@ -246,7 +246,6 @@ const TRANSLATIONS = {
         cookie_info_title: "Çerez Bilgisi",
         privacy_content: "Gizlilik POLİTİKASI\n\n1. Veriler\nİlerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nÇerez kullanan üçüncü taraf reklamlar gösterebiliriz.\n\n3. İletişim\nSorularınız için bizimle iletişime geçin.",
         terms_content: "KULLANIM ŞARTLARI\n\n1. Kullanım\nBu oyun eğlence amaçlıdır.\n\n2. Telif Hakkı\nİçerikler ve tasarım koruma altındadır.\n\n3. Sorumluluk\nOyun 'olduğu gibi' sunulur. Kesintilerden sorumlu değiliz.",
-    ",
     },
     en: {
         title_category: "CAREER GUESS",
