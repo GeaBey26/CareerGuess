@@ -1,4 +1,4 @@
-﻿// Player database moved to data.js
+// Player database moved to data.js
 var players = players || [];
 
 // ==========================================
@@ -777,9 +777,16 @@ class Game {
             this.activePlayers = this.shuffleArray([...this.activePlayers]);
 
             if (this.activePlayers.length === 0) {
-                alert(`HATA: ${this.currentSport} kategorisinde bu zorlukta oyuncu bulunamadi!`);
+                const sportName = this.currentSport.charAt(0).toUpperCase() + this.currentSport.slice(1);
+                this.showMessage(`HATA: ${sportName} kategorisinde bu zorlukta oyuncu bulunamadı! Yakında eklenecek!`, "error");
+                // Don't transition to game screen if no players
                 return;
             }
+
+            // Apply Theme
+            document.body.className = ''; // Clear previous
+            const baseSport = this.currentSport.split('_')[0];
+            document.body.classList.add(`theme-${baseSport}`);
 
             // Setup Ui based on mode
             this.updateUiForMode();
@@ -831,6 +838,19 @@ class Game {
         // Navigation
         // if (this.backBtn) this.backBtn.addEventListener('click', () => this.returnToMenu());
         if (this.titleEl) this.titleEl.addEventListener('click', () => this.returnToMenu());
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Only trigger if not typing in input
+            if (document.activeElement === this.inputEl) return;
+            
+            const key = e.key.toLowerCase();
+            if (key === 'p') {
+                this.giveUp();
+            } else if (key === 'h') {
+                this.showHint();
+            }
+        });
     }
 
     returnToMenu() {
@@ -845,13 +865,19 @@ class Game {
         this.timer = this.gameMode === 'quiz' ? 15 : 60; // 15s for quiz, 60s for timed
         this.timerVal.innerText = this.timer;
         this.timerArea.classList.remove('hidden');
-        // Fix: clear any existing interval
-        if (this.timerInterval) clearInterval(this.timerInterval);
+        this.maxTimer = this.timer;
+        this.timerBar = document.getElementById('timer-bar');
 
         this.timerInterval = setInterval(() => {
             this.timer--;
             if (typeof sounds !== 'undefined') sounds.playTick();
             this.timerVal.innerText = this.timer;
+
+            // Update Progress Bar
+            if (this.timerBar) {
+                const percent = (this.timer / this.maxTimer) * 100;
+                this.timerBar.style.width = `${percent}%`;
+            }
 
             if (this.timer <= 10) {
                 this.timerArea.classList.add('danger');
@@ -873,6 +899,8 @@ class Game {
         const t = TRANSLATIONS[this.currentLang];
         const isTimeUp = this.gameMode === 'timed';
         const emoji = this.score >= 100 ? '🏆' : this.score >= 50 ? '🥈' : '🎮';
+        const shareText = `CareerGuess'te ${this.currentSport} kategorisinde ${this.score} skor yaptım! 🔥 Sen de dene: https://geabey26.github.io/CareerGuess/`;
+
         this.gameContainer.innerHTML = `
             <div class="game-over-premium" style="text-align:center; padding: 40px; animation: pageEnter 0.6s ease-out both;">
                 <div style="font-size: 64px; margin-bottom: 10px;">${emoji}</div>
@@ -890,12 +918,17 @@ class Game {
                         <div style="font-size:2.2rem; font-weight:800; color:#f59e0b;">${this.streak}</div>
                     </div>
                 </div>
-                <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom: 20px;">
                     <button class="guess-btn" onclick="location.reload()" style="padding:14px 32px; font-size:1rem;">${t.btn_play_again || 'TEKRAR OYNA'}</button>
                     <button class="pass-btn" onclick="window.game.returnToMenu()" style="padding:14px 32px; font-size:1rem;">🏠 Ana Menü</button>
                 </div>
+                <button class="hint-btn" onclick="navigator.share({title:'CareerGuess', text:'${shareText}', url:window.location.href}).catch(()=>alert('Link Kopyalandı!'))" style="width:auto; padding:10px 20px; font-size:0.85rem;">📤 Skoru Paylaş</button>
             </div>
         `;
+
+        if (this.score >= 50 && typeof confetti !== 'undefined') {
+            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+        }
     }
 
     nextRound() {
@@ -1018,6 +1051,15 @@ class Game {
             this.timer += 5; // +5 reward
             this.timerVal.innerText = this.timer;
             this.showFloatingText("+5s", "green");
+        }
+
+        if (this.streak >= 3 && typeof confetti !== 'undefined') {
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.8 },
+                colors: ['#22c55e', '#4ade80', '#ffffff']
+            });
         }
 
         console.log("Win Handled. Moving to next in 1.5s...");
