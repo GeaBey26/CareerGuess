@@ -2112,7 +2112,7 @@ class AuthManager {
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
-                <button class="auth-btn Login" onclick="authManager.openModal('login')">${t.btn_Login || 'Giriş Yap'}</button>
+                <button class="auth-btn login" onclick="authManager.openModal('login')">${t.btn_login || 'Giriş Yap'}</button>
                 <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayıt Ol'}</button>
             `;
         }
@@ -2427,7 +2427,6 @@ class MultiplayerManager {
     }
 }
 
-const multiplayerManager = new MultiplayerManager();
 
 document.querySelectorAll('.card, .game-card').forEach(card => {
   card.addEventListener('mousemove', e => {
