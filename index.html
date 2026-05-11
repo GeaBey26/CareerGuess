@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CareerGuess</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Outfit:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.1">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#020617">
 </head>
 
 <body>
@@ -204,6 +206,28 @@
                 </div>
             </div>
         </div>
+        <!-- Modals -->
+        <div id="auth-modal" class="modal"></div>
+        <div id="leaderboard-modal" class="modal"></div>
+        <div id="profile-modal" class="modal"></div>
+        <div id="daily-modal" class="modal"></div>
+        <div id="info-modal" class="modal"></div>
+
+        <!-- Tutorial Modal -->
+        <div id="tutorial-modal" class="modal-overlay hidden">
+            <div class="modal-box premium-lb" style="text-align: center;">
+                <button class="close-modal-btn" onclick="document.getElementById('tutorial-modal').classList.add('hidden')">×</button>
+                <h2 style="font-size: 2rem; margin-bottom: 10px;" data-i18n="tutorial_title">🎮 Nasıl Oynanır?</h2>
+                <div style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; text-align: left; padding: 15px;">
+                    <p><b data-i18n="tutorial_p1">1. Kariyer Yolu:</b> <span data-i18n="tutorial_p1_desc">Ekranda oyuncunun oynadığı takımları/turnuvaları ve yılları göreceksin.</span></p>
+                    <p><b data-i18n="tutorial_p2">2. Tahmin Et:</b> <span data-i18n="tutorial_p2_desc">Aşağıdaki kutuya aklına gelen oyuncunun adını yazıp Enter'a bas.</span></p>
+                    <p><b data-i18n="tutorial_p3">3. İpucu:</b> <span data-i18n="tutorial_p3_desc">Bilemezsen <b>İpucu</b> alarak pozisyon ve uyruk öğrenebilirsin (veya <b>H</b> tuşu).</span></p>
+                    <p><b data-i18n="tutorial_p4">4. Pas Geç:</b> <span data-i18n="tutorial_p4_desc">Eğer oyuncuyu hiç hatırlayamadıysan <b>Pas</b> geçebilirsin (veya <b>P</b> tuşu).</span></p>
+                    <p style="text-align: center; margin-top: 15px; color: #4ade80;" data-i18n="tutorial_ready">Hazırsan yeteneklerini gösterme vakti!</p>
+                </div>
+                <button class="guess-btn" style="width: 100%; padding: 15px; font-size: 1.2rem;" onclick="document.getElementById('tutorial-modal').classList.add('hidden'); localStorage.setItem('tutorial_seen', '1');" data-i18n="btn_start">BAŞLA</button>
+            </div>
+        </div>
 
         <!-- Profile Modal -->
         <div id="profile-modal" class="modal-overlay hidden">
@@ -320,5 +344,25 @@
     
     <!-- Main Script -->
     <script src="script.js?v=2.1" charset="utf-8"></script>
+
+    <!-- PWA Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('Service Worker registered', reg))
+            .catch(err => console.error('SW Error:', err));
+        });
+      }
+      
+      // Check Tutorial
+      window.addEventListener('DOMContentLoaded', () => {
+          if (!localStorage.getItem('tutorial_seen')) {
+              setTimeout(() => {
+                  document.getElementById('tutorial-modal').classList.remove('hidden');
+              }, 1000);
+          }
+      });
+    </script>
 </body>
 </html>

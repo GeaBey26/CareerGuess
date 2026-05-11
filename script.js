@@ -246,6 +246,24 @@ const TRANSLATIONS = {
         cookie_info_title: "Çerez Bilgisi",
         privacy_content: "Gizlilik POLİTİKASI\n\n1. Veriler\nİlerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nÇerez kullanan üçüncü taraf reklamlar gösterebiliriz.\n\n3. İletişim\nSorularınız için bizimle iletişime geçin.",
         terms_content: "KULLANIM ŞARTLARI\n\n1. Kullanım\nBu oyun eğlence amaçlıdır.\n\n2. Telif Hakkı\nİçerikler ve tasarım koruma altındadır.\n\n3. Sorumluluk\nOyun 'olduğu gibi' sunulur. Kesintilerden sorumlu değiliz.",
+        global_lb_title: "🌍 GLOAL LİDERLİK TABLOSU",
+        lb_puan: "Puan",
+        loading: "Yükleniyor...",
+        error_no_players: "kategorisinde bu zorlukta oyuncu bulunamadı! Yakında eklenecek!",
+        achievement_unlocked: "BAŞARIM KİLİDİ AÇILDI!",
+        share_score: "📤 Skoru Paylaş",
+        share_copied: "✅ Kopyalandı!",
+        tutorial_title: "🎮 Nasıl Oynanır?",
+        tutorial_p1: "1. Kariyer Yolu:",
+        tutorial_p1_desc: "Ekranda oyuncunun oynadığı takımları/turnuvaları ve yılları göreceksin.",
+        tutorial_p2: "2. Tahmin Et:",
+        tutorial_p2_desc: "Aşağıdaki kutuya aklına gelen oyuncunun adını yazıp Enter'a bas.",
+        tutorial_p3: "3. İpucu:",
+        tutorial_p3_desc: "Bilemezsen <b>İpucu</b> alarak pozisyon ve uyruk öğrenebilirsin (veya <b>H</b> tuşu).",
+        tutorial_p4: "4. Pas Geç:",
+        tutorial_p4_desc: "Eğer oyuncuyu hiç hatırlayamadıysan <b>Pas</b> geçebilirsin (veya <b>P</b> tuşu).",
+        tutorial_ready: "Hazırsan yeteneklerini gösterme vakti!",
+        btn_start: "BAŞLA",
     },
     en: {
         title_category: "CAREER GUESS",
@@ -320,9 +338,27 @@ const TRANSLATIONS = {
         cookie_info: "More info",
         cookie_accept: "Accept",
         btn_close: "Close",
-        cookie_info_title: "Cookie information",
-        privacy_content: "PRiVACY POLiCY\n\n1. Data\nProgress is saved locally.\n\n2. Ads\nWe may show third-party ads using cookies.\n\n3. Contact\nContact us for questions.",
-        terms_content: "TERMS OF USE\n\n1. Use\nThis game is for entertainment only.\n\n2. Copyright\nContents are protected.\n\n3. Liability\nGame is provided 'as is'.",
+        cookie_info_title: "Cookie Info",
+        privacy_content: "PRiVACY POLICY\n\n1. Data\nProgress is saved locally.\n\n2. Ads\nWe may show third-party ads using cookies.\n\n3. Contact\nContact us for questions.",
+        terms_content: "TERMS OF USE\n\n1. Use\nThis game is for entertainment.\n\n2. Copyright\nContent and design are protected.\n\n3. Liability\nGame is provided 'as is'. We are not liable for interruptions.",
+        global_lb_title: "🌍 GLOBAL LEADERBOARD",
+        lb_puan: "Pts",
+        loading: "Loading...",
+        error_no_players: "No players found for this difficulty in this category! Coming soon!",
+        achievement_unlocked: "ACHIEVEMENT UNLOCKED!",
+        share_score: "📤 Share Score",
+        share_copied: "✅ Copied!",
+        tutorial_title: "🎮 How to Play?",
+        tutorial_p1: "1. Career Path:",
+        tutorial_p1_desc: "See the teams/tournaments and years.",
+        tutorial_p2: "2. Guess:",
+        tutorial_p2_desc: "Type the player's name and press Enter.",
+        tutorial_p3: "3. Hint:",
+        tutorial_p3_desc: "Get position and nationality (or press <b>H</b>).",
+        tutorial_p4: "4. Pass:",
+        tutorial_p4_desc: "Skip if you have no idea (or press <b>P</b>).",
+        tutorial_ready: "Ready to show your skills?",
+        btn_start: "START",
     },
     es: {
         title_category: "CAREER GUESS",
@@ -778,7 +814,8 @@ class Game {
 
             if (this.activePlayers.length === 0) {
                 const sportName = this.currentSport.charAt(0).toUpperCase() + this.currentSport.slice(1);
-                this.showMessage(`HATA: ${sportName} kategorisinde bu zorlukta oyuncu bulunamadı! Yakında eklenecek!`, "error");
+                const t = TRANSLATIONS[this.currentLang];
+                this.showMessage(`HATA: ${sportName} ${t.error_no_players || 'kategorisinde oyuncu bulunamadı!'}`, "error");
                 // Don't transition to game screen if no players
                 return;
             }
@@ -921,9 +958,9 @@ class Game {
                 </div>
                 <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom: 20px;">
                     <button class="guess-btn" onclick="location.reload()" style="padding:14px 32px; font-size:1rem;">${t.btn_play_again || 'TEKRAR OYNA'}</button>
-                    <button class="pass-btn" onclick="window.game.returnToMenu()" style="padding:14px 32px; font-size:1rem;">🏠 Ana Menü</button>
+                    <button class="pass-btn" onclick="window.game.returnToMenu()" style="padding:14px 32px; font-size:1rem;">🏠 ${t.back || 'Ana Menü'}</button>
                 </div>
-                <button class="hint-btn" onclick="navigator.share({title:'CareerGuess', text:'${shareText}', url:window.location.href}).catch(()=>alert('Link Kopyalandı!'))" style="width:auto; padding:10px 20px; font-size:0.85rem;">📤 Skoru Paylaş</button>
+                <button class="hint-btn" onclick="navigator.share({title:'CareerGuess', text:'${shareText}', url:window.location.href}).catch(()=>alert('${t.share_copied || 'Link Kopyalandı!'}'))" style="width:auto; padding:10px 20px; font-size:0.85rem;">${t.share_score || '📤 Skoru Paylaş'}</button>
             </div>
         `;
 
@@ -1969,7 +2006,7 @@ class AuthManager {
         const lang = window.game ? window.game.currentLang : 'tr';
         const t = TRANSLATIONS[lang];
         
-        modal.innerHTML = '<div style="text-align:center; padding:50px;">Yükleniyor...</div>';
+        modal.innerHTML = '<div style="text-align:center; padding:50px;">' + (t.loading || 'Yükleniyor...') + '</div>';
         this.openModal('leaderboard');
         
         try {
@@ -1983,14 +2020,14 @@ class AuthManager {
             modal.innerHTML = `
                 <div class="modal-box premium-lb">
                     <button class="close-modal-btn" onclick="authManager.closeModal()">×</button>
-                    <h2>🌍 GLOAL LİDERLİK TABLOSU: ${this.getSportName(sport)}</h2>
+                    <h2>${t.global_lb_title || '🌍 GLOBAL LİDERLİK TABLOSU'}: ${this.getSportName(sport)}</h2>
                     <div class="leaderboard-list">
                         ${globalUsers.map((u, i) => `
                             <div class="leaderboard-item ${this.currentUser && u.username === this.currentUser.username ? 'is-me' : ''}">
                                 <div class="rank">#${i + 1}</div>
                                 <div class="lb-avatar">${u.avatar}</div>
                                 <div class="lb-name">${u.username}</div>
-                                <div class="lb-score">${u.score} Puan</div>
+                                <div class="lb-score">${u.score} ${t.lb_puan || 'Puan'}</div>
                             </div>
                         `).join('')}
                     </div>
@@ -2639,8 +2676,10 @@ class AchievementsManager {
 
     showNotification(ach) {
         if (window.sounds) window.sounds.play('correct');
+        const lang = window.game ? window.game.currentLang : 'tr';
+        const t = TRANSLATIONS[lang] || {};
         const el = document.createElement('div');
-        el.innerHTML = `<div>${ach.icon} BAŞARIM KİLİDİ AÇILDI!</div><div style="font-size:0.9rem; margin-top:5px;">${ach.title}: ${ach.desc}</div>`;
+        el.innerHTML = `<div>${ach.icon} ${t.achievement_unlocked || 'BAŞARIM KİLİDİ AÇILDI!'}</div><div style="font-size:0.9rem; margin-top:5px;">${ach.title}: ${ach.desc}</div>`;
         el.style.cssText = `
             position: fixed; top: 20px; right: 20px; background: rgba(34, 197, 94, 0.9);
             color: white; padding: 15px 20px; border-radius: 12px; z-index: 10000;

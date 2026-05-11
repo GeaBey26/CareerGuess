@@ -1,0 +1,16 @@
+{
+  "name": "CareerGuess",
+  "short_name": "CareerGuess",
+  "description": "Guess the sports players based on their career path!",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3563/3563914.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
