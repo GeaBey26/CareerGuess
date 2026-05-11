@@ -870,7 +870,7 @@ class Game {
 
         this.timerInterval = setInterval(() => {
             this.timer--;
-            if (typeof sounds !== 'undefined') sounds.playTick();
+            if (window.sounds) window.sounds.play('tick');
             this.timerVal.innerText = this.timer;
 
             // Update Progress Bar
@@ -892,6 +892,7 @@ class Game {
     }
 
     gameOver() {
+        if (window.sounds) window.sounds.play('gameOver');
         clearInterval(this.timerInterval);
         if (typeof authManager !== 'undefined') {
             authManager.updateStats(this.currentSport, this.streak, this.score);
@@ -1958,6 +1959,49 @@ class AuthManager {
         `;
     }
 
+    async renderGlobalLeaderboard(sport) {
+        if (!firebase.apps.length) {
+            this.renderLeaderboard(sport); // Fallback to local
+            return;
+        }
+
+        const modal = document.getElementById('leaderboard-modal');
+        const lang = window.game ? window.game.currentLang : 'tr';
+        const t = TRANSLATIONS[lang];
+        
+        modal.innerHTML = '<div style="text-align:center; padding:50px;">Yükleniyor...</div>';
+        this.openModal('leaderboard');
+        
+        try {
+            const snapshot = await firebase.database().ref(`leaderboard/${sport}`).orderByChild('score').limitToLast(50).once('value');
+            let globalUsers = [];
+            snapshot.forEach(child => {
+                globalUsers.push(child.val());
+            });
+            globalUsers.sort((a, b) => b.score - a.score);
+
+            modal.innerHTML = `
+                <div class="modal-box premium-lb">
+                    <button class="close-modal-btn" onclick="authManager.closeModal()">×</button>
+                    <h2>🌍 GLOAL LİDERLİK TABLOSU: ${this.getSportName(sport)}</h2>
+                    <div class="leaderboard-list">
+                        ${globalUsers.map((u, i) => `
+                            <div class="leaderboard-item ${this.currentUser && u.username === this.currentUser.username ? 'is-me' : ''}">
+                                <div class="rank">#${i + 1}</div>
+                                <div class="lb-avatar">${u.avatar}</div>
+                                <div class="lb-name">${u.username}</div>
+                                <div class="lb-score">${u.score} Puan</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        } catch (e) {
+            console.error('Firebase Leaderboard Error:', e);
+            this.renderLeaderboard(sport);
+        }
+    }
+
     renderRadarChart() {
         const container = document.getElementById('radar-chart-container');
         if (!container) return;
@@ -2024,7 +2068,7 @@ class AuthManager {
                 </polygon>
                 ${values.map((v, i) => {
                     const r = (radius * v) / 100;
-                    const angle = i * angleStep - Math.Pi / 2;
+                    const angle = i * angleStep - Math.PI / 2;
                     return `<circle cx="${center + r * Math.cos(angle)}" cy="${center + r * Math.sin(angle)}" r="3" fill="#22c55e" />`;
                 }).join('')}
             </svg>
@@ -2057,8 +2101,20 @@ class AuthManager {
             }
             this.saveUsers();
             this.saveCurrentUser();
-            if (typeof achievements !== 'undefined') {
-                achievements.check(this.currentUser);
+            
+            // Sync to Global Leaderboard
+            if (firebase.apps.length) {
+                firebase.database().ref(`leaderboard/${category}/${this.currentUser.username}`).set({
+                    username: this.currentUser.username,
+                    avatar: this.currentUser.avatar || '👤',
+                    score: this.currentUser.stats[category].highscore,
+                    streak: this.currentUser.stats[category].maxStreak,
+                    updatedAt: firebase.database.ServerValue.TIMESTAMP
+                }).catch(e => console.error('Firebase Sync Error:', e));
+            }
+
+            if (typeof window.achievements !== 'undefined') {
+                window.achievements.check(this.currentUser);
             }
         }
     }
@@ -2502,18 +2558,106 @@ document.querySelectorAll('.card').forEach(card => {
   });
 });
 
+class SoundManager {
+    constructor() {
+        this.enabled = true;
+        this.correct = document.getElementById('sfx-correct');
+        this.wrong = document.getElementById('sfx-wrong');
+        this.gameOver = document.getElementById('sfx-gameover');
+        this.tick = document.getElementById('sfx-tick');
+        
+        if (this.correct) this.correct.volume = 0.5;
+        if (this.wrong) this.wrong.volume = 0.4;
+        if (this.gameOver) this.gameOver.volume = 0.6;
+        if (this.tick) this.tick.volume = 0.2;
+    }
+
+    play(soundType) {
+        if (!this.enabled || !this[soundType]) return;
+        this[soundType].currentTime = 0;
+        this[soundType].play().catch(e => console.log('Audio blocked:', e));
+    }
+
+    toggle() {
+        this.enabled = !this.enabled;
+        const btn = document.getElementById('toggle-sound-btn');
+        if (btn) btn.innerText = this.enabled ? '🔊' : '🔇';
+        return this.enabled;
+    }
+}
+
 const clickSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
 clickSound.volume = 0.4;
 
 document.querySelectorAll('button, .card').forEach(el => {
   el.addEventListener('click', () => {
+    if (window.sounds && !window.sounds.enabled) return;
     clickSound.currentTime = 0;
     clickSound.play().catch(err => console.log('Audio play blocked:', err));
   });
 });
 
+class AchievementsManager {
+    constructor() {
+        this.achievements = [
+            { id: 'first_win', title: 'İlk Adım', desc: 'İlk doğru tahminini yap.', condition: (stats) => this.getTotalScore(stats) >= 10, icon: '🏆' },
+            { id: 'streak_5', title: 'Keskin Göz', desc: 'Art arda 5 doğru cevap.', condition: (stats) => this.getMaxStreak(stats) >= 5, icon: '🔥' },
+            { id: 'score_100', title: 'Hız Tutkunu', desc: 'Toplam 100 puana ulaş.', condition: (stats) => this.getTotalScore(stats) >= 100, icon: '🚀' },
+            { id: 'versatile', title: 'Çok Yönlü', desc: '5 farklı kategoride oyna.', condition: (stats) => Object.keys(stats).length >= 5, icon: '🌟' }
+        ];
+    }
+
+    getTotalScore(stats) {
+        return Object.values(stats || {}).reduce((sum, s) => sum + (s.highscore || 0), 0);
+    }
+
+    getMaxStreak(stats) {
+        return Math.max(...Object.values(stats || {}).map(s => s.maxStreak || 0), 0);
+    }
+
+    check(user) {
+        if (!user || !user.stats) return;
+        if (!user.unlockedAchievements) user.unlockedAchievements = [];
+
+        let newUnlock = false;
+        this.achievements.forEach(ach => {
+            if (!user.unlockedAchievements.includes(ach.id) && ach.condition(user.stats)) {
+                user.unlockedAchievements.push(ach.id);
+                this.showNotification(ach);
+                newUnlock = true;
+            }
+        });
+
+        if (newUnlock) {
+            // Re-save user
+            const index = window.authManager.users.findIndex(u => u.username === user.username);
+            if (index !== -1) window.authManager.users[index] = user;
+            window.authManager.saveUsers();
+            window.authManager.saveCurrentUser();
+        }
+    }
+
+    showNotification(ach) {
+        if (window.sounds) window.sounds.play('correct');
+        const el = document.createElement('div');
+        el.innerHTML = `<div>${ach.icon} BAŞARIM KİLİDİ AÇILDI!</div><div style="font-size:0.9rem; margin-top:5px;">${ach.title}: ${ach.desc}</div>`;
+        el.style.cssText = `
+            position: fixed; top: 20px; right: 20px; background: rgba(34, 197, 94, 0.9);
+            color: white; padding: 15px 20px; border-radius: 12px; z-index: 10000;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); animation: pageEnter 0.5s ease-out forwards;
+        `;
+        document.body.appendChild(el);
+        setTimeout(() => {
+            el.style.animation = 'pageEnter 0.5s ease-in reverse forwards';
+            setTimeout(() => el.remove(), 500);
+        }, 4000);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     console.log("CareerGuess initializing...");
+    window.sounds = new SoundManager();
+    window.achievements = new AchievementsManager();
     window.game = new Game();
     window.dailyChallenge = new DailyChallenge();
     dailyChallenge.init();
