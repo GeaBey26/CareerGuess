@@ -82,13 +82,13 @@ const sounds = new SoundManager();
 class AchievementManager {
     constructor() {
         this.achievements = [
-            { id: 'first_win', icon: '🎯', tr: 'ilk Tahmin', en: 'First Guess', desc_tr: 'ilk oyuncuyu doGru Tahmin et.', desc_en: 'Guess your first player correctly.' },
+            { id: 'first_win', icon: '🎯', tr: 'ilk Tahmin', en: 'First Guess', desc_tr: 'ilk oyuncuyu Doğru Tahmin et.', desc_en: 'Guess your first player correctly.' },
             { id: 'streak_5', icon: '🔥', tr: 'Sicak Seri', en: 'Hot Streak', desc_tr: '5\'li seri yakala.', desc_en: 'Reach a streak of 5.' },
             { id: 'streak_10', icon: '🎉', tr: 'Efsane Seri', en: 'Godlike Streak', desc_tr: '10\'lu seri yakala.', desc_en: 'Reach a streak of 10.' },
             { id: 'score_100', icon: '💯', tr: 'Dalya', en: 'Century', desc_tr: 'Tek oyunda 100 puan yap.', desc_en: 'Score 100 points in a single game.' },
             { id: 'daily_win', icon: '📅', tr: 'Günlük Kahraman', en: 'Daily Hero', desc_tr: 'Bir Günlük YariSmayi tamamla.', desc_en: 'Complete one Daily Challenge.' },
             { id: 'football_pro', icon: '⚽', tr: 'Futbol Gurmesi', en: 'Football Guru', desc_tr: 'Futbolda 500 toplam puan.', desc_en: 'Score 500 total points in Football.' },
-            { id: 'basket_pro', icon: '🏀', tr: 'Basketbol Üstadi', en: 'Hoops Master', desc_tr: 'Basketbolda 500 toplam puan.', desc_en: 'Score 500 total points in Basketball.' },
+            { id: 'basket_pro', icon: '🏀', tr: 'Basketbol Üstadı', en: 'Hoops Master', desc_tr: 'Basketbolda 500 toplam puan.', desc_en: 'Score 500 total points in Basketball.' },
             { id: 'f1_speed', icon: '🏎️', tr: 'Hiz Tutkunu', en: 'Speed Demon', desc_tr: 'F1 kategorisinde oyna.', desc_en: 'Play in the F1 category.' },
             { id: 'esport_gamer', icon: '🎮', tr: 'GerCek Oyuncu', en: 'True Gamer', desc_tr: 'E-Spor kategorisinde oyna.', desc_en: 'Play in E-Sports category.' },
             { id: 'multilingual', icon: '🌍', tr: 'Dünya insani', en: 'Polyglot', desc_tr: '3 farkli dilde oyna.', desc_en: 'Play in 3 different languages.' }
@@ -139,8 +139,8 @@ class AchievementManager {
         const t = TRANSLATIONS[lang];
 
         return `
-            <div class="achievements-section">
-                <span class="section-title">${t.achievements_title || 'BASARiMLAR'}</span>
+            <div class="achievements-Seçtion">
+                <span class="Seçtion-title">${t.achievements_title || 'BAŞARIMLAR'}</span>
                 <div class="achievements-grid">
                     ${this.achievements.map(ach => {
                         const name = lang === 'tr' ? ach.tr : (ach.en || ach.tr);
@@ -167,26 +167,25 @@ function getFlagEmoji(countryCode) {
             String.fromCodePoint(127397 + char.charCodeAt())
         );
 }
-
 const achievements = new AchievementManager();
 
 const TRANSLATIONS = {
     tr: {
         title_category: "CAREER GUESS",
-        subtitle_category: "BranSini SeC ve BaSla!",
+        subtitle_category: "Branşını Seç ve Başla!",
         football: "FUTBOL",
         basketball: "BASKETBOL",
         nhl: "NHL",
         nfl: "NFL",
         volleyball: "VOLEYBOL",
-        cricket: "KRiKET",
+        cricket: "KRİKET",
         f1: "FORMULA 1",
-        tennis: "TENiS",
+        tennis: "TENİS",
         esports: "E-SPOR",
-        title_esports_select: "OYUN SEC VE BASLA",
+        title_esports_select: "OYUN SEÇ VE BAŞLA",
         subtitle_esports: "Hangi oyunu oynamak istersin?",
         back: "← Geri",
-        title_setup: "OYUN AYARLARi",
+        title_setup: "OYUN AYARLARI",
         status_all: "Hepsi",
         status_active: "Aktif",
         status_retired: "Emekli",
@@ -194,59 +193,60 @@ const TRANSLATIONS = {
         diff_easy: "KOLAY",
         diff_medium: "ORTA",
         diff_hard: "ZOR",
-        title_mode: "OYUN TÜRÜ SEC",
-        subtitle_mode: "Nasil oynamak istersin?",
-        mode_classic: "SÜRESiZ",
+        title_mode: "OYUN TÜRÜ SEÇ",
+        subtitle_mode: "Nasıl oynamak istersin?",
+        mode_classic: "SÜRESİZ",
         mode_classic_desc: "Rahat rahat, acele yok.",
-        mode_timed: "SÜRELi",
-        mode_timed_desc: "60 saniye. Hizini gOster!",
+        mode_timed: "SÜRELİ",
+        mode_timed_desc: "60 saniye. Hızını göster!",
         title_game_football: "CAREER GUESS",
         title_game_basketball: "CAREER GUESS (BASKETBOL)",
         title_game_nhl: "CAREER GUESS (NHL)",
         title_game_nfl: "CAREER GUESS (NFL)",
         title_game_volleyball: "CAREER GUESS (VOLEYBOL)",
-        title_game_cricket: "CAREER GUESS (KRiKET)",
+        title_game_cricket: "CAREER GUESS (KRİKET)",
         title_game_f1: "CAREER GUESS (F1)",
-        title_game_tennis: "CAREER GUESS (TENiS)",
+        title_game_tennis: "CAREER GUESS (TENİS)",
         title_game_esports: "CAREER GUESS (E-SPOR)",
-        subtitle_game: "Kariyer geCmiSine bak ve oyuncuyu Tahmin et!",
+        subtitle_game: "Kariyer geçmişine bak ve oyuncuyu Tahmin et!",
         score: "Skor",
         streak: "Seri",
-        input_placeholder: "isim yaz...",
+        input_placeholder: "İsim yaz...",
         btn_give_up: "Pes Et",
-        btn_hint: "ipucu",
+        btn_hint: "İpucu",
         btn_guess: "Tahmin Et",
-        msg_correct: "DoGru! +10 Puan",
-        msg_wrong: "YanliS Cevap! -10 Puan",
-        msg_used_hint: "ipucu Kullanildi",
-        hint_1_prefix: "ipucu 1: Pozisyon -",
-        hint_2_prefix: "ipucu 2: Ülke -",
-        msg_pass: "Pas geCildi.",
-        msg_finished: "Tebrikler! Tüm oyunculari bildin!",
-        msg_time_up: "SÜRE BiTTi!",
+        msg_correct: "Doğru! +10 Puan",
+        msg_wrong: "Yanlış Cevap! -10 Puan",
+        msg_used_hint: "İpucu Kullanıldı",
+        hint_1_prefix: "İpucu 1: Pozisyon -",
+        hint_2_prefix: "İpucu 2: Ülke -",
+        msg_pass: "Pas geçildi.",
+        msg_finished: "Tebrikler! Tüm oyuncuları bildin!",
+        msg_time_up: "SÜRE BİTTİ!",
         msg_total_score: "Toplam Skor:",
         btn_play_again: "TEKRAR OYNA",
-        confirm_exit: "Cikmak istediGine emin misin? Oyun sifirlanacak.",
-        btn_login: "GiriS Yap",
-        btn_signup: "Kayit Ol",
-        btn_register: "Kayit Ol",
-        btn_logout: "CikiS Yap",
-        profile_title: "OYUNCU PROFiLi",
-        achievements_title: "BASARiMLAR",
-        leaderboard_title: "LiDERLiK TABLOSU",
+        confirm_exit: "Çıkmak istediğine emin misin? Oyun sıfırlanacak.",
+        btn_login: "Giriş Yap",
+        btn_signup: "Kayıt Ol",
+        btn_register: "Kayıt Ol",
+        btn_logout: "Çıkış Yap",
+        profile_title: "OYUNCU PROFİLİ",
+        achievements_title: "BAŞARIMLAR",
+        leaderboard_title: "LİDERLİK TABLOSU",
         stat_max_streak: "Max Seri:",
         stat_highscore: "En Yüksek Skor:",
-        lb_you: "(SENSiN)",
-        footer_rights: "Tüm haklari saklidir.",
-        footer_privacy: "Gizlilik Politikasi",
-        footer_terms: "Kullanim Sartlari",
-        cookie_text: "Bu site deneyim ve reklamlar iin Cerez kullanir.",
+        lb_you: "(SENSİN)",
+        footer_rights: "Tüm hakları saklıdır.",
+        footer_privacy: "Gizlilik Politikası",
+        footer_terms: "Kullanım Şartları",
+        cookie_text: "Bu site deneyim ve reklamlar için çerez kullanır.",
         cookie_info: "Daha Fazla Bilgi",
         cookie_accept: "Kabul Et",
         btn_close: "Kapat",
-        cookie_info_title: "Cerez Bilgisi",
-        privacy_content: "GiZLiLiK POLiTiKASi\n\n1. Veriler\nilerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nCerez kullanan üCüncü taraf reklamlar gOsterebiliriz.\n\n3. iletiSim\nSorulariniz iin bizimle iletiSime gein.",
-        terms_content: "KULLANiM SARTLARi\n\n1. Kullanim\nBu oyun eGlence amaClidir.\n\n2. Telif Hakki\niCerikler ve tasarim koruma altindadir.\n\n3. Sorumluluk\nOyun 'olduGu gibi' sunulur. Kesintilerden sorumlu deGiliz.",
+        cookie_info_title: "Çerez Bilgisi",
+        privacy_content: "Gizlilik POLİTİKASI\n\n1. Veriler\nİlerleme yerel olarak kaydedilir.\n\n2. Reklamlar\nÇerez kullanan üçüncü taraf reklamlar gösterebiliriz.\n\n3. İletişim\nSorularınız için bizimle iletişime geçin.",
+        terms_content: "KULLANIM ŞARTLARI\n\n1. Kullanım\nBu oyun eğlence amaçlıdır.\n\n2. Telif Hakkı\nİçerikler ve tasarım koruma altındadır.\n\n3. Sorumluluk\nOyun 'olduğu gibi' sunulur. Kesintilerden sorumlu değiliz.",
+    ",
     },
     en: {
         title_category: "CAREER GUESS",
@@ -276,7 +276,7 @@ const TRANSLATIONS = {
         mode_classic: "CLASSiC",
         mode_classic_desc: "No rush, just fun.",
         mode_timed: "TiMED",
-        mode_timed_desc: "60 seconds. Show your speed!",
+        mode_timed_desc: "60 Seçonds. Show your speed!",
         title_game_football: "CAREER GUESS",
         title_game_basketball: "CAREER GUESS (BASKETBALL)",
         title_game_nhl: "CAREER GUESS (NHL)",
@@ -872,13 +872,29 @@ class Game {
             authManager.updateStats(this.currentSport, this.streak, this.score);
         }
         const t = TRANSLATIONS[this.currentLang];
+        const isTimeUp = this.gameMode === 'timed';
+        const emoji = this.score >= 100 ? '🏆' : this.score >= 50 ? '🥈' : '🎮';
         this.gameContainer.innerHTML = `
             <div class="game-over-premium" style="text-align:center; padding: 40px; animation: pageEnter 0.6s ease-out both;">
-                <h1 class="title">${t.msg_time_up || 'SÜRE DOLDU!'}</h1>
-                <div class="stats" style="margin: 20px 0; justify-content: center; gap: 20px;">
-                    <div class="score-item">${t.msg_total_score || 'Toplam Skor'}: <b style="font-size: 24px;">${this.score}</b></div>
+                <div style="font-size: 64px; margin-bottom: 10px;">${emoji}</div>
+                <h1 class="title" style="margin-bottom:8px;">${isTimeUp ? (t.msg_time_up || 'SÜRE BİTTİ!') : (t.msg_finished || 'TEBRIKLER!')}</h1>
+                <p style="color: var(--text-secondary); margin-bottom: 24px; font-size: 0.95rem;">
+                    ${isTimeUp ? 'Süren doldu, ama harika oynadın!' : 'Tüm oyuncuları bildin!'}
+                </p>
+                <div style="display:flex; justify-content:center; gap: 24px; margin-bottom: 32px; flex-wrap:wrap;">
+                    <div style="background:rgba(255,255,255,0.07); border-radius:16px; padding:16px 28px; min-width:110px;">
+                        <div style="font-size:0.8rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">${t.score || 'Skor'}</div>
+                        <div style="font-size:2.2rem; font-weight:800; color:var(--accent);">${this.score}</div>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.07); border-radius:16px; padding:16px 28px; min-width:110px;">
+                        <div style="font-size:0.8rem; color:var(--text-secondary); text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">${t.streak || 'Seri'}</div>
+                        <div style="font-size:2.2rem; font-weight:800; color:#f59e0b;">${this.streak}</div>
+                    </div>
                 </div>
-                <button class="guess" onclick="location.reload()" style="margin-top:20px; width: 100%; max-width: 250px;">${t.btn_play_again || 'Tekrar Oyna'}</button>
+                <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+                    <button class="guess-btn" onclick="location.reload()" style="padding:14px 32px; font-size:1rem;">${t.btn_play_again || 'TEKRAR OYNA'}</button>
+                    <button class="pass-btn" onclick="window.game.returnToMenu()" style="padding:14px 32px; font-size:1rem;">🏠 Ana Menü</button>
+                </div>
             </div>
         `;
     }
@@ -972,7 +988,7 @@ class Game {
             this.showMessage(t.msg_wrong || 'Wrong Answer!', "error");
             this.resetStreak();
             if (this.gameMode === 'timed') {
-                this.timer = Math.max(0, this.timer - 5); // 5 sec penalty
+                this.timer = Math.max(0, this.timer - 5); // 5 Seç penalty
                 this.timerVal.innerText = this.timer;
                 this.showFloatingText("-5s", "red");
             }
@@ -997,6 +1013,7 @@ class Game {
         }
         
         this.showMessage(`${t.msg_correct || 'Correct!'} | ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.name}`, "success");
+        this.showFloatingScore('+10');
 
         if (this.gameMode === 'timed') {
             this.timer += 5; // +5 reward
@@ -1009,6 +1026,26 @@ class Game {
             console.log("Timeout fired. Calling nextRound...");
             this.nextRound();
         }, 1500);
+    }
+
+    showFloatingScore(text) {
+        const el = document.createElement('div');
+        el.textContent = text;
+        el.style.cssText = `
+            position: fixed;
+            left: 50%;
+            top: 40%;
+            transform: translateX(-50%);
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #4ade80;
+            pointer-events: none;
+            z-index: 9999;
+            text-shadow: 0 0 20px rgba(74,222,128,0.8);
+            animation: floatScore 1.2s ease-out forwards;
+        `;
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 1200);
     }
 
     showFloatingText(text, color) {
@@ -1045,13 +1082,13 @@ class Game {
             this.showMessage(`${t.hint_1_prefix || 'Position:'} ${this.currentPlayer.position}`, "success");
             this.hintStep = 1;
             const penaltyText = this.gameMode === 'timed' ? ` (-5s)` : "";
-            this.hintBtn.innerText = `${t.btn_hint || 'ipucu'} 2${penaltyText}`; 
+            this.hintBtn.innerText = `${t.btn_hint || 'İpucu'} 2${penaltyText}`; 
         } else if (this.hintStep === 1) {
-            // Second Hint: Nationality
+            // Seçond Hint: Nationality
             this.showMessage(`${t.hint_2_prefix || 'Nationality:'} ${getFlagEmoji(this.currentPlayer.flag)} ${this.currentPlayer.nationality}`, "success");
             this.hintStep = 2; // Locked
             this.hintBtn.disabled = true;
-            this.hintBtn.innerText = t.msg_used_hint || 'ipucu Kullanildi';
+            this.hintBtn.innerText = t.msg_used_hint || 'İpucu Kullanildi';
         }
     }
 
@@ -1063,22 +1100,22 @@ class Game {
         return false;
     }
 
-    normalizeString(str) {
+        normalizeString(str) {
         if (!str) return "";
         return str
-            .replace(/G/g, 'g')
+            .replace(/Ğ/g, 'g')
             .replace(/Ü/g, 'u')
-            .replace(/S/g, 's')
-            .replace(/i/g, 'i')
-            .replace(/i/g, 'i')
-            .replace(/O/g, 'o')
-            .replace(/C/g, 'c')
-            .replace(/G/g, 'g')
+            .replace(/Ş/g, 's')
+            .replace(/I/g, 'i')
+            .replace(/İ/g, 'i')
+            .replace(/Ö/g, 'o')
+            .replace(/Ç/g, 'c')
+            .replace(/ğ/g, 'g')
             .replace(/ü/g, 'u')
-            .replace(/S/g, 's')
-            .replace(/i/g, 'i')
-            .replace(/O/g, 'o')
-            .replace(/C/g, 'c')
+            .replace(/ş/g, 's')
+            .replace(/ı/g, 'i')
+            .replace(/ö/g, 'o')
+            .replace(/ç/g, 'c')
             .toLowerCase();
     }
 
@@ -1225,7 +1262,7 @@ class Game {
 
             this.score = Math.max(0, this.score - 10);
             this.updateStats();
-            this.showMessage("YanliS Cevap! -10 Puan", "error");
+            this.showMessage("Yanlış Cevap! -10 Puan", "error");
             this.resetStreak();
 
             const correctBtn = Array.from(document.querySelectorAll('.option-btn'))
@@ -1257,7 +1294,7 @@ class Game {
                 b.disabled = true;
                 b.style.opacity = '0.3';
             });
-            this.showMessage("50:50 Kullanildi! iki yanliS Sik elendi.", "success");
+            this.showMessage("50:50 Kullanildi! iki Yanlış Sik elendi.", "success");
         }
         else if (type === '2x') {
             this.doubleDipActive = true;
@@ -1315,7 +1352,7 @@ class DailyChallenge {
     }
 
     getStreak(sport) {
-        return parseint(localStorage.getItem(this.getStreakKey(sport)) || '0');
+        return parseInt(localStorage.getItem(this.getStreakKey(sport)) || '0');
     }
 
     setStreak(sport, val) {
@@ -1339,7 +1376,7 @@ class DailyChallenge {
         if (!sourceArray || sourceArray.length === 0) return null;
 
         const dateStr = this.todayKey.replace(/-/g, '');
-        let seed = parseint(dateStr.slice(-6)) + sport.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+        let seed = parseInt(dateStr.slice(-6)) + sport.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
         seed = ((seed * 1664525 + 1013904223) >>> 0);
         const idx = seed % sourceArray.length;
         return sourceArray[idx];
@@ -1400,13 +1437,13 @@ class DailyChallenge {
             modal.innerHTML = `
                 <div class="dc-box">
                     <div class="dc-top-nav" style="display:flex; justify-content:space-between; width:100%; margin-bottom:20px;">
-                        <button class="dc-back-btn" onclick="dailyChallenge.close()" style="color:var(--text-secondary); font-weight:600; background:none; border:none; cursor:pointer;">← Geri</button>
-                        <button class="dc-close-btn" onclick="dailyChallenge.close()" style="color:var(--text-secondary); font-weight:600; background:none; border:none; cursor:pointer;">Kapat ✖</button>
+                        <button class="dc-back-btn" onclick="dailyChallenge.close()" style="color:var(--text-Seçondary); font-weight:600; background:none; border:none; cursor:pointer;">← Geri</button>
+                        <button class="dc-close-btn" onclick="dailyChallenge.close()" style="color:var(--text-Seçondary); font-weight:600; background:none; border:none; cursor:pointer;">Kapat ✖</button>
                     </div>
                     <div class="dc-header">
                         <div class="dc-fire">🔥</div>
                         <h2 class="dc-title">Günlük Meydan Okuma</h2>
-                        <p class="dc-date">Kategori SeC</p>
+                        <p class="dc-date">Kategori Seç</p>
                     </div>
                     <div class="dc-cat-grid">
                         ${cardsHTML}
@@ -1461,10 +1498,10 @@ class DailyChallenge {
             `<div class="dc-guess ${g.correct ? 'correct' : 'wrong'}">${g.correct ? '✅' : '❌'} ${g.text}</div>`
         ).join('');
 
-        let resultSection = '';
+        let resultSeçtion = '';
         if (done) {
             const streak = this.getStreak(sport);
-            resultSection = `
+            resultSeçtion = `
                 <div class="dc-result ${state.won ? 'won' : 'lost'}">
                     <div class="dc-result-icon">${state.won ? '🏆' : '💀'}</div>
                     <div class="dc-result-text">${state.won ? 'Tebrikler! Bildin!' : 'Maalesef Olmadi!'}</div>
@@ -1475,7 +1512,7 @@ class DailyChallenge {
                 </div>`;
         }
 
-        const inputSection = !done ? `
+        const inputSeçtion = !done ? `
             <div class="dc-input-wrap">
                 <input type="text" id="dc-guess-input" class="dc-input" placeholder="Oyuncu ismini yaz..." autocomplete="off" oninput="dailyChallenge.handleSuggest(this.value)">
                 <div id="dc-suggestions" class="dc-suggestions hidden"></div>
@@ -1501,8 +1538,8 @@ class DailyChallenge {
                         <div class="dc-extra-infos">${extraHTML}</div>
                     </div>
                     ${guessesHTML ? `<div class="dc-guesses">${guessesHTML}</div>` : ''}
-                    ${inputSection}
-                    ${resultSection}
+                    ${inputSeçtion}
+                    ${resultSeçtion}
                 </div>
             `;
         }
@@ -1517,7 +1554,12 @@ class DailyChallenge {
     }
 
     getSportName(sport) {
-        const names = { football: 'Futbol', basketball: 'Basketbol', volleyball: 'Voleybol', esports_lol: 'LoL', esports_cs: 'CS', f1: 'F1', tennis: 'Tenis' };
+        const names = {
+            football: 'Futbol', basketball: 'Basketbol', volleyball: 'Voleybol',
+            nfl: 'NFL', nhl: 'NHL', cricket: 'Kriket',
+            esports_lol: 'LoL', esports_cs: 'CS', esports_valorant: 'Valorant',
+            f1: 'F1', tennis: 'Tenis'
+        };
         return names[sport] || sport;
     }
 
@@ -1605,11 +1647,15 @@ class DailyChallenge {
     updateBadge() {
         const badge = document.querySelector('.daily-challenge-badge');
         if (!badge) return;
-        const sports = ['football', 'basketball', 'volleyball'];
-        const allDone = sports.every(s => this.isCompleted(s));
+        const sports = ['football', 'basketball', 'volleyball', 'nfl', 'nhl', 'cricket', 'f1', 'tennis', 'esports_lol', 'esports_cs', 'esports_valorant'];
+        const completedCount = sports.filter(s => this.isCompleted(s)).length;
+        const allDone = completedCount === sports.length;
         if (allDone) {
-            badge.innerHTML = '<span>✅</span><span>Bütün Günlükler Bitti!</span>';
+            badge.innerHTML = '<span>✅</span><span>Bütün Günlükler BİTTİ!</span>';
             badge.style.color = '#4ade80';
+        } else if (completedCount > 0) {
+            badge.innerHTML = `<span>🔥</span><span>Günlük Meydan Okuma (${completedCount}/${sports.length})</span>`;
+            badge.style.color = '#facc15';
         } else {
             badge.innerHTML = '<span>🔥</span><span>Günlük Meydan Okuma</span>';
             badge.style.color = '#facc15';
@@ -1717,7 +1763,7 @@ class AuthManager {
         this.saveCurrentUser();
         this.closeModal();
         this.updateUi();
-        if (window.game) window.game.showMessage("Kayit baSarili! HoS geldin, " + username, "success");
+        if (window.game) window.game.showMessage("Kayıt baSarili! HoS geldin, " + username, "success");
     }
 
     login() {
@@ -1738,9 +1784,9 @@ class AuthManager {
     }
 
     logout() {
-        if (confirm("CikiS yapmak istiyor musun?")) {
+        if (confirm("Çıkış yapmak istiyor musun?")) {
             this.currentUser = null;
-            localStorage.removeitem('guess_player_current_user');
+            localStorage.removeItem('guess_player_current_user');
             this.updateUi();
         }
     }
@@ -1805,6 +1851,18 @@ class AuthManager {
         const nameEl = document.getElementById('profile-username');
         if (nameEl) nameEl.innerText = this.currentUser.username;
 
+        // Dynamic rank based on total score
+        const totalScore = Object.values(this.currentUser.stats || {}).reduce((acc, s) => acc + (s.highscore || 0), 0);
+        const rankEl = document.getElementById('profile-rank');
+        if (rankEl) {
+            let rank = 'Çaylak Tahminci 🌱';
+            if (totalScore >= 1000) rank = 'Efsane Tahminci 🏆';
+            else if (totalScore >= 500) rank = 'Uzman Tahminci ⭐';
+            else if (totalScore >= 200) rank = 'Deneyimli Tahminci 🔥';
+            else if (totalScore >= 50) rank = 'Gelişen Tahminci 💪';
+            rankEl.innerText = rank;
+        }
+
         const achContainer = document.getElementById('profile-achievements-container');
         if (achContainer) achContainer.innerHTML = achievements.render(this.currentUser);
 
@@ -1843,8 +1901,8 @@ class AuthManager {
         const t = TRANSLATIONS[lang];
 
         container.innerHTML = `
-            <div class="leaderboard-section">
-                <span class="section-title">${t.leaderboard_title || 'LiDERLiK TABLOSU'}</span>
+            <div class="leaderboard-Seçtion">
+                <span class="Seçtion-title">${t.leaderboard_title || 'LİDERLİK TABLOSU'}</span>
                 <div class="leaderboard-list">
                     ${topPlayers.map((u, i) => `
                         <div class="leaderboard-item ${u.isMe ? 'is-me' : ''}">
@@ -1881,7 +1939,7 @@ class AuthManager {
         const size = 250;
         const center = size / 2;
         const radius = 80;
-        const angleStep = (Math.Pi * 2) / cats.length;
+        const angleStep = (Math.PI * 2) / cats.length;
 
         const stats = this.currentUser.stats || {};
         const values = cats.map(c => Math.min(100, (stats[c.id]?.highscore || 0)));
@@ -1890,7 +1948,7 @@ class AuthManager {
         for (let i = 1; i <= 5; i++) {
             const r = (radius / 5) * i;
             const points = cats.map((_, j) => {
-                const angle = j * angleStep - Math.Pi / 2;
+                const angle = j * angleStep - Math.PI / 2;
                 return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
             }).join(' ');
             gridLines += `<polygon points="${points}" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" />`;
@@ -1898,7 +1956,7 @@ class AuthManager {
 
         let axisAndLabels = '';
         cats.forEach((cat, i) => {
-            const angle = i * angleStep - Math.Pi / 2;
+            const angle = i * angleStep - Math.PI / 2;
             const x = center + radius * Math.cos(angle);
             const y = center + radius * Math.sin(angle);
             const lx = center + (radius + 25) * Math.cos(angle);
@@ -1912,7 +1970,7 @@ class AuthManager {
 
         const dataPoints = values.map((v, i) => {
             const r = (radius * v) / 100;
-            const angle = i * angleStep - Math.Pi / 2;
+            const angle = i * angleStep - Math.PI / 2;
             return `${center + r * Math.cos(angle)},${center + r * Math.sin(angle)}`;
         }).join(' ');
 
@@ -1952,7 +2010,7 @@ class AuthManager {
         }
 
         if (updated) {
-            const userindex = this.users.findindex(u => u.username === this.currentUser.username);
+            const userindex = this.users.findIndex(u => u.username === this.currentUser.username);
             if (userindex !== -1) {
                 this.users[userindex].stats = this.currentUser.stats;
             }
@@ -2014,7 +2072,7 @@ class AuthManager {
         if (!this.currentUser) return;
         this.currentUser.avatar = emoji;
         
-        const idx = this.users.findindex(u => u.username === this.currentUser.username);
+        const idx = this.users.findIndex(u => u.username === this.currentUser.username);
         if (idx !== -1) this.users[idx].avatar = emoji;
 
         this.saveUsers();
@@ -2031,7 +2089,7 @@ class AuthManager {
 
         const soundicon = sounds.enabled ? '🔊' : '🔇';
         const soundBtn = `<button id="sound-toggle" class="auth-btn utility-btn" onclick="sounds.toggleUi()" title="Ses">${soundicon}</button>`;
-        const lbBtn = `<button id="leaderboard-top-btn" class="auth-btn utility-btn" onclick="game.showLeaderboard()" title="Liderlik">🏆</button>`;
+        const lbBtn = `<button id="leaderboard-top-btn" class="auth-btn utility-btn" onclick="game.showLeaderboard()" title="LİDERLİK">🏆</button>`;
 
         if (this.currentUser) {
             const avatar = this.currentUser.avatar || '👤';
@@ -2045,7 +2103,7 @@ class AuthManager {
                         <span class="user-avatar-icon">${avatar}</span>
                         <span class="username-text">${this.currentUser.username}</span>
                     </button>
-                    <button class="auth-btn logout" onclick="authManager.logout()">${t.btn_logout || 'CikiS'}</button>
+                    <button class="auth-btn logout" onclick="authManager.logout()">${t.btn_logout || 'Çıkış'}</button>
                 </div>
             `;
         } else {
@@ -2054,8 +2112,8 @@ class AuthManager {
             this.authContainer.innerHTML = `
                 ${soundBtn}
                 ${lbBtn}
-                <button class="auth-btn Login" onclick="authManager.openModal('login')">${t.btn_Login || 'GiriS Yap'}</button>
-                <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayit Ol'}</button>
+                <button class="auth-btn Login" onclick="authManager.openModal('login')">${t.btn_Login || 'Giriş Yap'}</button>
+                <button class="auth-btn signup" onclick="authManager.openModal('signup')">${t.btn_signup || 'Kayıt Ol'}</button>
             `;
         }
     }
@@ -2086,7 +2144,7 @@ class AuthManager {
     }
 
     exportData() {
-        const dataStr = "data:text/json;charset=utf-8," + encodeURiComponent(JSON.stringify(this.users));
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(this.users));
         const downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("download", "guess_player_users.json");
@@ -2216,13 +2274,13 @@ class MultiplayerManager {
         if (btn) btn.innerText = "Siradan Cik";
         document.getElementById('queue-status')?.classList.remove('hidden');
         
-        let seconds = 0;
+        let Seçonds = 0;
         this.queuetimerInterval = setInterval(() => {
-            seconds++;
-            const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
-            const secs = (seconds % 60).toString().padStart(2, '0');
+            Seçonds++;
+            const mins = Math.floor(Seçonds / 60).toString().padStart(2, '0');
+            const Seçs = (Seçonds % 60).toString().padStart(2, '0');
             const timerEl = document.querySelector('.queue-timer');
-            if (timerEl) timerEl.innerText = `${mins}:${secs}`;
+            if (timerEl) timerEl.innerText = `${mins}:${Seçs}`;
         }, 1000);
     }
 

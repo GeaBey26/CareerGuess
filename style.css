@@ -272,6 +272,12 @@ body {
     to   { opacity: 1; transform: scale(1); }
 }
 
+@keyframes floatScore {
+    0%   { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
+    60%  { opacity: 1; transform: translateX(-50%) translateY(-60px) scale(1.2); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-100px) scale(0.9); }
+}
+
 /* Status Selection Container */
 .status-selection {
     display: flex;
